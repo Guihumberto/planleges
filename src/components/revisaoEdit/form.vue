@@ -21,19 +21,17 @@
         ></v-textarea>
         <v-btn flat color="primary" type="submit">Salvar</v-btn>
       </v-form>
-      <vueQuillEditor />
+      <!-- <vue-quill-editor v-model="editor" />
+      {{ editor }} -->
     </div>
 </template>
 
 <script>
-  import vueQuillEditor from "../elements/vueQuillEditor.vue";
   import { useRevStore } from "@/store/revStore";
   const revStore = useRevStore()
 
     export default {
-    components: {
-      vueQuillEditor
-    },
+  
      data(){
       return{
         conteudo:{
@@ -48,6 +46,7 @@
             email: (v) => /.+@/.test(v) || "Deve ser um e-mail válido",
             minname: (v) => (v||'').length >= 3 || "Mínimo 4 caracteres",
         },
+        editor:''
       }
      },
      computed:{
