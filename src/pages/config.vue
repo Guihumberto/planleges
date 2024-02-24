@@ -23,7 +23,7 @@
 
 <style scoped>
 .container{
-  width: min(80vw, 1080px);
+  width: min(100vw, 1080px);
   margin-inline: auto;
 }
 .content{
