@@ -20,10 +20,10 @@
         }
       },
       mounted() {
-      this.editor = new Quill(this.$refs.editor, {
-        theme: 'snow'
-      })
-    }
+        this.editor = new Quill(this.$refs.editor, {
+          theme: 'snow'
+        })
+      }
     }
   </script>
   

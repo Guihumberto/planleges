@@ -8,7 +8,8 @@ export const useRevStore = defineStore('revStore', {
     listRevs: [],
     types: ['comentario', 'jurisprudencia', 'doutrina', 'legislacao'],
     load: false,
-    dadosRev: null
+    dadosRev: null,
+    loadCrud: false
   }),
   getters:{
     readTypes(){
@@ -22,6 +23,9 @@ export const useRevStore = defineStore('revStore', {
     },
     readLoad(){
       return this.load
+    },
+    readLoadCrud(){
+      return this.loadCrud
     }
   },
   actions:{
@@ -42,7 +46,7 @@ export const useRevStore = defineStore('revStore', {
       }
     }, 
     async addRev(item){
-        this.load = true
+        this.loadCrud = true
         try {
           const id = nanoid(6)
           const objConteudo = {
@@ -55,12 +59,12 @@ export const useRevStore = defineStore('revStore', {
               idVinculado: item.idVinculado
           }
           const docRef = await addDoc(collection(db, 'listRev'), objConteudo)
-          this.listRevs.push({idU:docRef.id, ...objConteudo})
+          this.listRevs.unshift({idU:docRef.id, ...objConteudo})
 
         } catch (error) {
             console.log(error);
         } finally {
-            this.load = false
+            this.loadCrud = false
         }
     },
     async getDadosRev(item){
@@ -83,7 +87,7 @@ export const useRevStore = defineStore('revStore', {
       }
     },
     async deleteRev(item){
-      this.load = true
+      this.loadCrud = true
       try {
           const docRef = doc(db, 'listRev', item)
           await deleteDoc(docRef)
@@ -91,11 +95,11 @@ export const useRevStore = defineStore('revStore', {
       } catch (error) {
           console.log(error);
       }finally{
-          this.load = false
+          this.loadCrud = false
       }
     },
     async editRev(item, edit){
-        this.load = true
+        this.loadCrud = true
         try {
             const docRef = doc(db, 'listRev', item.idU)
             const docSpan = await getDoc(docRef)
@@ -117,7 +121,7 @@ export const useRevStore = defineStore('revStore', {
         } catch (error) {
             console.log(error);
         }finally{
-            this.load = false
+          this.loadCrud = false
         }
     },
   },

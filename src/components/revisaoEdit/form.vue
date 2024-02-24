@@ -12,26 +12,23 @@
           v-model.trim="conteudo.title"
           :rules="[rules.required, rules.minname]"
         ></v-text-field>
-        <v-textarea
-          label="Texto"
-          variant="outlined"
-          density="compact"
-          v-model.trim="conteudo.textrev"
-          :rules="[rules.required, rules.minname]"
-        ></v-textarea>
+        <div class="mb-5">
+          <div ref="editor"></div>
+        </div>
         <v-btn flat color="primary" type="submit">Salvar</v-btn>
       </v-form>
-      <!-- <vue-quill-editor v-model="editor" />
-      {{ editor }} -->
     </div>
 </template>
 
 <script>
+  import 'quill/dist/quill.core.css'
+  import 'quill/dist/quill.snow.css'
+  import Quill from 'quill'
+  
   import { useRevStore } from "@/store/revStore";
   const revStore = useRevStore()
 
     export default {
-  
      data(){
       return{
         conteudo:{
@@ -46,31 +43,48 @@
             email: (v) => /.+@/.test(v) || "Deve ser um e-mail válido",
             minname: (v) => (v||'').length >= 3 || "Mínimo 4 caracteres",
         },
-        editor:''
+        editor:'',
+        quill: null,
       }
      },
      computed:{
       listype(){
         return revStore.readTypes
-      }
+      },
      },
      methods:{
       async saveConteudo(){
         const { valid } = await this.$refs.form.validate()
         if(valid){
+          this.conteudo.textrev = this.quill.root.innerHTML;
           revStore.addRev(this.conteudo)
           this.clearForms()
+          this.quill.root.innerHTML = ''
         }
       },
       clearForms(){
         this.conteudo = {
-          type: '',
+          type: 'comentario',
           questions: [],
           textrev: '',
           title: '',
           idVinculado: this.$route.params.id
        }
       }
+     },
+     mounted(){
+        this.quill = new Quill(this.$refs.editor, {
+            theme: 'snow', // 'snow' é um tema popular
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['image', 'code-block'],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
+                    ['link'],
+                ],
+            },
+        });
      }
     }
 </script>

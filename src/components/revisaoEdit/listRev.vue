@@ -1,6 +1,12 @@
 <template>
     <div>
-        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 ">
+        <div v-if="loadCrud && !idDelete" class="text-center">
+          <v-progress-circular
+            indeterminate
+            color="primary"
+          ></v-progress-circular>
+        </div>
+        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev">
           <div v-if="idEdit == item.idU">
             <h2>{{ item.title }}</h2>
               <v-text-field
@@ -26,18 +32,24 @@
           </div>
           <div v-else>
             <h2>{{ item.title }}</h2>
-            <p>
-              {{ item.textrev }}
-            </p>
+            <p v-html="item.textrev"></p>
           </div>
-          <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2">
-            Apagar registro? 
-            <v-btn class="ml-2" variant="text" color="red" flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
-            <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
+          <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
+            <div v-if="loadCrud" class="text-center mb-2">
+              <v-progress-circular
+                indeterminate
+                color="primary"
+              ></v-progress-circular>
+            </div>
+            <div v-else class="mb-2">
+              Apagar registro? 
+              <v-btn class="ml-2" variant="outlined"  flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
+              <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
+            </div>
           </div>
           <div v-else class="d-flex justify-space-between align-center border-t mt-5 pt-2">
             <div>
-              {{ item.type }} | {{item.dateCreated}}
+              {{ item.type }} | {{ formatteDate(item.dateCreated) }}
             </div>
             <div>
               <v-btn flat>Incluir no caderno</v-btn>
@@ -67,6 +79,13 @@
   import { useRevStore } from "@/store/revStore";
   const revStore = useRevStore()
 
+  import moment from 'moment'
+  import 'moment/locale/pt-br'
+
+  import 'quill/dist/quill.core.css'
+  import 'quill/dist/quill.snow.css'
+  import Quill from 'quill'
+
     export default {
         data(){
           return{
@@ -77,15 +96,19 @@
             ],
             idDelete: null,
             idEdit: null,
-            topicoEditText:{title: null, textrev: null}
+            topicoEditText:{title: null, textrev: null},
+            reverse: false
           }
         },
         computed:{
           listRev(){
-            return revStore.readListRevs
+            return revStore.readListRevs.sort(this.orderDateCreate)
           },
           dadosRev(){
             return revStore.readDadosRev
+          },
+          loadCrud(){
+            return revStore.readLoadCrud
           }
         },
         methods:{
@@ -102,16 +125,43 @@
           },
           deleteRegistro(item){
             revStore.deleteRev(item)
-            this.idDelete = null;
+            if(!this.loadCrud){
+              this.idDelete = null;
+            }
           },
           editRegistro(item, nameEdit){
             revStore.editRev(item, nameEdit)
             this.idEdit = null
           },
+          orderDateCreate(a, b){
+              return this.reverse
+                  ? a.dateCreated -  b.dateCreated
+                  : b.dateCreated -  a.dateCreated
+          },
+          formatteDate(item){
+            return moment(item).locale('pt-br').format('DD/MM/YYYY')
+          }
         },
     }
 </script>
 
 <style lang="scss" scoped>
-
+p{
+  margin-left: 1rem;
+  margin-top: .5rem;
+}
+.postRev{
+  animation: appear 1s ease;
+  transition: all 1s ease;
+}
+@keyframes appear {
+  0%{
+    opacity: 0;
+    background: rgb(185, 185, 234);
+  }
+  100%{
+    opacity: 100%;
+    background: #fff;
+  }
+} 
 </style>
