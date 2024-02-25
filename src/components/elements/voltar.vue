@@ -9,9 +9,16 @@
 
 <script>
     export default {
+        props:{
+            link: String
+        },
         methods:{
             voltar(){
-                this.$router.go(-1)
+                if(this.link){
+                    this.$router.push(this.link)
+                } else {
+                    this.$router.go(-1)
+                }
             }
         }
     }

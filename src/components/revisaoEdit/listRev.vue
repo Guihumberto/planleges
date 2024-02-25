@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="conteudo">
         <div v-if="loadCrud && !idDelete" class="text-center">
           <v-progress-circular
             indeterminate
             color="primary"
           ></v-progress-circular>
         </div>
-        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev">
+        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" v-if="listRev.length">
           <div v-if="idEdit == item.idU">
             <h2>{{ item.title }}</h2>
               <v-text-field
@@ -72,12 +72,15 @@
             </div>
           </div>
         </div>
+        <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-else />
     </div>
 </template>
 
 <script>
   import { useRevStore } from "@/store/revStore";
   const revStore = useRevStore()
+
+  import alerta from "@/components/planTools/Alert.vue"
 
   import moment from 'moment'
   import 'moment/locale/pt-br'
@@ -99,6 +102,9 @@
             topicoEditText:{title: null, textrev: null},
             reverse: false
           }
+        },
+        components:{
+          alerta
         },
         computed:{
           listRev(){
@@ -150,7 +156,7 @@ p{
   margin-left: 1rem;
   margin-top: .5rem;
 }
-.postRev{
+.postRev, .conteudo{
   animation: appear 1s ease;
   transition: all 1s ease;
 }

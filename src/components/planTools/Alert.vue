@@ -1,6 +1,6 @@
 <template>
     <div class="alert my-5">
-        <v-alert density="compact" type="warning">
+        <v-alert density="compact" type="warning" :variant="variant">
           <p>{{ text }}</p>
         </v-alert>
     </div>
@@ -9,7 +9,11 @@
 <script>
     export default {
         props:{
-            text: String
+            text: String,
+            variant: {
+                default: 'flat',
+                type: String
+            }
         }
     }
 </script>

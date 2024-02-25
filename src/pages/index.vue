@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <router-link to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
         <div class="d-flex justify-center align-center" style="min-height: 60vh;">
             <div>
                 <h1>Home</h1>
@@ -18,9 +17,9 @@
             return{
                 login: true,
                 user:{
-                    name: 'João Humberto Silva Ribeiro Júnior',
-                    email: 'juninho.joao@hotmail.com',
-                    password: '123456'
+                    name: '',
+                    email: '',
+                    password: ''
                 },
                 show: false
             }

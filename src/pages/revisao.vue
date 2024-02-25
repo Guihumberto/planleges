@@ -6,7 +6,6 @@
       <titleBar />
       <formD />
       <listRev v-if="true" />
-      <alerta text="Não há comentários da revisão cadastrados." v-else />
     </div>
     <loading v-else />
   </div>
@@ -14,7 +13,6 @@
 
 <script setup>
   import titleBar from "@/components/revisaoEdit/titleBar.vue"
-  import alerta from "@/components/planTools/Alert.vue"
   import formD from "@/components/revisaoEdit/form.vue"
   import listRev from "@/components/revisaoEdit/listRev.vue"
   import voltar from "@/components/elements/voltar.vue"
@@ -38,7 +36,16 @@
   width: min(100vw, 1080px);
   margin-inline: auto;
 }
+@keyframes appear {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
 .content{
   padding: 1rem;
+  animation: 1s ease appear;
 }
 </style>

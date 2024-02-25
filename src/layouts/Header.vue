@@ -4,6 +4,7 @@
             <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
             <div>
                 <v-btn v-if="!!useStore.user" @click="logout" flat variant="text" color="red" title="sair" icon="mdi-logout"></v-btn>
+                <router-link v-else to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
             </div>
         </div>
     </div>
