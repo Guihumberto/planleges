@@ -1,14 +1,16 @@
 <template>
     <div class="container">
-        <div class="d-flex justify-center align-center" style="min-height: 60vh;">
+        <div class="" style="min-height: 60vh;">
             <div>
                 <h1>Home</h1>
             </div>
+            <box />
         </div>
     </div>
 </template>
 
 <script>
+    import box from '@/components/home/box'
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
 
@@ -49,7 +51,11 @@
 <style lang="scss" scoped>
 .container{
   width: min(100vw, 1080px);
+  margin: 0.5rem;
   margin-inline: auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 1rem;
 }
 .cardLogin{
     width: min(95vw, 500px);
@@ -57,4 +63,5 @@
 .appear, .cardLogin{
     transition: .5s ease all;
 }
+
 </style>

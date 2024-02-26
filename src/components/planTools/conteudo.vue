@@ -14,7 +14,7 @@
             <v-btn flat color="primary" @click="insertTopico">Inserir</v-btn>
           </template>
         </v-text-field>
-        <v-list lines="two" select-strategy="classic" class="py-0" v-if="!!conteudo.length">
+        <v-list lines="two" class="py-0" v-if="!!conteudo.length">
           <v-list-item 
             :value="item.idU" v-for="item, i in conteudo" ::key="i" 
             class="border-b"
@@ -39,7 +39,7 @@
                     density="compact"
                     variant="outlined"
                     style="max-width: 500px;"
-                    v-model.trim="topicoEditText"
+                    v-model="topicoEditText"
                     class="mt-5"
                     clearable
                   ></v-text-field>
