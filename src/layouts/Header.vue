@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: min(95vh, 1080px);
+    width: min(100vw, 1080px);
 }
 .title{
     transition: all .5s ease;
