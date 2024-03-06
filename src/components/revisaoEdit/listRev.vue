@@ -18,9 +18,11 @@
                 class="mt-5"
                 clearable
               ></v-text-field>
-              <textEdit :texto="topicoEditText.textrev" @insertNew="insertN($event)" />
-              <v-btn variant="outlined" color="success" flat @click.stop="editRegistro(item, topicoEditText)">Editar</v-btn>
-              <v-btn variant="text" class="ml-1" flat @click.stop="idEdit =null, topicoEditText.title = null">cancelar</v-btn>
+              <textEdit 
+              :texto="topicoEditText.textrev" 
+              @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
+              @cancel="idEdit =null, topicoEditText.title = null" 
+              />
           </div>
           <div v-if="idEdit != item.idU">
             <h2>{{ item.title }}</h2>
@@ -140,9 +142,6 @@
           },
           formatteDate(item){
             return moment(item).locale('pt-br').format('DD/MM/YYYY')
-          },
-          insertN(item){
-            this.topicoEditText.textrev = item
           }
         },
         mounted(){

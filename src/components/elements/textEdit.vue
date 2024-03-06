@@ -1,6 +1,10 @@
 <template>
     <div>
-        <div @keyup.enter="copyPost()" ref="editor"></div>
+        <div ref="editor"></div>
+        <div class="mt-5"> 
+            <v-btn @click="copyPost()" variant="outlined" color="success">Salvar</v-btn>
+            <v-btn @click="cancel()" flat>Cancelar</v-btn>
+        </div>
     </div>
 </template>
 
@@ -31,6 +35,9 @@
                 this.newTexto = this.quill.root.innerHTML
                 this.$emit('insertNew', this.newTexto);
             },
+            cancel(){
+                this.$emit('cancel');
+            }
         },
         mounted(){
             this.quill = new Quill(this.$refs.editor, {
