@@ -38,10 +38,13 @@
                 modules: {
                     toolbar: [
                         [{ header: [1, 2, false] }],
+                        ['blockquote'],  
                         ['bold', 'italic', 'underline'],
-                        ['image', 'code-block'],
+                        [{ 'color': [] }, { 'background': [] }], 
                         [{ list: 'ordered' }, { list: 'bullet' }],
                         ['link'],
+                        [{ 'indent': '-1' }, { 'indent': '+1' }],   
+                        ['clean']  
                     ],
                 },
             });
