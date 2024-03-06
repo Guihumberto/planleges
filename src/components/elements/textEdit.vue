@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div ref="editor"></div>
-        <v-btn @click="copyPost()">Salvar</v-btn>
-        {{ editor }}
+        <div @keyup.enter="copyPost()" ref="editor"></div>
     </div>
 </template>
 
@@ -15,17 +13,26 @@
         name: 'EditorTexto',
         data() {
             return {
-            quill: null,
-            editor: null,
-            docRef: null
+                quill: null,
+                editor: 'null',
+                newTexto: ''
+            }
+        },
+        props:{
+            texto: String
+        },
+        watch:{
+            texto(antes, depois){
+                this.quill.root.innerHTML = this.texto
             }
         },
         methods:{
             copyPost(){
-                this.editor = this.quill.root.innerHTML
+                this.newTexto = this.quill.root.innerHTML
+                this.$emit('insertNew', this.newTexto);
             },
         },
-        mounted() {
+        mounted(){
             this.quill = new Quill(this.$refs.editor, {
                 theme: 'snow', // 'snow' é um tema popular
                 modules: {

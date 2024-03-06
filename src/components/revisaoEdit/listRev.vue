@@ -7,7 +7,7 @@
           ></v-progress-circular>
         </div>
         <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" v-if="listRev.length">
-          <div v-if="idEdit == item.idU">
+          <div v-show="idEdit == item.idU">
             <h2>{{ item.title }}</h2>
               <v-text-field
                 label="Título"
@@ -18,19 +18,11 @@
                 class="mt-5"
                 clearable
               ></v-text-field>
-              <v-textarea
-                label="Texto"
-                density="compact"
-                variant="outlined"
-                style="max-width: 500px;"
-                v-model.trim="topicoEditText.textrev"
-                class="mt-5"
-                clearable
-              ></v-textarea>
+              <textEdit :texto="topicoEditText.textrev" @insertNew="insertN($event)" />
               <v-btn variant="outlined" color="success" flat @click.stop="editRegistro(item, topicoEditText)">Editar</v-btn>
               <v-btn variant="text" class="ml-1" flat @click.stop="idEdit =null, topicoEditText.title = null">cancelar</v-btn>
           </div>
-          <div v-else>
+          <div v-if="idEdit != item.idU">
             <h2>{{ item.title }}</h2>
             <p v-html="item.textrev"></p>
           </div>
@@ -100,7 +92,9 @@
             idDelete: null,
             idEdit: null,
             topicoEditText:{title: null, textrev: null},
-            reverse: false
+            reverse: false,
+            quill: null,
+            editor:'',
           }
         },
         components:{
@@ -146,8 +140,25 @@
           },
           formatteDate(item){
             return moment(item).locale('pt-br').format('DD/MM/YYYY')
+          },
+          insertN(item){
+            this.topicoEditText.textrev = item
           }
         },
+        mounted(){
+          this.quill = new Quill(this.$refs.editor, {
+              theme: 'snow', // 'snow' é um tema popular
+              modules: {
+                  toolbar: [
+                      [{ header: [1, 2, false] }],
+                      ['bold', 'italic', 'underline'],
+                      ['image', 'code-block'],
+                      [{ list: 'ordered' }, { list: 'bullet' }],
+                      ['link'],
+                  ],
+              },
+          });
+      }
     }
 </script>
 
