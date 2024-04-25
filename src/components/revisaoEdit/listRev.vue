@@ -44,7 +44,7 @@
           </div>
           <div v-else class="d-flex justify-space-between align-center border-t mt-5 pt-2">
             <div>
-              {{ item.type }} | {{ formatteDate(item.dateCreated) }}
+              <!-- {{ item.type }} | {{ formatteDate(item.dateCreated) }} -->
             </div>
             <div class="d-flex justify-center align-center">
               <addQuestion :revItem="item" />
