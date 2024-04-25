@@ -38,6 +38,11 @@ const routes = [
         name: 'Revisao',
         component: () => import('@/pages/revisao.vue'),
       },
+      {
+        path: '/revisaoPrint/:id',
+        name: 'RevisaoPrint',
+        component: () => import('@/pages/revisaoPrint.vue'),
+      },
     ],
   },
 ]

@@ -4,7 +4,7 @@
             <h2>{{ dadosRev.disciplina }}</h2>
             <p>Assunto: {{ dadosRev.name }}</p>
         </div>
-        <v-btn @click="goPrint()" color="error" variant="outlined"><v-icon class="mr-2">mdi-printer</v-icon>Impressão</v-btn>
+        <v-btn @click="goPrint()" color="grey" variant="outlined"><v-icon class="mr-2">mdi-arrow-left</v-icon>Voltar</v-btn>
     </div>
 </template>
 
@@ -27,7 +27,7 @@
         methods:{
             goPrint(){
                 console.log("oi", this.idURev);
-                this.$router.push(`/revisaoPrint/${this.idURev}`)
+                this.$router.push(`/revisao/${this.idURev}`)
             },
         }
     }
