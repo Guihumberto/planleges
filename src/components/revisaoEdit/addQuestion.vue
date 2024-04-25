@@ -1,6 +1,15 @@
 <template>
     <div class="text-center pa-4">
-      <v-btn flat @click="dialog = true"> <v-icon>mdi-plus</v-icon>Questão</v-btn>  
+        <v-btn flat @click="dialog = true"> 
+          <v-icon>mdi-plus</v-icon>Questão
+          <template v-slot:append>
+              <v-badge
+                color="error"
+                :content="revItem.questions.length"
+                inline
+              ></v-badge>
+          </template>
+        </v-btn> 
       <v-dialog
         v-model="dialog"
         width="auto"
