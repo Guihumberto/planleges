@@ -6,6 +6,7 @@
             color="primary"
           ></v-progress-circular>
         </div>
+        <listTopics :topics="listRev" />
         <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" v-if="listRev.length">
           <div v-show="idEdit == item.idU">
             <h2>{{ item.title }}</h2>
@@ -45,8 +46,8 @@
             <div>
               {{ item.type }} | {{ formatteDate(item.dateCreated) }}
             </div>
-            <div>
-              <v-btn flat>Incluir no caderno</v-btn>
+            <div class="d-flex justify-center align-center">
+              <addQuestion :revItem="item" />
               <v-btn variant="text" flat><v-icon>mdi-star</v-icon></v-btn>
               <v-menu>
                 <template v-slot:activator="{ props }">
@@ -65,6 +66,7 @@
               </v-menu>
             </div>
           </div>
+          <addTag :revItem="item" />
         </div>
         <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-else />
     </div>
@@ -75,6 +77,9 @@
   const revStore = useRevStore()
 
   import alerta from "@/components/planTools/Alert.vue"
+  import addQuestion from "@/components/revisaoEdit/addQuestion.vue"
+  import addTag from "@/components/revisaoEdit/addTag.vue"
+  import listTopics from "@/components/revisaoEdit/listTopics.vue"
 
   import moment from 'moment'
   import 'moment/locale/pt-br'
@@ -100,7 +105,7 @@
           }
         },
         components:{
-          alerta
+          alerta, addQuestion, addTag, listTopics
         },
         computed:{
           listRev(){

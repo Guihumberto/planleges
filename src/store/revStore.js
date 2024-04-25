@@ -124,5 +124,25 @@ export const useRevStore = defineStore('revStore', {
           this.loadCrud = false
         }
     },
+    async editRevTagQuestion(item){
+      this.loadCrud = true
+      try {
+          const docRef = doc(db, 'listRev', item.idU)
+          const docSpan = await getDoc(docRef)
+
+          if(!docSpan.exists()) {
+              throw new Error("nao existe doc")
+          }
+  
+          await updateDoc(docRef, item)
+
+          this.listRevs = this.listRevs.map( x => x.idU == item.idU ? item : x)
+
+      } catch (error) {
+          console.log(error);
+      }finally{
+        this.loadCrud = false
+      }
+  },
   },
 })
