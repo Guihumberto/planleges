@@ -6,40 +6,53 @@
             color="primary"
           ></v-progress-circular>
         </div>
-        <listTopics :topics="listRev" />
-        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" v-if="listRev.length">
-          <div v-show="idEdit == item.idU">
-            <h2>{{ item.title }}</h2>
-              <v-text-field
-                label="Título"
-                density="compact"
-                variant="outlined"
-                style="max-width: 500px;"
-                v-model.trim="topicoEditText.title"
-                class="mt-5"
-                clearable
-              ></v-text-field>
-              <textEdit 
-              :texto="topicoEditText.textrev" 
-              @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
-              @cancel="idEdit =null, topicoEditText.title = null" 
-              />
-          </div>
-          <div v-if="idEdit != item.idU">
-            <h2>{{ item.title }}</h2>
-            <p v-html="item.textrev"></p>
-          </div>
-          <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
-            <div v-if="loadCrud" class="text-center mb-2">
-              <v-progress-circular
-                indeterminate
-                color="primary"
-              ></v-progress-circular>
+        <div>
+          <v-text-field density="compact" v-model="namePDF" style="max-width: 500px;">
+            <template v-slot:append>
+              <v-btn color="red" variant="outlined" @click.prevent="generatePDF">
+                <v-icon color="red">mdi-file-pdf-box</v-icon>
+                PDF
+              </v-btn>
+            </template>
+          </v-text-field>
+        </div>
+        <div v-if="listRev.length" ref="pdfContent" id="pdf-content">
+          <titlePrint />
+          <listTopicsPrint :topics="listRev" />
+          <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" >
+            <div v-show="idEdit == item.idU">
+              <h2>{{ item.title }}</h2>
+                <v-text-field
+                  label="Título"
+                  density="compact"
+                  variant="outlined"
+                  style="max-width: 500px;"
+                  v-model.trim="topicoEditText.title"
+                  class="mt-5"
+                  clearable
+                ></v-text-field>
+                <textEdit 
+                :texto="topicoEditText.textrev" 
+                @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
+                @cancel="idEdit =null, topicoEditText.title = null" 
+                />
             </div>
-            <div v-else class="mb-2">
-              Apagar registro? 
-              <v-btn class="ml-2" variant="outlined"  flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
-              <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
+            <div v-if="idEdit != item.idU">
+              <h2>{{ item.title }}</h2>
+              <p v-html="item.textrev"></p>
+            </div>
+            <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
+              <div v-if="loadCrud" class="text-center mb-2">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </div>
+              <div v-else class="mb-2">
+                Apagar registro? 
+                <v-btn class="ml-2" variant="outlined"  flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
+                <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
+              </div>
             </div>
           </div>
         </div>
@@ -52,14 +65,14 @@
   const revStore = useRevStore()
 
   import alerta from "@/components/planTools/Alert.vue"
-  import listTopics from "@/components/revisaoPrint/listTopics.vue"
+  import titlePrint from "@/components/revisaoPrint/titleBarPrint.vue"
+  import listTopicsPrint from "@/components/revisaoPrint/listTopicsPrint.vue"
+
+  import jsPDF from 'jspdf';
+  import html2canvas from 'html2canvas';
 
   import moment from 'moment'
   import 'moment/locale/pt-br'
-
-  import 'quill/dist/quill.core.css'
-  import 'quill/dist/quill.snow.css'
-  import Quill from 'quill'
 
     export default {
         data(){
@@ -72,13 +85,14 @@
             idDelete: null,
             idEdit: null,
             topicoEditText:{title: null, textrev: null},
-            reverse: false,
+            reverse: true,
             quill: null,
             editor:'',
+            namePDF: 'revisao'
           }
         },
         components:{
-          alerta, listTopics
+          alerta, listTopicsPrint, titlePrint
         },
         computed:{
           listRev(){
@@ -120,26 +134,32 @@
           },
           formatteDate(item){
             return moment(item).locale('pt-br').format('DD/MM/YYYY')
+          },
+          async generatePDF() {
+              const doc = new jsPDF({ unit: 'pt'});
+        
+              const content = document.getElementById('pdf-content').innerHTML;
+              
+              doc.html(content, {
+                callback: function (doc) {
+                  doc.save('revisao.pdf');
+                },
+                x: 10,
+                y: 10,
+                width: 580,
+                windowWidth: 800,
+                autoPaging: true
+              });
           }
         },
-        mounted(){
-          this.quill = new Quill(this.$refs.editor, {
-              theme: 'snow', // 'snow' é um tema popular
-              modules: {
-                  toolbar: [
-                      [{ header: [1, 2, false] }],
-                      ['bold', 'italic', 'underline'],
-                      ['image', 'code-block'],
-                      [{ list: 'ordered' }, { list: 'bullet' }],
-                      ['link'],
-                  ],
-              },
-          });
-      }
     }
 </script>
 
 <style lang="scss" scoped>
+#pdf-content{
+  width: 100%;
+  height: 100%;
+}
 p{
   margin-left: 1rem;
   margin-top: .5rem;
