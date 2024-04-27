@@ -39,14 +39,20 @@ const routes = [
         component: () => import('@/pages/revisao.vue'),
       },
       {
-        path: '/revisaoPrint/:id',
-        name: 'RevisaoPrint',
-        component: () => import('@/pages/revisaoPrint.vue'),
-      },
-      {
         path: '/revisaoPDF/:id',
         name: 'RevisaoPDF',
         component: () => import('@/pages/revisaoPDF.vue'),
+      },
+    ],
+  },
+  {
+    path: '/revisaoPrint/:id',
+    component: () => import('@/layouts/printdefault.vue'),
+    children: [
+      {
+        path: '',
+        name: 'RevisaoPrint',
+        component: () => import('@/pages/revisaoPrint.vue'),
       },
     ],
   },

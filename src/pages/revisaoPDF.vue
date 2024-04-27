@@ -1,27 +1,19 @@
 <template>
-    <div>
+    <div class="containerPDF">
+      <div class="d-flex justify-center pb-5">
+          <v-btn @click="generatePDF">Gerar PDF</v-btn>
+      </div>
       <div ref="pdfContent" id="pdf-content">
-        <div class="ma-15">
-            <h1>Teste</h1>
-            <h2>Nova</h2>
-            <span>oi</span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Recusandae nobis quo fuga itaque quidem quasi quibusdam alias! Architecto doloremque 
-                doloribus ipsum quasi earum dignissimos, omnis quaerat nemo cumque quidem nostrum.
-            </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Recusandae nobis quo fuga itaque quidem quasi quibusdam alias! Architecto doloremque 
-                doloribus ipsum quasi earum dignissimos, omnis quaerat nemo cumque quidem nostrum.
-            </p>
+        <div class="content" v-for="page, p in 2" :key="p">
+            <p v-for="item, in 43" :key="i">Seu conteúdo aqui...</p>
         </div>
       </div>
-      <v-btn @click="generatePDF">Gerar PDF</v-btn>
+      
     </div>
 </template>
 
 <script>
     import jsPDF from 'jspdf';
-    import html2canvas from 'html2canvas';
 
     export default {
         methods: {
@@ -44,5 +36,27 @@
 </script>
 
 <style lang="scss" scoped>
-
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .containerPDF{
+        background: rgb(200, 199, 199);
+        padding: 2rem;
+    }
+    .content {
+        font-family: Arial, sans-serif;
+        max-width: 21cm; /* Largura A4 */
+        height: 29.7cm;
+        margin: 0 auto;
+        margin-bottom: 2.5rem;
+        border: 1px black solid;
+        padding: 40px 30px;
+        background: rgb(247, 248, 245);
+        page-break-after: always; /* Cria uma nova página após o conteúdo */
+    }
+    @page {
+        size: A4;
+        margin: 0;
+    }
 </style>

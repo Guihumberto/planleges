@@ -6,7 +6,7 @@
             color="primary"
           ></v-progress-circular>
         </div>
-        <div>
+        <div class="ocultar-impressao">
           <v-text-field density="compact" v-model="namePDF" style="max-width: 500px;">
             <template v-slot:append>
               <v-btn color="red" variant="outlined" @click.prevent="generatePDF">
@@ -54,6 +54,9 @@
                 <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
               </div>
             </div>
+          </div>
+          <div class="mt-15">
+            João Humberto - Revisão
           </div>
         </div>
         <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-else />
@@ -157,8 +160,15 @@
 
 <style lang="scss" scoped>
 #pdf-content{
-  width: 100%;
-  height: 100%;
+  font-family: Arial, sans-serif;
+        max-width: 21cm; /* Largura A4 */
+        height: 29.7cm;
+        margin: 0 auto;
+        margin-bottom: 2.5rem;
+        // border: 1px black solid;
+        padding: 40px 30px;
+        background: #fff;
+        page-break-after: always; /* Cria uma nova página após o conteúdo */
 }
 p{
   margin-left: 1rem;

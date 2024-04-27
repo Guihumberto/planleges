@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <voltar />
-    <h1> <v-icon size="1.7rem" class="mr-2">mdi-book</v-icon>Revisão</h1>
+    <voltar class="ocultar-impressao" />
     <div class="content" v-if="!revStore.readLoad">
-      <titleBar />
       <listRev v-if="true" />
     </div>
     <loading v-else />
@@ -42,8 +40,15 @@
     opacity: 1;
   }
 }
+@media print {
+    .ocultar-impressao {
+        display: none;
+    }
+}
 .content{
+  font-family: Arial, sans-serif;
   padding: 1rem;
   animation: 1s ease appear;
 }
+
 </style>

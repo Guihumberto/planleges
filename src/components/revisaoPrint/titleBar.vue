@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5 d-flex justify-space-between" v-if="!!dadosRev">
+    <div class="mb-5 d-flex justify-space-between ocultar-impressao" v-if="!!dadosRev">
         <div>
             <h2>{{ dadosRev.disciplina }}</h2>
             <p>Assunto: {{ dadosRev.name }}</p>
