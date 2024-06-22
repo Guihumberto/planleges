@@ -8,7 +8,7 @@
         </div>
         <listTopics :topics="listRev" />
         <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" v-if="listRev.length">
-          <div v-show="idEdit == item.idU">
+          <div v-show="idEdit == item.idU" spellcheck="true" lang="pt-BR">
             <h2>{{ item.title }}</h2>
               <v-text-field
                 label="Título"
@@ -25,7 +25,7 @@
               @cancel="idEdit =null, topicoEditText.title = null" 
               />
           </div>
-          <div v-if="idEdit != item.idU">
+          <div v-if="idEdit != item.idU" class="boxTextoRevisao">
             <h2>{{ item.title }}</h2>
             <p v-html="item.textrev"></p>
           </div>
@@ -167,7 +167,7 @@
 </script>
 
 <style lang="scss" scoped>
-p{
+.boxTextoRevisao{
   margin-left: 1rem;
   margin-top: .5rem;
 }

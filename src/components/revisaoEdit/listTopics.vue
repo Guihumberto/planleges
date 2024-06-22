@@ -1,7 +1,7 @@
 <template>
     <div class="mt-15 border pa-5" v-if="listTitleTopics.length">
         <div class="d-flex justify-space-between">
-            <h1>Tópicos</h1>
+            <h1 class="ml-5">Tópicos</h1>
             <v-btn variant="flat" @click="showListTopics = !showListTopics">{{ showListTopics ? 'ocultar' : 'mostrar' }}</v-btn>
         </div>
         <v-list v-if="showListTopics">
