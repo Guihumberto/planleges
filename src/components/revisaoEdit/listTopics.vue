@@ -5,7 +5,7 @@
             <v-btn variant="flat" @click="showListTopics = !showListTopics">{{ showListTopics ? 'ocultar' : 'mostrar' }}</v-btn>
         </div>
         <v-list v-if="showListTopics">
-            <v-list-item v-for="item, i in listTitleTopics" :key="i" link>
+            <v-list-item v-for="item, i in listTitleTopics" :key="i" link @click="$emit('findIndice', item.idU)">
                 <template v-slot:prepend>
                     <v-avatar>
                         <v-icon>mdi-subdirectory-arrow-right</v-icon>

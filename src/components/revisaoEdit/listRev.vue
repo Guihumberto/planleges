@@ -1,13 +1,14 @@
 <template>
-    <div class="conteudo">
+    <div class="conteudo" id="top">
         <div v-if="loadCrud && !idDelete" class="text-center">
           <v-progress-circular
             indeterminate
             color="primary"
           ></v-progress-circular>
         </div>
-        <listTopics :topics="listRev" />
-        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" v-if="listRev.length">
+        <listTopics :topics="listRev" @findIndice="findPage($event)" />
+        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" 
+          v-if="listRev.length" :id="item.idU">
           <div v-show="idEdit == item.idU" spellcheck="true" lang="pt-BR">
             <h2>{{ item.title }}</h2>
               <v-text-field
@@ -18,6 +19,7 @@
                 v-model.trim="topicoEditText.title"
                 class="mt-5"
                 clearable
+                spellcheck="true" lang="pt-BR"
               ></v-text-field>
               <textEdit 
               :texto="topicoEditText.textrev" 
@@ -67,6 +69,7 @@
             </div>
           </div>
           <addTag :revItem="item" />
+          <v-btn v-if="tela" class="upBtn" color="success" icon="mdi-arrow-up"  @click="findPage('top')"></v-btn>
         </div>
         <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-else />
     </div>
@@ -102,6 +105,7 @@
             reverse: false,
             quill: null,
             editor:'',
+            tela: false,
           }
         },
         components:{
@@ -147,7 +151,15 @@
           },
           formatteDate(item){
             return moment(item).locale('pt-br').format('DD/MM/YYYY')
-          }
+          },
+          findPage(item){
+              const element = document.getElementById(item)
+              element.scrollIntoView({behavior: "smooth"})
+              this.tela = true
+              if(item == 'top'){
+                this.tela = false
+              }
+          },
         },
         mounted(){
           this.quill = new Quill(this.$refs.editor, {
@@ -185,4 +197,13 @@
     background: #fff;
   }
 } 
+
+.postRev{
+  position: relative;
+}
+.upBtn{
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
 </style>
