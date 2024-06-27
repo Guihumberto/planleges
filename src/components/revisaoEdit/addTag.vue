@@ -1,15 +1,18 @@
 <template>
     <div class="border-t mt-5 pt-2">
         <div class="d-flex">
-            <v-text-field 
-                label="Tag"
-                placeholder="Digite o nome da tag"
-                style="max-width: 300px;" variant="outlined" density="compact"
-                v-model.trim="formTag"
-                v-if="showTag"
-            >
-            </v-text-field>
-            <v-btn @click="saveTag()" :variant="showTag ? 'outlined': 'flat'" class="ml-2"> <v-icon>mdi-plus</v-icon>Tag</v-btn>
+            <v-form @submit.prevent="saveTag()">
+                <v-text-field 
+                    label="Tag"
+                    placeholder="Digite o nome da tag"
+                    style="max-width: 300px;" variant="outlined" density="compact"
+                    v-model.trim="formTag"
+                    v-if="showTag"
+                >
+                </v-text-field>
+                <v-btn type="submit" :variant="showTag ? 'outlined': 'flat'" 
+                class="ml-2"> <v-icon>mdi-plus</v-icon>Tag</v-btn>
+            </v-form>
         </div>
         <div class="mt-5">
             <v-chip-group>
