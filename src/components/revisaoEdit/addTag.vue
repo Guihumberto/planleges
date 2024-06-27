@@ -1,12 +1,14 @@
 <template>
     <div class="border-t mt-5 pt-2">
-        <div class="d-flex">
-            <v-form @submit.prevent="saveTag()">
+        <div>
+            <v-form @submit.prevent="saveTag()" class="d-flex">
                 <v-text-field 
                     label="Tag"
                     placeholder="Digite o nome da tag"
                     style="max-width: 300px;" variant="outlined" density="compact"
                     v-model.trim="formTag"
+                    focused
+                    autofocus
                     v-if="showTag"
                 >
                 </v-text-field>
