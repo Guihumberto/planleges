@@ -22,9 +22,9 @@
                 spellcheck="true" lang="pt-BR"
               ></v-text-field>
               <textEdit 
-              :texto="topicoEditText.textrev" 
-              @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
-              @cancel="idEdit =null, topicoEditText.title = null" 
+                :texto="topicoEditText.textrev" 
+                @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
+                @cancel="idEdit =null, topicoEditText.title = null" 
               />
           </div>
           <div v-if="idEdit != item.idU" class="boxTextoRevisao">

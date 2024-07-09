@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import box from '@/components/home/box'
+
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
 
@@ -53,7 +53,7 @@
   width: min(100vw, 1080px);
   margin: 0.5rem;
   margin-inline: auto;
-  border: 1px solid grey;
+  border: 1px solid rgb(224, 215, 215);
   border-radius: 10px;
   padding: 1rem;
 }

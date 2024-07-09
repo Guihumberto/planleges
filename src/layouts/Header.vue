@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center d-flex justify-center">
+    <div class="wrapperHeader">
         <div class="container">
             <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
             <div>
@@ -20,9 +20,19 @@
 </script>
 
 <style lang="scss" scoped>
+.wrapperHeader{
+    display: flex;
+    justify-content: center;
+    background: #23424a;
+    color: #23424a;
+}
 .container{
     display: flex;
     justify-content: space-between;
+    background-color: #38cfd9;
+    margin: 0.5rem 0;
+    padding: 0.3rem 1rem  ;
+    border-radius: 20px;
     align-items: center;
     width: min(100vw, 1080px);
 }
