@@ -1,7 +1,11 @@
 import { defineStore } from 'pinia'
 import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, where, query, getDocs } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
+import { getDatabase, ref, set} from "firebase/database";
 import { nanoid } from 'nanoid'
+
+import { useRegisterStore } from '@/store/useRegisterStore'
+const userStore = useRegisterStore()
 
 export const useRevStore = defineStore('revStore', {
   state: () => ({
@@ -9,6 +13,8 @@ export const useRevStore = defineStore('revStore', {
     types: ['comentario', 'jurisprudencia', 'doutrina', 'legislacao'],
     load: false,
     dadosRev: null,
+    favoritos: [],
+    markRevUser: [],
     loadCrud: false
   }),
   getters:{
@@ -26,6 +32,12 @@ export const useRevStore = defineStore('revStore', {
     },
     readLoadCrud(){
       return this.loadCrud
+    },
+    readFavoritos(){
+      return this.favoritos
+    },
+    readMarkRevUser(){
+      return this.markRevUser
     }
   },
   actions:{
@@ -44,7 +56,7 @@ export const useRevStore = defineStore('revStore', {
       } finally {
         this.load = false
       }
-    }, 
+    },
     async addRev(item){
         this.loadCrud = true
         try {
@@ -79,7 +91,7 @@ export const useRevStore = defineStore('revStore', {
           // docSnap.data() will be undefined in this case
           console.log("No such document!");
         }
-        
+
       } catch (error) {
         console.log(error)
       } finally {
@@ -133,7 +145,7 @@ export const useRevStore = defineStore('revStore', {
           if(!docSpan.exists()) {
               throw new Error("nao existe doc")
           }
-  
+
           await updateDoc(docRef, item)
 
           this.listRevs = this.listRevs.map( x => x.idU == item.idU ? item : x)
@@ -143,6 +155,40 @@ export const useRevStore = defineStore('revStore', {
       }finally{
         this.loadCrud = false
       }
-  },
+    },
+    async addFavUser(item){
+      try {
+        this.loadCrud = true
+
+        const uid = userStore.user.uid
+        const idRev = {id: item}
+        console.log(uid, item)
+
+        const db = getDatabase();
+        set(ref(db, 'users/' + uid + '/favoritos/' + item), idRev);
+
+      } catch (error) {
+        console.log('erro')
+      } finally{
+        this.loadCrud = false
+      }
+    },
+    async addMarkRevUser(item){
+      try {
+        this.loadCrud = true
+
+        const uid = userStore.user.uid
+        const idRev = {id: item}
+        console.log(uid, item)
+
+        const db = getDatabase();
+        set(ref(db, 'users/' + uid + '/markrev/' + item), idRev);
+
+      } catch (error) {
+        console.log('erro')
+      } finally{
+        this.loadCrud = false
+      }
+    }
   },
 })

@@ -14,10 +14,13 @@
 
   import { useDbStore } from '@/store/dbStore'
   const dbStore = useDbStore()
+  import { useRegisterStore } from '@/store/useRegisterStore'
+  const userStore = useRegisterStore()
 
   dbStore.getDisciplinas()
   dbStore.getConcursos()
   dbStore.getConteudo()
+  userStore.loadUserData()
 </script>
 
 <style>

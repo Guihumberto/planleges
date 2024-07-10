@@ -1,16 +1,5 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
-import { useRegisterStore } from '@/store/useRegisterStore'
-
-const requireAuth =  async(to, from, next) => {
-  const userStore = useRegisterStore()
-  const user = await userStore.currentUser()
-  if(user){
-    next()
-  } else {
-    next('/login')
-  }
-}
 
 const routes = [
   {
