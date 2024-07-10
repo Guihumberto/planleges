@@ -54,6 +54,11 @@ const routes = [
         name: 'RevisaoPrint',
         component: () => import('@/pages/revisaoPrint.vue'),
       },
+      {
+        path: '/teste',
+        name: 'teste',
+        component: () => import('@/pages/teste.vue'),
+      },
     ],
   },
 ]
