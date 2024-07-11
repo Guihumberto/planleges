@@ -1,7 +1,11 @@
 <template>
     <div>
-        <v-btn @click="markRev(revItem.idU)" :variant="rev ? 'outlined':'tonal'" title="revisão" :color="rev ? 'grey':'black'" :append-icon="rev ? 'mdi-check':'mdi-square-rounded-outline'" >MARCAR PARA REVISÃO</v-btn>
-        <v-btn @click="markFav(revItem.idU)" variant="text" title="favoritos" class="ml-2" flat :color="fav? 'yellow':'grey'" :icon="fav ? 'mdi-star' : 'mdi-star-outline'"></v-btn>
+        <v-btn 
+            @click="markRev(revItem)" :variant="revItem.revMark ? 'outlined':'tonal'" title="revisão" 
+            :color="revItem.revMark ? 'grey':'black'" :append-icon="revItem.revMark ? 'mdi-check':'mdi-square-rounded-outline'" >MARCAR PARA REVISÃO</v-btn>
+        <v-btn 
+            @click="markFav(revItem)" variant="text" title="favoritos" class="ml-2" flat 
+            :color="revItem.fav? 'yellow':'grey'" :icon="revItem.fav ? 'mdi-star' : 'mdi-star-outline'"></v-btn>
     </div>
 </template>
 
@@ -19,13 +23,29 @@
         props:{
             revItem: Object
         },
+        computed:{
+            listFav(){
+                return revStore.readFavList
+            },
+            listRevMark(){
+                return revStore.readRevMarkList
+            }
+        },
         methods:{
             markRev(item){
-                this.rev = !this.rev
+                if(item.revMark){
+                    item.revMark = false
+                } else {
+                    item.revMark = true
+                }
                 revStore.addMarkRevUser(item)
             },
             markFav(item){
-                this.fav = !this.fav
+                if(item.fav){
+                    item.fav = false
+                } else {
+                    item.fav = true
+                }
                 revStore.addFavUser(item)
             }
         }

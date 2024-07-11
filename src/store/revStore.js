@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, where, query, getDocs } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
-import { getDatabase, ref, set} from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 import { nanoid } from 'nanoid'
 
 import { useRegisterStore } from '@/store/useRegisterStore'
-const userStore = useRegisterStore()
+
 
 export const useRevStore = defineStore('revStore', {
   state: () => ({
@@ -15,7 +15,9 @@ export const useRevStore = defineStore('revStore', {
     dadosRev: null,
     favoritos: [],
     markRevUser: [],
-    loadCrud: false
+    loadCrud: false,
+    favoritosList: [],
+    revMarkList: []
   }),
   getters:{
     readTypes(){
@@ -38,6 +40,34 @@ export const useRevStore = defineStore('revStore', {
     },
     readMarkRevUser(){
       return this.markRevUser
+    },
+    readFavList(){
+      const list = this.favoritosList
+      let newList = []
+
+      Object.entries(list).forEach(([key, value]) => {
+        let objeto = {
+          id: value.id,
+          active: value.active
+        }
+        newList.push(objeto)
+      });
+
+      return newList
+    },
+    readRevMarkList(){
+      const list = this.revMarkList
+      let newList = []
+
+      Object.entries(list).forEach(([key, value]) => {
+        let objeto = {
+          id: value.id,
+          active: value.active
+        }
+        newList.push(objeto)
+      });
+
+      return newList
     }
   },
   actions:{
@@ -156,16 +186,54 @@ export const useRevStore = defineStore('revStore', {
         this.loadCrud = false
       }
     },
+    async getFavUser(){
+      const userStore = useRegisterStore()
+      try {
+        this.loadCrud = true
+        const uid = await userStore.user.uid
+        const db = getDatabase();
+
+        const resp = ref(db, 'users/' + uid + '/favoritos');
+        onValue(resp, (snapshot) => {
+          const data = snapshot.val();
+          this.favoritosList = data
+        });
+
+      } catch (error) {
+        console.log('err fb fav');
+      } finally {
+        this.loadCrud = false
+      }
+    },
+    async getMarkRevUser(){
+      const userStore = useRegisterStore()
+
+      try {
+        this.loadCrud = true
+        const uid = await userStore.user.uid
+        const db = getDatabase();
+
+        const resp = ref(db, 'users/' + uid + '/favoritos');
+        onValue(resp, (snapshot) => {
+          const data = snapshot.val();
+          this.revMarkList = data
+        });
+
+      } catch (error) {
+        console.log('err fb amark');
+      } finally {
+        this.loadCrud = false
+      }
+    },
     async addFavUser(item){
+      const userStore = useRegisterStore()
       try {
         this.loadCrud = true
 
         const uid = userStore.user.uid
-        const idRev = {id: item}
-        console.log(uid, item)
-
+        const idRev = {id: item.idU, active: item.fav}
         const db = getDatabase();
-        set(ref(db, 'users/' + uid + '/favoritos/' + item), idRev);
+        set(ref(db, 'users/' + uid + '/favoritos/' + idRev.id), idRev);
 
       } catch (error) {
         console.log('erro')
@@ -174,15 +242,14 @@ export const useRevStore = defineStore('revStore', {
       }
     },
     async addMarkRevUser(item){
+      const userStore = useRegisterStore()
       try {
         this.loadCrud = true
 
         const uid = userStore.user.uid
-        const idRev = {id: item}
-        console.log(uid, item)
-
+        const idRev = {id: item.idU, active: item.revMark}
         const db = getDatabase();
-        set(ref(db, 'users/' + uid + '/markrev/' + item), idRev);
+        set(ref(db, 'users/' + uid + '/markrev/' + idRev.id), idRev);
 
       } catch (error) {
         console.log('erro')

@@ -3,6 +3,9 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { auth } from '@/firebaseConfig'
 import router from '@/router'
 
+import { useRevStore } from "@/store/revStore";
+
+
 export const useRegisterStore = defineStore('registerStore', {
   state: () => ({
     user: null,
@@ -33,12 +36,18 @@ export const useRegisterStore = defineStore('registerStore', {
             const { user } = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
+            await this.getUserData()
             router.push('/config')
         } catch (error) {
             console.log(error);
         } finally {
             this.load = false
         }
+    },
+    async getUserData(){
+        const revStore = useRevStore()
+        revStore.getMarkRevUser()
+        revStore.getFavUser()
     },
     async logoutUser(){
         this.load = true
@@ -67,11 +76,9 @@ export const useRegisterStore = defineStore('registerStore', {
     },
     saveUserData() {
       localStorage.setItem('userData', JSON.stringify(this.user));
-      console.log('teste1')
     },
     loadUserData() {
       const data = localStorage.getItem('userData');
-      console.log('teste2')
       if (data) {
           const login = {
               email: JSON.parse(data).email,

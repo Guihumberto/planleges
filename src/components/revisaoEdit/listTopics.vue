@@ -20,7 +20,11 @@
                 </template>
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
                 <v-list-item-subtitle v-html="item.textrev">
-                </v-list-item-subtitle>      
+                </v-list-item-subtitle>    
+                <template v-slot:append>
+                    <v-icon v-if="item.fav" color="yellow-darken-2">mdi-star</v-icon>
+                    <v-icon v-if="item.revMark" color="blue-grey">mdi-read</v-icon>
+                </template>  
             </v-list-item>
         </v-list>
     </div>

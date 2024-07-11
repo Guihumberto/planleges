@@ -6,6 +6,17 @@
             color="primary"
           ></v-progress-circular>
         </div>
+        <div class="d-flex border pa-3 mt-5">
+            <v-checkbox
+              v-for="item, i in filtros" :key="i"
+              v-model="item.select"
+              color="red"
+              :label="item.name"
+              value="red"
+              hide-details
+       
+            ></v-checkbox>
+        </div>
         <listTopics :topics="listRev" @findIndice="findPage($event)" />
         <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" 
           v-if="listRev.length" :id="item.idU">
@@ -106,14 +117,50 @@
             quill: null,
             editor:'',
             tela: false,
+            filtros:[
+              {name:'Marcados para Revisão', select: false},
+              {name:'Favoritos', select: false}
+            ]
           }
         },
         components:{
           alerta, addQuestion, addTag, listTopics
         },
         computed:{
+          listFav(){
+                const list = revStore.readFavList
+                return list
+          },
+          listRevMark(){
+              return revStore.readRevMarkList
+          },
           listRev(){
-            return revStore.readListRevs.sort(this.orderDateCreate)
+            const list = revStore.readListRevs.sort(this.orderDateCreate)
+            let newList = []
+
+            list.forEach(x => {
+              this.listFav.forEach(f => {
+                if(x.idU == f.id){
+                  x.fav = f.active
+                }
+              })
+              this.listRevMark.forEach(r => {
+                if(x.idU == r.id){
+                  x.revMark = r.active
+                }
+              })
+              newList.push(x)
+            })
+
+            if(this.filtros[0].select){
+              newList = newList.filter(x => x.revMark)
+            }
+
+            if(this.filtros[1].select){
+              newList = newList.filter(x => x.fav)
+            }
+
+            return newList
           },
           dadosRev(){
             return revStore.readDadosRev
