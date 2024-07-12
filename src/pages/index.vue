@@ -1,9 +1,6 @@
 <template>
     <div class="container">
         <div class="" style="min-height: 60vh;">
-            <div>
-                <h1>Home</h1>
-            </div>
             <box />
         </div>
     </div>

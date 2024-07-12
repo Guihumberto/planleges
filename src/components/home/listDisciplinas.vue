@@ -1,6 +1,5 @@
 <template>
     <div class="content">
-
     </div>
 </template>
 
@@ -12,7 +11,7 @@
 
 <style lang="scss" scoped>
 .content{
-    min-height: 80vh;
+    min-height: 40vh;
     width: 20%;
     border: 1px solid rgb(220, 219, 219);
     border-radius: 3px;

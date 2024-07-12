@@ -3,8 +3,10 @@
     <voltar link="/" />
     <h1> <v-icon size="1.7rem" class="mr-2">mdi-tools</v-icon>Configurações</h1>
     <div class="content">
-      <disciplina />
-      <concurso />
+      <div>
+        <disciplina />
+        <concurso />
+      </div>
       <conteudo v-if="dbStore.readDisciplinaSel" class="conteudo" />
       <alerta v-else text="Selecione uma disciplina" variant="outlined" />
     </div>

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="mt-5">
+        <div class="my-5 d-flex align-center justify-space-between mx-1">
+            <h1>Home</h1>
             <v-autocomplete
                 :items="listDisciplinas"
                 label="Filtro"
@@ -8,11 +9,12 @@
                 density="compact"
                 style="max-width: 350px;"
                 v-model="disciplina"
+                hide-details
                 clearable
             ></v-autocomplete>
         </div>
         <div class="content">
-            <listDisciplinas />
+            <listDisciplinas class="listDisciplinas" />
             <div class="groupBox">
                 <div class="box" v-for="item, i in conteudo" :key="i" v-if="conteudo.length">
                     <h2 class="d-flex align-center"> <v-icon size="x-small" class="mr-1">mdi-arrow-right-thick</v-icon>{{ item.disciplina }}</h2>
@@ -65,6 +67,21 @@
     justify-content: left;
     color: #212121;
     gap: .5rem;
+}
+.listDisciplinas{
+    transition: 1s ease;
+}
+@media (max-width: 1100px) {
+    .listDisciplinas{
+        display: none;
+    }
+    .groupBox{
+        width: 100%;
+        justify-content: center;
+    }
+    .content{
+        justify-content: center;
+    }
 }
 .groupBox{
     width: 80%;

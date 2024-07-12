@@ -4,7 +4,7 @@
             <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
             <div>
                 <v-btn v-if="!!useStore.user" @click="logout" flat variant="text" color="red" title="sair" icon="mdi-logout"></v-btn>
-                <router-link v-else to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
+                <router-link class="link" v-else to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
             </div>
         </div>
     </div>
@@ -23,14 +23,13 @@
 .wrapperHeader{
     display: flex;
     justify-content: center;
-    background: #23424a;
-    color: #23424a;
+    color: #fff;
 }
 .container{
     display: flex;
     justify-content: space-between;
-    background-color: #38cfd9;
-    margin: 0.5rem 0;
+    background-color: #23424a;
+    margin: 0.5rem 0.1rem;
     padding: 0.3rem 1rem  ;
     border-radius: 20px;
     align-items: center;
@@ -41,5 +40,13 @@
 }
 .title:hover{
     color: grey;
+}
+.link{
+    text-decoration: none;
+    color: #fff;
+    transition: 1s ease;
+}
+.link:hover{
+    color: rgb(172, 172, 238);
 }
 </style>

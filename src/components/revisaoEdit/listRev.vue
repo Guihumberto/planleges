@@ -55,12 +55,12 @@
               <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
             </div>
           </div>
-          <div v-else class="d-flex justify-space-between align-center border-t mt-5 pt-2">
+          <div v-else class="barraAcoes">
             <div>
              <!-- {{ formatteDate(item.dateCreated) }} -->
                <barraPost :revItem="item" />
             </div>
-            <div class="d-flex justify-center align-center">
+            <div class="questoes">
               <addQuestion :revItem="item" />
               <v-menu>
                 <template v-slot:activator="{ props }">
@@ -252,5 +252,31 @@
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+}
+.barraAcoes{
+  // d-flex justify-space-between align-center border-t mt-5 pt-2
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px rgb(219, 209, 209) solid;
+  margin-top: 1em;
+  padding: .2em;
+  transition: 1s ease;
+}
+.questoes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease;
+}
+@media (max-width: 600px) {
+  .barraAcoes{
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .questoes{
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 </style>

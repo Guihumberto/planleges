@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="barra">
         <v-btn 
             @click="markRev(revItem)" :variant="revItem.revMark ? 'outlined':'tonal'" title="revisão" 
             :color="revItem.revMark ? 'grey':'black'" :append-icon="revItem.revMark ? 'mdi-check':'mdi-square-rounded-outline'" >MARCAR PARA REVISÃO</v-btn>
@@ -53,5 +53,13 @@
 </script>
 
 <style lang="scss" scoped>
+.barra{
+    text-align: right;
+    transition: 1s ease;
+}
+@media (max-width: 600px){
+    .barra{
 
+    }
+}
 </style>

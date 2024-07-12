@@ -1,11 +1,12 @@
 <template>
   <div class="container">
     <voltar />
-    <h1> <v-icon size="1.7rem" class="mr-2">mdi-book</v-icon>Revisão</h1>
+    <h1 class="ml-3"> <v-icon size="1.7rem" class="mr-2">mdi-book</v-icon>Revisão</h1>
     <div class="content" v-if="!revStore.readLoad">
       <titleBar />
       <formD />
-      <listRev v-if="true" />
+      <loading v-if="revStore.readLoad" />
+      <listRev v-else />
     </div>
     <loading v-else />
   </div>
