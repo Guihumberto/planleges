@@ -9,10 +9,13 @@
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup>
+import { onMounted } from 'vue';
+
+
+onMounted(()=> {
+
+})
 </script>
 
 <style lang="scss" scoped>

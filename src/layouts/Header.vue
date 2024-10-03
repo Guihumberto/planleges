@@ -6,7 +6,7 @@
                 <div class="links" v-if="!!useStore.user">
                     <router-link to="/config" class="link">Criar</router-link>
                     <router-link to="/config" class="link">Revisar</router-link>
-                    <router-link to="/metas" class="link">Metas</router-link>
+                    <router-link :to="`/metas/user/${id_route}`" class="link">Metas</router-link>
                 </div>
                 <div>
                     <v-btn v-if="!!useStore.user" @click="logout" flat variant="text" title="sair" icon="mdi-logout"></v-btn>
@@ -20,6 +20,8 @@
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
     const useStore = useRegisterStore()
+
+    const id_route = useStore.user.uid
 
     const logout = () => {
         useStore.logoutUser()
