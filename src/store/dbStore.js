@@ -1,7 +1,10 @@
 import { defineStore } from 'pinia'
-import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 import { nanoid } from 'nanoid'
+
+import { useRegisterStore } from '@/store/useRegisterStore'
+const userStore = useRegisterStore()
 
 export const useDbStore = defineStore('dbStore', {
   state: () => ({
@@ -28,8 +31,15 @@ export const useDbStore = defineStore('dbStore', {
   actions:{
     async getDisciplinas(){
         this.load = true
+        
+        const userNewStore = useRegisterStore()
+        await userNewStore.fetchUser()
+        const uid = userNewStore.user.uid
+        
         try {
-            onSnapshot(collection(db, 'disciplinas'), (querySnapshot) => {
+            const q = query(collection(db, 'disciplinas'), where('user', '==', uid));
+            onSnapshot(q, (querySnapshot) => {
+                this.disciplinas = [];
                 querySnapshot.forEach((doc) => {
                     this.disciplinas.push(doc.data())
                 })
@@ -44,11 +54,14 @@ export const useDbStore = defineStore('dbStore', {
     async addDisciplina(item){
         this.load = true
         try {
+            const uid = await userStore.user.uid
             const objetoDisciplina = {
                 nome: item,
-                id: nanoid(6)
+                id: nanoid(6),
+                user: uid
             }
             const docRef = await addDoc(collection(db, 'disciplinas'), objetoDisciplina)
+
         } catch (error) {
             console.log(error);
         }finally{

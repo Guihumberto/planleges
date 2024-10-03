@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <voltar link="/" />
-    <h1> <v-icon size="1.7rem" class="mr-2">mdi-tools</v-icon>Configurações</h1>
+    <h1 class="text-h5 ml-4"> <v-icon size="1.7rem" class="mr-2">mdi-book-open</v-icon>Meus Cadernos de Revisão</h1>
     <div class="content">
       <div>
         <disciplina />
@@ -14,13 +14,28 @@
 </template>
 
 <script setup>
+  import { onMounted  } from 'vue'
+  import { useRouter } from 'vue-router';
+  const router = useRouter()
+
   import { useDbStore } from '@/store/dbStore'
   const dbStore = useDbStore()
+  import { useRegisterStore } from '@/store/useRegisterStore'
+  const userStore = useRegisterStore()
+
+  dbStore.getDisciplinas()
+
   import disciplina from "@/components/planTools/disciplina.vue"
   import alerta from "@/components/planTools/Alert.vue"
   import conteudo from "@/components/planTools/conteudo.vue"
   import concurso from "@/components/planTools/concurso.vue"
-  //
+
+  onMounted(() => {
+    if(!userStore.user){
+      router.push('/')
+    }
+  })
+
 </script>
 
 <style scoped>

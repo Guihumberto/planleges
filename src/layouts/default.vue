@@ -17,7 +17,7 @@
   import { useRegisterStore } from '@/store/useRegisterStore'
   const userStore = useRegisterStore()
 
-  dbStore.getDisciplinas()
+  // dbStore.getDisciplinas()
   dbStore.getConcursos()
   dbStore.getConteudo()
   userStore.loadUserData()

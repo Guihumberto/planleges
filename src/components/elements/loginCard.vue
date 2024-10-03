@@ -54,9 +54,9 @@
             return{
                 login: true,
                 user:{
-                    name: 'João Humberto Silva Ribeiro Júnior',
-                    email: 'juninho.joao@hotmail.com',
-                    password: '123456'
+                    name: '',
+                    email: '',
+                    password: ''
                 },
                 show: false
             }

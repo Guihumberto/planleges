@@ -19,7 +19,9 @@
 <script>
     import { useDbStore } from '@/store/dbStore'
     const dbStore = useDbStore()
+
     import dialogD from "@/components/planTools/dialogs/incDisciplina.vue"
+    
     export default {
         components:{
             dialogD

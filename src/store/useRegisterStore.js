@@ -9,7 +9,8 @@ import { useRevStore } from "@/store/revStore";
 export const useRegisterStore = defineStore('registerStore', {
   state: () => ({
     user: null,
-    load: false
+    load: false,
+    userData: null
   }),
   getter:{
     readUser(){
@@ -22,13 +23,13 @@ export const useRegisterStore = defineStore('registerStore', {
         try {
             const { user } = await createUserWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
+            this.saveUserData()
             router.push('/config')
         } catch (error) {
             console.log(error);
         } finally{
             this.load = false
         }
-
     },
     async loginUser(userLogin){
         this.load = true
@@ -54,6 +55,7 @@ export const useRegisterStore = defineStore('registerStore', {
         try {
             await signOut(auth)
             this.user = null
+            localStorage.removeItem('userDataRev');
             router.push('/')
         } catch (error) {
             console.log(error);
@@ -75,19 +77,28 @@ export const useRegisterStore = defineStore('registerStore', {
         })
     },
     saveUserData() {
-      localStorage.setItem('userData', JSON.stringify(this.user));
+      localStorage.setItem('userDataRev', JSON.stringify(this.user));
     },
     loadUserData() {
-      const data = localStorage.getItem('userData');
+      const data = localStorage.getItem('userDataRev');
       if (data) {
           const login = {
               email: JSON.parse(data).email,
               uid: JSON.parse(data).uid
           }
-          if(login.login) {
+          if(login.email) {
             this.user = {email: login.email, uid: login.uid}
-          }
+        }
       }
-    }
+    },
+    async fetchUser() {
+        this.load = true;
+        this.userData = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({ id: 1, name: 'João' });
+          }, 2000); // Simulação de 1 segundo
+        });
+        this.load = false;
+    },
   }
 })

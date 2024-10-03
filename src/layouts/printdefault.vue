@@ -11,7 +11,7 @@
   import { useDbStore } from '@/store/dbStore'
   const dbStore = useDbStore()
 
-  dbStore.getDisciplinas()
+  // dbStore.getDisciplinas()
   dbStore.getConcursos()
   dbStore.getConteudo()
 </script>
