@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { auth } from '@/firebaseConfig'
+import { addDoc, collection } from 'firebase/firestore'
+import { auth, db } from '@/firebaseConfig'
 import router from '@/router'
 
 import { useRevStore } from "@/store/revStore";
@@ -24,6 +25,7 @@ export const useRegisterStore = defineStore('registerStore', {
             const { user } = await createUserWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
+            this.addUsers()
             router.push('/config')
         } catch (error) {
             console.log(error);
@@ -99,6 +101,22 @@ export const useRegisterStore = defineStore('registerStore', {
           }, 2000); // Simulação de 1 segundo
         });
         this.load = false;
+    },
+    async addUsers(){
+        this.load = true
+        try {
+            const objetoUser = {
+                name: this.user.email.split('@')[0],
+                email: this.user.email,
+                uid: this.user.uid
+            }
+            await addDoc(collection(db, 'usuarios'), objetoUser)
+
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
     },
   }
 })

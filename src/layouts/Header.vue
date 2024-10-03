@@ -2,9 +2,16 @@
     <div class="wrapperHeader">
         <div class="container">
             <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
-            <div>
-                <v-btn v-if="!!useStore.user" @click="logout" flat variant="text" color="red" title="sair" icon="mdi-logout"></v-btn>
-                <router-link class="link" v-else to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
+            <div class="d-flex align-center">
+                <div class="links" v-if="!!useStore.user">
+                    <router-link to="/config" class="link">Criar</router-link>
+                    <router-link to="/config" class="link">Revisar</router-link>
+                    <router-link to="/metas" class="link">Metas</router-link>
+                </div>
+                <div>
+                    <v-btn v-if="!!useStore.user" @click="logout" flat variant="text" title="sair" icon="mdi-logout"></v-btn>
+                    <router-link class="link" v-else to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -48,5 +55,11 @@
 }
 .link:hover{
     color: rgb(172, 172, 238);
+}
+.links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 </style>

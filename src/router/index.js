@@ -32,6 +32,16 @@ const routes = [
         name: 'RevisaoPDF',
         component: () => import('@/pages/revisaoPDF.vue'),
       },
+      {
+        path: '/metas',
+        name: 'Metas',
+        component: () => import('@/pages/metas.vue'),
+      },
+      {
+        path: '/metas/elaborar/:id',
+        name: 'Elaborar',
+        component: () => import('@/pages/elaborarMeta.vue'),
+      },
     ],
   },
   {
@@ -42,11 +52,6 @@ const routes = [
         path: '',
         name: 'RevisaoPrint',
         component: () => import('@/pages/revisaoPrint.vue'),
-      },
-      {
-        path: '/teste',
-        name: 'teste',
-        component: () => import('@/pages/teste.vue'),
       },
     ],
   },
