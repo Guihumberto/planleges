@@ -1,6 +1,7 @@
 <template>
     <div>
-        <v-btn color="success" variant="flat" @click="dialog = true" prepend-icon="mdi-plus">
+        <v-btn variant="text" icon="mdi-pencil" v-if="tipo == 2" @click="dialog = true"></v-btn>
+        <v-btn v-else color="success" variant="flat" @click="dialog = true" prepend-icon="mdi-plus">
             Adicionar Tarefa
         </v-btn>
         <v-dialog
@@ -143,18 +144,26 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, inject } from 'vue'
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
+
+const tipo = inject("tipo")
 
 import  { useMetaStore  } from '@/store/useMetaStore'
 const metaStore = useMetaStore()
 
 const dialog = ref(false)
 
+const props = defineProps({
+    taskEdit: Object
+})
+
 onMounted( async () => {
-    // disciplinas.value = await metaStore.getDisciplinas()
+    if(tipo == 2){
+        task.value = { ...props.taskEdit }
+    }
 })
 
 const typeSelect = computed(() => {
@@ -226,7 +235,17 @@ const clear = () => {
     }
 }
 
+const editar_task  = () => {
+    metaStore.editar_task(task.value)
+    dialog.value = false
+    clear()
+}
+
 const addTask = () => {
+    if(tipo == 2) {
+        editar_task()
+        return
+    } 
     task.value.id_meta = route.params.id
     task.value.nro_task = nro_task.value
 

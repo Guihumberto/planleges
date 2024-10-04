@@ -13,6 +13,8 @@
                 </template>
                 <template v-slot:append>
                     <div class="d-flex align-center justify-center">
+                        <AddTarefa :taskEdit="item" />
+                        <v-btn @click="deleteTask(item.id)" icon="mdi-delete" color="error" variant="text"></v-btn>
                         <v-btn @click="item.details = !item.details" icon="mdi-information" variant="text"></v-btn>
                         <v-checkbox @click="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox>
                         <v-checkbox @click="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox>
@@ -42,12 +44,17 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, provide } from 'vue'
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
 
+const tipo = 2
+
+provide('tipo', tipo)
+
 import  { useMetaStore  } from '@/store/useMetaStore'
+import AddTarefa from './addTarefa.vue';
 const metaStore = useMetaStore()
 
 const details = ref(false)
@@ -80,8 +87,12 @@ const concluirTask = (item) => {
     metaStore.concluirTask(item)
 }
 
-const concluirRev= (item) => {
+const concluirRev = (item) => {
     metaStore.concluirRev(item)
+}
+
+const deleteTask = (id) => {
+    metaStore.deleteTask(id)
 }
 
 </script>

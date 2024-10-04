@@ -256,6 +256,33 @@ export const useMetaStore = defineStore('metaStore', {
         }finally{
             this.load = false
         }
-    }
+    },
+    async editar_task(item){
+        this.load = true
+        try {
+            const docRef = doc(db, 'tarefas', item.id)
+            const docSpan = await getDoc(docRef)
+
+            if(!docSpan.exists()) {
+                throw new Error("nao existe doc")
+            }
+            await updateDoc(docRef, item)
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    },
+    async deleteTask(item){
+        this.load = true
+        try {
+            const docRef = doc(db, 'tarefas', item)
+            await deleteDoc(docRef)
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    },
   }
 })
