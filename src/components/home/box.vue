@@ -1,64 +1,27 @@
 <template>
     <div>
         <div class="my-5 d-flex align-center justify-space-between mx-1">
-            <h1>Home</h1>
-            <v-autocomplete
-                :items="listDisciplinas"
-                label="Filtro"
-                variant="outlined"
-                density="compact"
-                style="max-width: 350px;"
-                v-model="disciplina"
-                hide-details
-                clearable
-            ></v-autocomplete>
+            <h1 class="text-h4">Revisão Estudo da Lei</h1>
         </div>
         <div class="content">
             <listDisciplinas class="listDisciplinas" />
             <div class="groupBox">
-                <div class="box" v-for="item, i in conteudo" :key="i" v-if="conteudo.length">
-                    <h2 class="d-flex align-center"> <v-icon size="x-small" class="mr-1">mdi-arrow-right-thick</v-icon>{{ item.disciplina }}</h2>
-                    <p class="ml-7" :title="item.name"> {{ item.name }} </p>
+                <LoginCard v-if="!userStore.user.uid"/>
+                <div v-else>
+                    Olá, {{ userStore.user.email }} <br>
+                    Você está conectado!!
                 </div>
-                <alerta text="Não há conteúdo cadastrado nesta disciplina" v-else />
             </div>
         </div>
     </div>
     
 </template>
 
-<script>
-    import alerta from "@/components/planTools/Alert.vue"
+<script setup>
+    import { useRegisterStore } from '@/store/useRegisterStore'
+    const userStore = useRegisterStore()
 
-    import { useDbStore } from '@/store/dbStore'
-    const dbStore = useDbStore()
-    
 
-    export default {
-        data(){
-            return{
-                disciplina: null
-            }
-        },
-        components:{
-            alerta
-        },
-        computed:{
-            conteudo(){
-                const disciplina = dbStore.readDisciplinaSel
-                let listDisciplinas = dbStore.readConteudo 
-                if(this.disciplina){
-                    listDisciplinas = listDisciplinas.filter(x => x.disciplina == this.disciplina)
-                }
-
-                return listDisciplinas
-            },
-            listDisciplinas(){      
-                let list = dbStore.readDisciplinas.map(x => x.nome)
-                return list
-            }
-        }
-    }
 </script>
 
 <style lang="scss" scoped>
@@ -86,10 +49,8 @@
 .groupBox{
     width: 80%;
     display: flex;
-    justify-content: left;
-    align-items:flex-start;
-    flex-wrap: wrap;
-    gap: .5rem;
+    justify-content: center;
+    align-items:center
     
 }
 .box{
