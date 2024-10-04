@@ -57,7 +57,7 @@ onMounted( () => {
 })
 
 const tasks = computed(() => {
-    return metaStore.tarefas 
+    return metaStore.tarefas.sort((a, b) => a.nro_task - b.nro_task);
 })
 
 const disciplinas = computed(()=> {

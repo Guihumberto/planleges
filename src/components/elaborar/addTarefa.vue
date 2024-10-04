@@ -5,7 +5,7 @@
         </v-btn>
         <v-dialog
             v-model="dialog"
-            width="auto"
+            width="800px"
         >
             <v-card>
                 <v-card-title>Adicionar Tarefa</v-card-title>
@@ -167,7 +167,11 @@ const add_orientacao = (evento) => {
     text_orientacao.value = evento
 }   
 
-const nro_task = ref(1)
+const nro_task = computed(()=> {
+    // let nro = metaStore.metas.value.length
+    let nro = metaStore.tarefas.length + 1
+    return nro
+})
 
 const disciplinas = computed(()=> {
     return metaStore.disciplinas

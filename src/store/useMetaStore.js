@@ -34,6 +34,7 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 9, name: 'Administração Financeira Orçamentária'},
         {id: 10, name: 'Administração Pública'},
         {id: 11, name: 'Administração GEral'},
+        {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [
         {id:1, name: 'Vídeo', icon: 'mdi-video-box', color: "red"},
