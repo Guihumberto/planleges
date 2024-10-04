@@ -11,8 +11,7 @@
                     <v-icon>mdi-account</v-icon>
                 </template>
                 <template v-slot:append>
-                   <v-switch @click="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>
-                   <v-btn variant="text" color="primary" icon="mdi-chevron-right" @click="$router.push(`/metas/elaborar/${item.id}`)"></v-btn>
+                   <v-btn variant="text" color="primary" icon="mdi-chevron-right" @click="$router.push(`/metas/user/${item.id}`)"></v-btn>
                 </template>
                 {{ item.meta }} 
             </v-list-item>
@@ -32,17 +31,12 @@
     const selected = ref('')
 
     const list_metas = computed(()=> {
-        return metaStore.metas.sort((a, b) => { a.meta - b.meta})
+        return metaStore.metas.filter(x => x.show).sort((a, b) => { a.meta - b.meta})
     })
 
     const selectUser = computed(()=> {
         return metaStore.selected
     })
-
-    const liberarMeta = (item) => {
-        metaStore.liberarMeta(item)
-    }
-
 </script>
 
 <style lang="scss" scoped>

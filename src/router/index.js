@@ -43,9 +43,14 @@ const routes = [
         component: () => import('@/pages/elaborarMeta.vue'),
       },
       {
-        path: '/metas/user/:uid',
-        name: 'Metasuser',
+        path: '/metas/user',
+        name: 'listmetas',
         component: () => import('@/pages/metasUser.vue'),
+      },
+      {
+        path: '/metas/user/:id',
+        name: 'mostrar',
+        component: () => import('@/pages/userMeta.vue'),
       },
     ],
   },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Formulario</h2>
+        <h2>Selecione o Mentorando</h2>
         <v-list>
             <v-list-item 
                 v-for="item, i in list_mentorandos" :key="i" 

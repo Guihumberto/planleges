@@ -3,19 +3,22 @@
       <voltar link="/" />
       <h1 class="text-h5 ml-4"> <v-icon size="1.7rem" class="mr-2">mdi-finance</v-icon>Metas</h1>
       <div class="content">
-        <forms />
-        <listMetas />
+        <listMetasUser />
       </div>
     </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+  import  { useMetaStore  } from '@/store/useMetaStore'
+  const metaStore = useMetaStore()
+
+  import { useRegisterStore } from '@/store/useRegisterStore'
+  const useStore = useRegisterStore()
 
 
-onMounted(()=> {
-
-})
+  onMounted(()=> {
+    metaStore.selectedUser(useStore.user.uid)
+  })
 </script>
 
 <style lang="scss" scoped>

@@ -238,5 +238,23 @@ export const useMetaStore = defineStore('metaStore', {
             this.load = false
         }
     },
+    async liberarMeta(item){
+        this.load = true
+        try {
+            const docRef = doc(db, 'metas', item.id)
+            const docSpan = await getDoc(docRef)
+
+            if(!docSpan.exists()) {
+                throw new Error("nao existe doc")
+            }
+            await updateDoc(docRef, {
+                show: item.show,
+            })
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    }
   }
 })

@@ -20,15 +20,18 @@
                 </template>
                 <h3> Tarefa {{i+1}} - <span :class="item.task_done ? 'taxado' : ''"> {{ get_disciplina(item.id_disciplina) }}</span></h3>
                 <span :class="item.task_done ? 'taxado' : ''">{{ item.subject }}</span> <br>
-                <div class="mt-5" v-if="item.details">
-                    <span v-if="item.link" ><span class="font-weight-bold">Atividade:</span> {{ item.task_description }}</span> <br v-if="item.link" />
-                    <span v-if="item.link"><span class="font-weight-bold">Link do arquivo:</span> {{ item.link }}</span>
+                <div class="mt-3" v-if="item.details">
                     <div v-if="item.type == 4" class="mb-5">
                         <p v-if="item.caderno_qtoes"><span class="font-weight-bold">Caderno de Questões:</span> {{ item.caderno_qtoes }}</p>
-                        <p v-if="item.caderno_qtoes"><span class="font-weight-bold">Quantidade de Questões:</span> {{ item.qtd_questoes }}</p>
-                        <p v-if="item.caderno_qtoes"><span class="font-weight-bold">Banca/Tipo de Questões:</span> {{ item.banca }}/{{ item.tipo_qtoes }}</p>
+                        <p v-if="item.qtd_questoes"><span class="font-weight-bold">Quantidade de Questões:</span> {{ item.qtd_questoes }}</p>
+                        <p v-if="item.banca"><span class="font-weight-bold">Banca/Tipo de Questões:</span> {{ item.banca }}/{{ item.tipo_qtoes }}</p>
                     </div>
-                    <div v-if="item.text_orientacao">
+                    <div>
+                        <span v-if="item.task_description" ><span class="font-weight-bold">Atividade:</span> {{ item.task_description }}</span> <br v-if="item.task_description" />
+                        <span v-if="item.law" ><span class="font-weight-bold">Norma/Lei:</span> {{ item.law }}</span> <br v-if="item.law" />
+                        <span v-if="item.link"><span class="font-weight-bold">Link do arquivo:</span> {{ item.link }}</span>
+                    </div>
+                    <div v-if="item.text_orientacao" class="mt-3">
                         <h3>Orientação</h3>
                         <p v-html="item.text_orientacao"></p>
                     </div>
