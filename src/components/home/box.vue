@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="my-5 d-flex align-center justify-space-between mx-1">
-            <h1 class="text-h4">Revisão Estudo da Lei</h1>
+            <h1 class="text-h5">Revisão Estudo da Lei</h1>
         </div>
         <div class="content">
             <listDisciplinas class="listDisciplinas" />

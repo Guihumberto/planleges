@@ -5,7 +5,7 @@
     <div class="content">
       <div>
         <disciplina />
-        <concurso />
+        <!-- <concurso /> -->
       </div>
       <conteudo v-if="dbStore.readDisciplinaSel" class="conteudo" />
       <alerta v-else text="Selecione uma disciplina" variant="outlined" />

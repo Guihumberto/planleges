@@ -4,7 +4,7 @@
             <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
             <div class="d-flex align-center">
                 <div class="links" v-if="!!useStore.user">
-                    <router-link to="/config" class="link">Criar</router-link>
+                    <!-- <router-link to="/config" class="link">Criar</router-link> -->
                     <router-link to="/config" class="link">Revisar</router-link>
                     <router-link to="/metas/user" class="link">Metas</router-link>
                 </div>
@@ -61,5 +61,10 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+@media (max-width:500px) {
+    .title{
+        font-size: 1rem;
+    }
 }
 </style>

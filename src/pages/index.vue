@@ -47,7 +47,7 @@
 
 <style lang="scss" scoped>
 .container{
-  width: min(100vw, 1080px);
+  width: min(98%, 1070px);
   margin: 0.5rem;
   margin-inline: auto;
   border: 1px solid rgb(224, 215, 215);

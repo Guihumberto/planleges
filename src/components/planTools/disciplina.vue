@@ -5,7 +5,7 @@
             label="Disciplina"
             variant="outlined"
             density="compact"
-            style="width: 400px;"
+            style="max-width: 400px;"
             v-model.trim="disciplina"
             clearable
         >
