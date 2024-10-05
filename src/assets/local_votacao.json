@@ -1,0 +1,1214 @@
+[
+  {
+    "id": 1,
+    "secao": 302,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 2,
+    "secao": 334,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 3,
+    "secao": 38,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 4,
+    "secao": 39,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 5,
+    "secao": 40,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 6,
+    "secao": 41,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 7,
+    "secao": 42,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 8,
+    "secao": 43,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 9,
+    "secao": 44,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 10,
+    "secao": 45,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 11,
+    "secao": 301,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 12,
+    "secao": 337,
+    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
+    "zona": 37
+  },
+  {
+    "id": 13,
+    "secao": 376,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 14,
+    "secao": 377,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 15,
+    "secao": 378,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 16,
+    "secao": 379,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 17,
+    "secao": "380/",
+    "local": "IEP-INST.EDUC.DE PINHEIRO (CAIC)",
+    "zona": 37
+  },
+  {
+    "id": 18,
+    "secao": 381,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 19,
+    "secao": 382,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 20,
+    "secao": 383,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 21,
+    "secao": "384/433",
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 22,
+    "secao": 385,
+    "local": "IEP-INST.EDUC.DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 23,
+    "secao": 400,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 24,
+    "secao": 401,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 25,
+    "secao": 402,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 26,
+    "secao": 403,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 27,
+    "secao": 404,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 28,
+    "secao": 405,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 29,
+    "secao": 406,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 30,
+    "secao": 435,
+    "local": "UNID.ESC.PRESIDENTE MÉDICI",
+    "zona": 37
+  },
+  {
+    "id": 31,
+    "secao": 212,
+    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
+    "zona": 37
+  },
+  {
+    "id": 32,
+    "secao": 269,
+    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
+    "zona": 37
+  },
+  {
+    "id": 33,
+    "secao": 292,
+    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
+    "zona": 37
+  },
+  {
+    "id": 34,
+    "secao": 311,
+    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
+    "zona": 37
+  },
+  {
+    "id": 35,
+    "secao": 323,
+    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
+    "zona": 37
+  },
+  {
+    "id": 36,
+    "secao": 439,
+    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
+    "zona": 37
+  },
+  {
+    "id": 37,
+    "secao": 386,
+    "local": "ESC.DILÚ FREITAS- Bubalina",
+    "zona": 37
+  },
+  {
+    "id": 38,
+    "secao": 387,
+    "local": "ESC.DILÚ FREITAS- Bubalina",
+    "zona": 37
+  },
+  {
+    "id": 39,
+    "secao": 388,
+    "local": "ESC.DILÚ FREITAS-Bubalina",
+    "zona": 37
+  },
+  {
+    "id": 40,
+    "secao": 432,
+    "local": "ESC.DILÚ FREITAS- Bubalina",
+    "zona": 37
+  },
+  {
+    "id": 41,
+    "secao": 1,
+    "local": "CÂMARA MUNICIPAL",
+    "zona": 37
+  },
+  {
+    "id": 42,
+    "secao": "91/134",
+    "local": "CÂMARA MUNICIPAL",
+    "zona": 37
+  },
+  {
+    "id": 43,
+    "secao": "003/12",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 44,
+    "secao": "004/08",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 45,
+    "secao": "11/002/09",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 46,
+    "secao": "13/005º/10º",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 47,
+    "secao": "94º",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 48,
+    "secao": "278º/19º/101",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 49,
+    "secao": "279/277/289",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 50,
+    "secao": "281º/147º/283º",
+    "local": "COLÉGIO PINHEIRENSE",
+    "zona": 37
+  },
+  {
+    "id": 51,
+    "secao": 20,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 52,
+    "secao": 21,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 53,
+    "secao": 26,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 54,
+    "secao": 27,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 55,
+    "secao": 28,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 56,
+    "secao": 29,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 57,
+    "secao": 92,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 58,
+    "secao": 118,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 59,
+    "secao": 129,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 60,
+    "secao": 327,
+    "local": "C.E JOSÉ DE ANCHIETA",
+    "zona": 37
+  },
+  {
+    "id": 61,
+    "secao": 34,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 62,
+    "secao": 35,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 63,
+    "secao": 36,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 64,
+    "secao": 37,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 65,
+    "secao": 95,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 66,
+    "secao": 104,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 67,
+    "secao": 216,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 68,
+    "secao": 222,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 69,
+    "secao": 324,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 70,
+    "secao": 335,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 71,
+    "secao": 434,
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 72,
+    "secao": "446º",
+    "local": "C.E DOM UNGARELLI",
+    "zona": 37
+  },
+  {
+    "id": 73,
+    "secao": 46,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 74,
+    "secao": 47,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 75,
+    "secao": 48,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 76,
+    "secao": 49,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 77,
+    "secao": 50,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 78,
+    "secao": 51,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 79,
+    "secao": 52,
+    "local": "ESC.MUN.PEDRO LOBATO",
+    "zona": 37
+  },
+  {
+    "id": 80,
+    "secao": 444,
+    "local": "ESC.DILÚ FREITAS- Bubalina",
+    "zona": 37
+  },
+  {
+    "id": 81,
+    "secao": "447º",
+    "local": "ESC.DILÚ FREITAS- Bubalina",
+    "zona": 37
+  },
+  {
+    "id": 82,
+    "secao": 234,
+    "local": "ESC.MUN. ALNIR LIMA SOARES- Vila Filuca",
+    "zona": 37
+  },
+  {
+    "id": 83,
+    "secao": 286,
+    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
+    "zona": 37
+  },
+  {
+    "id": 84,
+    "secao": 326,
+    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
+    "zona": 37
+  },
+  {
+    "id": 85,
+    "secao": 443,
+    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
+    "zona": 37
+  },
+  {
+    "id": 86,
+    "secao": 450,
+    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
+    "zona": 37
+  },
+  {
+    "id": 87,
+    "secao": 197,
+    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
+    "zona": 37
+  },
+  {
+    "id": 88,
+    "secao": 265,
+    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
+    "zona": 37
+  },
+  {
+    "id": 89,
+    "secao": 297,
+    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
+    "zona": 37
+  },
+  {
+    "id": 90,
+    "secao": 333,
+    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
+    "zona": 37
+  },
+  {
+    "id": 91,
+    "secao": 215,
+    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
+    "zona": 37
+  },
+  {
+    "id": 92,
+    "secao": 223,
+    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
+    "zona": 37
+  },
+  {
+    "id": 93,
+    "secao": 287,
+    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
+    "zona": 37
+  },
+  {
+    "id": 94,
+    "secao": 440,
+    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
+    "zona": 37
+  },
+  {
+    "id": 95,
+    "secao": "348/349",
+    "local": "UNID.ESC.ODORICO MENDES",
+    "zona": 37
+  },
+  {
+    "id": 96,
+    "secao": "350/351",
+    "local": "UNID.ESC.ODORICO MENDES",
+    "zona": 37
+  },
+  {
+    "id": 97,
+    "secao": "352/353",
+    "local": "UNID.ESC.ODORICO MENDES",
+    "zona": 37
+  },
+  {
+    "id": 98,
+    "secao": "354/355",
+    "local": "UNID.ESC.ODORICO MENDES",
+    "zona": 37
+  },
+  {
+    "id": 99,
+    "secao": "356/357",
+    "local": "UNID.ESC.ODORICO MENDES",
+    "zona": 37
+  },
+  {
+    "id": 100,
+    "secao": 22,
+    "local": "UNID.ESC.MARIA PAIVA ABREU-Campinho",
+    "zona": 37
+  },
+  {
+    "id": 101,
+    "secao": 23,
+    "local": "UNID.ESC.MARIA PAIVA ABREU-Campinho",
+    "zona": 37
+  },
+  {
+    "id": 102,
+    "secao": 328,
+    "local": "UNID.ESC.MARIA PAIVA ABREU-Campinho",
+    "zona": 37
+  },
+  {
+    "id": 103,
+    "secao": "423/424/425",
+    "local": "ESC.MUN. INAH RÊGO",
+    "zona": 37
+  },
+  {
+    "id": 104,
+    "secao": "426/427º/428",
+    "local": "ESC.MUN. INAH RÊGO",
+    "zona": 37
+  },
+  {
+    "id": 105,
+    "secao": "429/430/431º",
+    "local": "ESC.MUN. INAH RÊGO",
+    "zona": 37
+  },
+  {
+    "id": 106,
+    "secao": 407,
+    "local": "JARDIM DE INFÂCIA PEQ.PRÍNCIPE- Matriz",
+    "zona": 37
+  },
+  {
+    "id": 107,
+    "secao": 408,
+    "local": "JARDIM DE INFÂCIA PEQ.PRÍNCIPE - Matriz",
+    "zona": 37
+  },
+  {
+    "id": 108,
+    "secao": 409,
+    "local": "JARDIM DE INFÂCIA PEQ.PRÍNCIPE- Matriz",
+    "zona": 37
+  },
+  {
+    "id": 109,
+    "secao": "125/114",
+    "local": "ESC.MUN.DOM RICARDO -  Associação Comercial",
+    "zona": 37
+  },
+  {
+    "id": 110,
+    "secao": "139/148",
+    "local": "ESC.MUN.DOM RICARDO  - Associação Comercial",
+    "zona": 37
+  },
+  {
+    "id": 111,
+    "secao": 319,
+    "local": "ESC.MUN.DOM RICARDO -  Associação Comercial",
+    "zona": 37
+  },
+  {
+    "id": 112,
+    "secao": 288,
+    "local": "ESC.MUN.AURELINA CATARINA AMORIM- Ilha de Leonor",
+    "zona": 37
+  },
+  {
+    "id": 113,
+    "secao": 315,
+    "local": "ESC.MUN.AURELINA CATARINA AMORIM- Ilha de Leonor",
+    "zona": 37
+  },
+  {
+    "id": 114,
+    "secao": 389,
+    "local": "ESC. MUN.CONCITA VIEGAS",
+    "zona": 37
+  },
+  {
+    "id": 115,
+    "secao": 441,
+    "local": "ESC. MUN.CONCITA VIEGAS",
+    "zona": 37
+  },
+  {
+    "id": 116,
+    "secao": "420/419",
+    "local": "SIND.DOS TRAB.RURAIS DE PINHEIRO/ shopping do\npovo",
+    "zona": 37
+  },
+  {
+    "id": 117,
+    "secao": "421/422",
+    "local": "SIND.DOS TRAB.RURAIS DE PINHEIRO",
+    "zona": 37
+  },
+  {
+    "id": 118,
+    "secao": 395,
+    "local": "ESC.MUN.WALTER ABREU- Enseada",
+    "zona": 37
+  },
+  {
+    "id": 119,
+    "secao": 396,
+    "local": "ESC.MUN.WALTER ABREU- Enseada",
+    "zona": 37
+  },
+  {
+    "id": 120,
+    "secao": 448,
+    "local": "ESC.MUN.WALTER ABREU- Enseada",
+    "zona": 37
+  },
+  {
+    "id": 121,
+    "secao": 57,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 122,
+    "secao": 58,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 123,
+    "secao": 59,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
+    "zona": 37
+  },
+  {
+    "id": 124,
+    "secao": 60,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
+    "zona": 37
+  },
+  {
+    "id": 125,
+    "secao": "61/452",
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas/Boa vista",
+    "zona": 37
+  },
+  {
+    "id": 126,
+    "secao": 62,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
+    "zona": 37
+  },
+  {
+    "id": 127,
+    "secao": 63,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
+    "zona": 37
+  },
+  {
+    "id": 128,
+    "secao": 64,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
+    "zona": 37
+  },
+  {
+    "id": 129,
+    "secao": 308,
+    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
+    "zona": 37
+  },
+  {
+    "id": 130,
+    "secao": 108,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 131,
+    "secao": 126,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 132,
+    "secao": 137,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 133,
+    "secao": 151,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 134,
+    "secao": 224,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 135,
+    "secao": 310,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 136,
+    "secao": 331,
+    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 137,
+    "secao": "340/",
+    "local": "JARDIM DE INFÂNCIA MIRTES PAIVA -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 138,
+    "secao": 341,
+    "local": "JARDIM DE INFÂNCIA MIRTES PAIVA -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 139,
+    "secao": 342,
+    "local": "JARDIM DE INFÂNCIA MIRTES PAIVA -Pacas",
+    "zona": 37
+  },
+  {
+    "id": 140,
+    "secao": 237,
+    "local": "ESC.MUN.M QUITÉRIA CERVEIRA- M.Novo",
+    "zona": 37
+  },
+  {
+    "id": 141,
+    "secao": 303,
+    "local": "ESC.MUN.M QUITÉRIA CERVEIRA- M.Novo",
+    "zona": 37
+  },
+  {
+    "id": 142,
+    "secao": "336/455",
+    "local": "ESC.MUN.M QUITÉRIA CERVEIRA-\nM.Novo/Pampilhosa",
+    "zona": 37
+  },
+  {
+    "id": 143,
+    "secao": 343,
+    "local": "ESC.MUN.ALBINO PAIVA –  Pov.São Caetano",
+    "zona": 37
+  },
+  {
+    "id": 144,
+    "secao": "344º",
+    "local": "ESC.MUN.ALBINO PAIVA –  Pov.São Caetano",
+    "zona": 37
+  },
+  {
+    "id": 145,
+    "secao": "345º/453",
+    "local": "ESC.MUN.ALBINO PAIVA –  Pov.São Caetano/Tingidor",
+    "zona": 37
+  },
+  {
+    "id": 146,
+    "secao": "390/391",
+    "local": "ESC.MUN. DR.ANTENOR ABREU – Bandeira Branca",
+    "zona": 37
+  },
+  {
+    "id": 147,
+    "secao": "375373/374\n438",
+    "local": "ESC.MUN.ROBSON DAS F.OLIVEIRA- Tiquireiro",
+    "zona": 37
+  },
+  {
+    "id": 148,
+    "secao": "370/371/372\n/437",
+    "local": "ESC.MUN.JOSÉ PAULO ALVIM- Pedrinhas dos Araújos",
+    "zona": 37
+  },
+  {
+    "id": 149,
+    "secao": "309/317",
+    "local": "ESC.MUN.RAIMUNDO CELINO ARAUJO-Pov.P.dos\nAraújos",
+    "zona": 37
+  },
+  {
+    "id": 150,
+    "secao": "072/226",
+    "local": "ESC.MUN.LUÍS CARLOS LEITE- Pov. Juçaral",
+    "zona": 37
+  },
+  {
+    "id": 151,
+    "secao": "073/152",
+    "local": "ESC.MUN.LUÍS CARLOS LEITE- Pov. Juçaral",
+    "zona": 37
+  },
+  {
+    "id": 152,
+    "secao": 74,
+    "local": "ESC.MUN.LUÍS CARLOS LEITE- Pov. Juçaral",
+    "zona": 37
+  },
+  {
+    "id": 153,
+    "secao": 235,
+    "local": "ESC.MUN.RAIMUNDO CARVALHO - Pov. Sto.Antônio",
+    "zona": 37
+  },
+  {
+    "id": 154,
+    "secao": 264,
+    "local": "ESC.MUN.RAIMUNDO CARVALHO - Pov.Sto.Antônio",
+    "zona": 37
+  },
+  {
+    "id": 155,
+    "secao": 305,
+    "local": "ESC.MUN.RAIMUNDO CARVALHO - Pov. Sto.Antônio",
+    "zona": 37
+  },
+  {
+    "id": 156,
+    "secao": 338,
+    "local": "ESC.MUN.RAIMUNDO CARVALHO-  Pov. Sto.Antônio",
+    "zona": 37
+  },
+  {
+    "id": 157,
+    "secao": "284/295",
+    "local": "ESC.MUN.AFONSO PAIVA- Pov.Fortaleza",
+    "zona": 37
+  },
+  {
+    "id": 158,
+    "secao": "312/322",
+    "local": "ESC.MUN.AFONSO PAIVA-Pov. Fortaleza",
+    "zona": 37
+  },
+  {
+    "id": 159,
+    "secao": 454,
+    "local": "ESC.MUN.RAIMUNDO ARAÚJO-  Pov.Purãozinho",
+    "zona": 37
+  },
+  {
+    "id": 160,
+    "secao": 298,
+    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov.Côco",
+    "zona": 37
+  },
+  {
+    "id": 161,
+    "secao": 321,
+    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov. Côco",
+    "zona": 37
+  },
+  {
+    "id": 162,
+    "secao": 304,
+    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov. Côco",
+    "zona": 37
+  },
+  {
+    "id": 163,
+    "secao": 442,
+    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov. Côco",
+    "zona": 37
+  },
+  {
+    "id": 164,
+    "secao": 392,
+    "local": "ESC.MUN.E.COSTA RODRIGUES- Pov.Porão dos Pirrós",
+    "zona": 37
+  },
+  {
+    "id": 165,
+    "secao": "394/393",
+    "local": "ESC.MUN.E.COSTA RODRIGUES- Pov.Porão dos Pirrós",
+    "zona": 37
+  },
+  {
+    "id": 166,
+    "secao": "306/332",
+    "local": "ESC.MUN.AMÉLIA CAMPOS- Pov.Santana dos pretos",
+    "zona": 37
+  },
+  {
+    "id": 167,
+    "secao": 272,
+    "local": "ESC.MUN.AMÉLIA CAMPOS- Pov.Santana dos pretos",
+    "zona": 37
+  },
+  {
+    "id": 168,
+    "secao": 75,
+    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
+    "zona": 37
+  },
+  {
+    "id": 169,
+    "secao": 76,
+    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
+    "zona": 37
+  },
+  {
+    "id": 170,
+    "secao": 77,
+    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
+    "zona": 37
+  },
+  {
+    "id": 171,
+    "secao": 78,
+    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
+    "zona": 37
+  },
+  {
+    "id": 172,
+    "secao": 127,
+    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
+    "zona": 37
+  },
+  {
+    "id": 173,
+    "secao": "266/457",
+    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
+    "zona": 37
+  },
+  {
+    "id": 174,
+    "secao": 367,
+    "local": "ESC. MUN.ABRAÃO CARDOSO- Pov.Ponta de Santana",
+    "zona": 37
+  },
+  {
+    "id": 175,
+    "secao": 368,
+    "local": "ESC. MUN.ABRAÃO CARDOSO- Pov.Ponta de Santana",
+    "zona": 37
+  },
+  {
+    "id": 176,
+    "secao": 369,
+    "local": "ESC. MUN.ABRAÃO CARDOSO- Pov.Ponta de Santana",
+    "zona": 37
+  },
+  {
+    "id": 177,
+    "secao": 415,
+    "local": "ESC.JOÃO RAIMUNDO NUNES- Pov.Nova P. Branca",
+    "zona": 37
+  },
+  {
+    "id": 178,
+    "secao": 436,
+    "local": "ESC.JOÃO RAIMUNDO NUNES- Pov.Nova P. Branca",
+    "zona": 37
+  },
+  {
+    "id": 179,
+    "secao": 346,
+    "local": "ESC.MUN.NENROD SILVA- Pov. Ponta Branca",
+    "zona": 37
+  },
+  {
+    "id": 180,
+    "secao": 347,
+    "local": "ESC.MUN.NENROD SILVA- Pov. Ponta Branca",
+    "zona": 37
+  },
+  {
+    "id": 181,
+    "secao": 339,
+    "local": "UNIDADE DE SAUDE DA AVE MARIA- Pov. Gama",
+    "zona": 37
+  },
+  {
+    "id": 182,
+    "secao": 366,
+    "local": "ESC.MUN.JOSÉ GABRIEL FERREIRA- Pov. Boa União",
+    "zona": 37
+  },
+  {
+    "id": 183,
+    "secao": 416,
+    "local": "ESC.MUN.CONC.DE M VIEGAS MENDES- Pov.Urucuzal",
+    "zona": 37
+  },
+  {
+    "id": 184,
+    "secao": "411/410",
+    "local": "ESC.MUN.GETÚLIO VARGAS-  Pov. Gama",
+    "zona": 37
+  },
+  {
+    "id": 185,
+    "secao": "414/413",
+    "local": "ESC.MUN.GETÚLIO VARGAS - Pov. Gama",
+    "zona": 37
+  },
+  {
+    "id": 186,
+    "secao": 412,
+    "local": "ESC.MUN.GETÚLIO VARGAS-  Pov. Gama",
+    "zona": 37
+  },
+  {
+    "id": 187,
+    "secao": 417,
+    "local": "ESC.MUN.ALEXANDRE GOMES- Pov. Sta. Sofia",
+    "zona": 37
+  },
+  {
+    "id": 188,
+    "secao": 418,
+    "local": "ESC.MUN.ALEXANDRE GOMES- Pov. Sta. Sofia",
+    "zona": 37
+  },
+  {
+    "id": 189,
+    "secao": 363,
+    "local": "ESC.MUN.TEREZINHA LEITE- Pov. Pirinã",
+    "zona": 37
+  },
+  {
+    "id": 190,
+    "secao": 364,
+    "local": "ESC.MUN.TEREZINHA LEITE- Pov. Pirinã",
+    "zona": 37
+  },
+  {
+    "id": 191,
+    "secao": 365,
+    "local": "ESC.MUN.TEREZINHA LEITE- Pov. Pirinã",
+    "zona": 37
+  },
+  {
+    "id": 192,
+    "secao": 399,
+    "local": "ESC.MUN.SINHAZINHA FERREIRA- Pov. Madeira",
+    "zona": 37
+  },
+  {
+    "id": 193,
+    "secao": 449,
+    "local": "ESC.MUN.SINHAZINHA FERREIRA- Pov. Madeira",
+    "zona": 37
+  },
+  {
+    "id": 194,
+    "secao": 358,
+    "local": "ESC.MUN.ROMUALDO FERREIRA - Pov. Bom Viver",
+    "zona": 37
+  },
+  {
+    "id": 195,
+    "secao": 359,
+    "local": "ESC.MUN.ROMUALDO FERREIRA - Pov. Bom Viver",
+    "zona": 37
+  },
+  {
+    "id": 196,
+    "secao": 360,
+    "local": "ESC.MUN.ROMUALDO FERREIRA - Pov. Bom Viver",
+    "zona": 37
+  },
+  {
+    "id": 197,
+    "secao": 361,
+    "local": "ESC.MUN.ROMUALDO FERREIRA-  Pov. Bom Viver",
+    "zona": 37
+  },
+  {
+    "id": 198,
+    "secao": 362,
+    "local": "ESC.MUN.ROMUALDO FERREIRA- Pov. Bom Viver",
+    "zona": 37
+  },
+  {
+    "id": 199,
+    "secao": 451,
+    "local": "ESC.MUN.ROMUALDO FERREIRA- Pov. Bom Viver",
+    "zona": 37
+  },
+  {
+    "id": 200,
+    "secao": 397,
+    "local": "ESC.MUN.JOSÉ GOMES JUNIOR- Pov, Campo Novo",
+    "zona": 37
+  },
+  {
+    "id": 201,
+    "secao": "398/456",
+    "local": "ESC.MUN.JOSÉ GOMES JUNIOR- Pov.Campo Novo",
+    "zona": 37
+  },
+  {
+    "id": 202,
+    "secao": 445,
+    "local": "UPR DE PINHEIRO",
+    "zona": 37
+  }
+]
