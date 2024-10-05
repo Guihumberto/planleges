@@ -13,7 +13,7 @@
             ></v-text-field>
             <div>
                 <v-list>
-                    <v-subheader> Total: {{ lista_locais.length }} seções</v-subheader>
+                    <v-subheader> Total: {{ lista_locais.length }} seções <span v-if="search"> - Resultados: {{ list_filtred.length }}</span></v-subheader>
                     <v-list-item v-for="item, i in list_filtred" :key="i" link class="bg-purple-lighten-5 mb-2">
                         <template v-slot:prepend>
                             <v-icon>mdi-pin-outline</v-icon>
@@ -28,6 +28,9 @@
 
                     </v-list-item>
                 </v-list>
+                <div class="text-center">
+                    <v-btn @click="limit +=5" v-if="limit <= list_filtred.length">Carregar Mais</v-btn>
+                </div>
             </div>
         </div>
     </div>
@@ -37,6 +40,8 @@ import Detalheslocal from '@/components/eleicao/detalheslocal.vue';
 import { computed, onMounted, ref } from 'vue'
 
 const search = ref(null)
+
+const limit = ref(10)
 
 const lista_locais = ref([])
 
@@ -77,10 +82,10 @@ const list_filtred = computed(()=> {
 
             // Verifica se o termo de busca está contido em "secao" ou "local"
             return secao.includes(termoBusca) || local.includes(termoBusca);
-        });
+        })
     }
 
-    return list
+    return list.sort((a, b) => a.secao - b.secao).slice(0, limit.value)
 })
 
 
