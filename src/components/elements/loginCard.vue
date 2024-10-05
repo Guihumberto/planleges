@@ -1,8 +1,8 @@
 <template>
-    <v-card class="cardLogin pb-5" flat variant="tonal" max-width="400px">
+    <v-card color="blue-grey-lighten-5" class="cardLogin pb-5" flat variant="flat" max-width="400px">
         <v-card-title class="d-flex justify-space-between my-5 appear">
             <h3 v-text="isLogin.title"></h3>
-            <v-btn flat @click="login = !login">{{ login ? 'Criar Conta' : 'Login' }}</v-btn>
+            <v-btn variant="text" @click="login = !login">{{ login ? 'Criar Conta' : 'Login' }}</v-btn>
         </v-card-title>
         <v-card-text>
             <v-form @submit.prevent="createUser">

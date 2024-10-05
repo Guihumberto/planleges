@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <voltar link="/" />
+      <voltar link="/" class="ml-3"/>
       <h1 class="text-h5 ml-4"> <v-icon size="1.7rem" class="mr-2">mdi-finance</v-icon>Metas</h1>
       <div class="content">
         <listMetasUser />
@@ -15,10 +15,12 @@
   import { useRegisterStore } from '@/store/useRegisterStore'
   const useStore = useRegisterStore()
 
-
-  onMounted(()=> {
+  const carregarMetaUser = () => {
     metaStore.selectedUser(useStore.user.uid)
-  })
+  }
+
+  carregarMetaUser()
+  
 </script>
 
 <style lang="scss" scoped>

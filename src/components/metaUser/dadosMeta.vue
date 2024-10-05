@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5" v-if="!load">
+    <div class="mb-5" v-if="metaStore.meta?.meta">
         <h1 class="text-h5"><v-icon class="mr-2" size="1.8rem">mdi-calendar</v-icon>{{ metaStore.meta.meta }}</h1>
         <p>Período: {{ formatDate(metaStore.meta.date_start) }} a {{ formatDate(metaStore.meta.data_end) }}</p>
         <p>Data da elaboração: {{ formatarDataTimestamp(metaStore.meta.date_created) }}</p>
@@ -7,7 +7,6 @@
             <h3>Texto Inicial</h3>
             <p v-html="metaStore.meta.text_init"></p>
         </div>
-        
     </div>
 </template>
 
@@ -25,15 +24,15 @@ onMounted(async ()=>{
     await metaStore.getMeta(route.params.id)
     setTimeout(()=> {
         load.value = false
-    }, 2000) 
+    }, 1000) 
 })
 
 const formatDate =(data) => {
     try {
         const partes = data.split('-'); // Divide a data em partes
-    const dia = partes[2]; // Dia
-    const mes = partes[1]; // Mês
-    const ano = partes[0]; // Ano
+        const dia = partes[2]; // Dia
+        const mes = partes[1]; // Mês
+        const ano = partes[0]; // Ano
     
     return `${dia}/${mes}/${ano}`; // Retorna no formato DD/MM/AAAA
     } catch (erro) {

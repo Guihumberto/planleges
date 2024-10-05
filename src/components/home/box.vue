@@ -6,7 +6,7 @@
         <div class="content">
             <listDisciplinas class="listDisciplinas" />
             <div class="groupBox">
-                <LoginCard v-if="!userStore.user.uid"/>
+                <LoginCard v-if="!userStore.user?.uid"/>
                 <div v-else>
                     Olá, {{ userStore.user.email }} <br>
                     Você está conectado!!
@@ -20,8 +20,7 @@
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
-
-
+    
 </script>
 
 <style lang="scss" scoped>

@@ -1,7 +1,6 @@
 <template>
     <div>
         <h3>Lista de tarefas</h3>
-        <p>vincular com a revisao</p>
         <v-list>
             <v-list-item
                 v-for="item, i in tasks" :key="i" link
@@ -13,14 +12,13 @@
                 </template>
                 <template v-slot:append>
                     <div class="d-flex align-center justify-center">
-                        <AddTarefa :taskEdit="item" />
-                        <v-btn @click="deleteTask(item.id)" icon="mdi-delete" color="error" variant="text"></v-btn>
+                        <AddTarefa class="hidden" :taskEdit="item" />
                         <v-btn @click="item.details = !item.details" icon="mdi-information" variant="text"></v-btn>
                         <v-checkbox @click="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox>
                         <v-checkbox @click="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox>
                     </div>
                 </template>
-                <h3> Tarefa {{i+1}} - <span :class="item.task_done ? 'taxado' : ''"> {{ get_disciplina(item.id_disciplina) }}</span></h3>
+                <h3 class="titleTask"> Tarefa {{i+1}} - <span :class="item.task_done ? 'taxado' : ''"> {{ get_disciplina(item.id_disciplina) }}</span></h3>
                 <span :class="item.task_done ? 'taxado' : ''">{{ item.subject }}</span> <br>
                 <div class="mt-3" v-if="item.details">
                     <div v-if="item.type == 4" class="mb-5">
@@ -54,7 +52,6 @@ const tipo = 2
 provide('tipo', tipo)
 
 import  { useMetaStore  } from '@/store/useMetaStore'
-import AddTarefa from './addTarefa.vue';
 const metaStore = useMetaStore()
 
 const details = ref(false)
@@ -91,10 +88,6 @@ const concluirRev = (item) => {
     metaStore.concluirRev(item)
 }
 
-const deleteTask = (id) => {
-    metaStore.deleteTask(id)
-}
-
 </script>
 
 <style lang="scss" scoped>
@@ -102,6 +95,9 @@ const deleteTask = (id) => {
   text-decoration: line-through;
 }
 @media (max-width:500px) {
+    .titleTask{
+        font-size: 1em;
+    }
     .hidden{
         display: none;
     }

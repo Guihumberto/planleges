@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-      <voltar link="/metas/user" />
+      <voltar link="/metas/user" class="ml-3" />
       <div class="content">
         <DadosMeta />
-        <ListTarefas />
+        <ListTarefasUser />
       </div>
     </div>
 </template>
