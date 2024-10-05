@@ -3,7 +3,7 @@
         <h3>{{ get_meta.meta }}</h3>
 
         <div v-if="get_meta?.date_created && !edit">
-            <h3>Período: {{ get_meta.date_start }} a {{ get_meta.data_end }} 
+            <h3>Período: {{ formatDate(get_meta.date_start) }} a {{ formatDate(get_meta.data_end) }} 
                 <v-btn @click="editMetas()" color="primary" variant="text" density="compact" icon="mdi-pencil"></v-btn>
             </h3>
             <p>Criado dia: {{ formatarDataTimestamp(get_meta.date_created) }}</p>
@@ -53,6 +53,8 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router';
+import { useDateNow } from '@/composables/useDateNow'
+import { useDateFormat } from '@/composables/useDateFormat'
 
 const route = useRoute()
 
@@ -98,17 +100,8 @@ const clear = () => {
     }
 }
 
-const formatarDataTimestamp = (timestamp) => {
-    const data = new Date(timestamp); // Cria um objeto Date com o timestamp
-
-    const dia = String(data.getDate()).padStart(2, '0'); // Obtém o dia e garante que tenha 2 dígitos
-    const mes = String(data.getMonth() + 1).padStart(2, '0'); // Obtém o mês (0-11) e adiciona 1
-    const ano = data.getFullYear(); // Obtém o ano
-    const horas = String(data.getHours()).padStart(2, '0'); // Obtém as horas
-    const minutos = String(data.getMinutes()).padStart(2, '0'); // Obtém os minutos
-
-    return `${dia}/${mes}/${ano} ${horas}:${minutos}`; // Retorna a data formatada
-}
+const formatarDataTimestamp = (timestamp) => useDateNow(timestamp)
+const formatDate = (item) => useDateFormat(item)
 
 
 </script>

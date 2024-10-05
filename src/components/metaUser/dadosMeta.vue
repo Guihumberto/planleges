@@ -11,8 +11,10 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router';
+import { useDateFormat } from '@/composables/useDateFormat'
+import { useDateNow } from '@/composables/useDateNow'
 
 const route = useRoute()
 const load = ref(true)
@@ -27,31 +29,8 @@ onMounted(async ()=>{
     }, 1000) 
 })
 
-const formatDate =(data) => {
-    try {
-        const partes = data.split('-'); // Divide a data em partes
-        const dia = partes[2]; // Dia
-        const mes = partes[1]; // Mês
-        const ano = partes[0]; // Ano
-    
-    return `${dia}/${mes}/${ano}`; // Retorna no formato DD/MM/AAAA
-    } catch (erro) {
-        return ''
-    }
-    
-}
-
-const formatarDataTimestamp = (timestamp) => {
-    const data = new Date(timestamp); // Cria um objeto Date com o timestamp
-
-    const dia = String(data.getDate()).padStart(2, '0'); // Obtém o dia e garante que tenha 2 dígitos
-    const mes = String(data.getMonth() + 1).padStart(2, '0'); // Obtém o mês (0-11) e adiciona 1
-    const ano = data.getFullYear(); // Obtém o ano
-    const horas = String(data.getHours()).padStart(2, '0'); // Obtém as horas
-    const minutos = String(data.getMinutes()).padStart(2, '0'); // Obtém os minutos
-
-    return `${dia}/${mes}/${ano} ${horas}:${minutos}`; // Retorna a data formatada
-}
+const formatDate = (item) => useDateFormat(item)
+const formatarDataTimestamp = (timestamp) => useDateNow(timestamp)
 
 
 

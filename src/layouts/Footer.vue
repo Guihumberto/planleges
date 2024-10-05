@@ -1,7 +1,7 @@
 <template>
     <div class="text-center">
         <h3>Revisão Leges</h3>
-        <p>João Humberto</p>
+        <p>Desenvolvido e idealizado por João Humberto</p>
     </div>
 </template>
 

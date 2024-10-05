@@ -12,7 +12,6 @@
                 </template>
                 <template v-slot:append>
                     <div class="d-flex align-center justify-center">
-                        <AddTarefa class="hidden" :taskEdit="item" />
                         <v-btn @click="item.details = !item.details" icon="mdi-information" variant="text"></v-btn>
                         <v-checkbox @click="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox>
                         <v-checkbox @click="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox>
