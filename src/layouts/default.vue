@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+
   import DefaultView from './View.vue'
   import HeaderONe from './Header.vue'
   import FooterONe from './Footer.vue'
@@ -15,12 +16,15 @@
   import { useDbStore } from '@/store/dbStore'
   const dbStore = useDbStore()
   import { useRegisterStore } from '@/store/useRegisterStore'
+  import { onMounted } from 'vue';
   const userStore = useRegisterStore()
 
   // dbStore.getDisciplinas()
-  dbStore.getConcursos()
-  dbStore.getConteudo()
-  userStore.loadUserData()
+  onMounted(async()=> {
+    await userStore.loadUserData()
+    dbStore.getConteudo()
+    dbStore.getConcursos()
+  })
 </script>
 
 <style>

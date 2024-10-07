@@ -4,9 +4,9 @@
         <v-list v-if="listConteudo.length" density="compact">
             <v-list-item 
                 @click="confirm(item.idU)"
-                v-for="item, i in listConteudo" :key="i" link class="bg-grey mb-1">
-                <template v-slot:prepend>
-                    <v-icon>mdi-book</v-icon>
+                v-for="item, i in listConteudo" :key="i" link class="bg-grey-lighten-2 mb-1">
+                <template v-slot:append>
+                    <v-icon>mdi-link</v-icon>
                 </template>
                 {{ item.name }}
             </v-list-item>

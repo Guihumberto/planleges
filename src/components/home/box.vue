@@ -1,17 +1,11 @@
 <template>
     <div>
-        <div class="my-5 d-flex align-center justify-space-between mx-1">
-            <h1 class="text-h5">Revisão Estudo da Lei</h1>
-        </div>
         <div class="content">
-            <listDisciplinas class="listDisciplinas" />
             <div class="groupBox">
+                <h1 class="text-h5 mb-10">Revisão Estudo da Lei</h1>
                 <LoginCard v-if="!userStore.user?.uid"/>
-                <div v-else>
-                    Olá, {{ userStore.user.email }} <br>
-                    Você está conectado!!
-                </div>
             </div>
+            <listDisciplinas v-if="userStore.user?.uid" class="listDisciplinas" />
         </div>
     </div>
     
@@ -46,11 +40,12 @@
     }
 }
 .groupBox{
-    width: 80%;
+    width: 100%;
+    height: 70vh;
     display: flex;
     justify-content: center;
-    align-items:center
-    
+    align-items:center;
+    flex-direction: column;
 }
 .box{
     display: flex;

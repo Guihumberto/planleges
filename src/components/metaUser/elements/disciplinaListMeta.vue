@@ -2,6 +2,7 @@
     <div class="forms">
         <v-select
             :items="listDisciplinas"
+            label="Disciplina"
             item-title="nome"
             item-value="nome"
             variant="outlined"

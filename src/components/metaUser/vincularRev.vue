@@ -1,5 +1,5 @@
 <template>
-    <v-btn @click.stop="dialog = true" title="Vincular a Revisão" variant="text" density="comfortable" icon="mdi-alpha-r-box"></v-btn>
+    <v-btn color="primary"@click.stop="dialog = true" title="Vincular a Revisão" variant="text" density="comfortable" icon="mdi-alpha-r-box"></v-btn>
     <v-dialog
       v-model="dialog"
       width="auto"

@@ -28,16 +28,14 @@
   import { useDbStore } from '@/store/dbStore'
   const dbStore = useDbStore()
   import { useRegisterStore } from '@/store/useRegisterStore'
-  const userStore = useRegisterStore()
-
-  dbStore.getDisciplinas()
-
-  
+  const userStore = useRegisterStore()  
 
   onMounted(() => {
     if(!userStore.user){
       router.push('/')
     }
+    dbStore.getDisciplinas()
+
   })
 
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="" style="min-height: 60vh;">
+        <div>
             <box />
         </div>
     </div>
