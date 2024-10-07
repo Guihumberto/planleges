@@ -17,7 +17,7 @@
                 {{ item.name }} - {{ item.email }}
             </v-list-item>
         </v-list>
-        <v-form @submit.prevent="createMeta()" v-if="selected">
+        <v-form @submit.prevent="createMeta()" v-if="selected" ref="form">
             <div class="text-h6 mb-2">Criar Meta</div>
             <v-text-field
                 label="Nome da Meta"
@@ -26,6 +26,7 @@
                 placeholder="Exemplo: Semana 01"
                 v-model="name_meta"
                 clearable
+                :rules="[rules.required, rules.minfield]"
             >
             <template v-slot:append>
                 <v-btn type="submit" variant="flat" color="primary">Criar</v-btn>
@@ -38,6 +39,13 @@
 <script setup>
     import { computed, ref, watch } from 'vue'
 
+    const form = ref(null)
+
+    const rules = {
+        required: value => !!value || "campo obrigatório", 
+        minfield: (v) => (v||'').length >= 3 || "Mínimo 4 caracteres",
+    }
+
     import  { useMetaStore  } from '@/store/useMetaStore'
     const metaStore = useMetaStore()
 
@@ -46,9 +54,12 @@
     const name_meta = ref('')
     const selected = ref('')
 
-    const createMeta = () => {
-        metaStore.addMeta({user:selected.value, meta: name_meta.value})
-        name_meta.value = ''
+    const createMeta = async () => {
+        const { valid } = await form.value.validate()
+        if(valid){
+            metaStore.addMeta({user:selected.value, meta: name_meta.value})
+            name_meta.value = ''
+        } 
     }
 
     const list_mentorandos = computed(()=> {

@@ -6,20 +6,22 @@
             :append-icon="show_orientacao ? 'mdi-chevron-down' : 'mdi-chevron-right'">
         Adicionar orientação</v-btn>
         <div v-if="show_orientacao" class="mt-3">
-            <v-form @submit.prevent="save()">
+            <v-form @submit.prevent="save()" ref="form">
                 <v-text-field
                     label="Título"
                     placeholder="Título da da orientação"
                     variant="outlined"
                     density="compact"
                     v-model="orientacao.title"
+                    :rules="[rules.required, rules.minfield]"
                 ></v-text-field>
                 <v-textarea
                     label="Texto da orientação"
                     placeholder="Digite um texto da orientação"
                     variant="outlined"
                     density="compact"
-                     v-model="orientacao.text"
+                    v-model="orientacao.text"
+                    :rules="[rules.required, rules.minfield]"
                 ></v-textarea>
                 <v-checkbox v-model="save_next" @click="save_next = !save_next" label="Salvar texto"></v-checkbox>
                 <v-btn variant="text" @click="show_orientacao = false">Cancelar</v-btn>
@@ -44,6 +46,13 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue';
+
+const form = ref(null)
+
+const rules = {
+    required: value => !!value || "campo obrigatório", 
+    minfield: (v) => (v||'').length >= 3 || "Mínimo 4 caracteres",
+}
 
 import  { useMetaStore  } from '@/store/useMetaStore'
 const metaStore = useMetaStore()
@@ -84,11 +93,14 @@ const enviaOrientacao = (objeto) => {
     emit('text_orientacao', objeto)
 }
 
-const save = () => {
-    enviaOrientacao(orientacao.value)
-    if(save_next.value) saveDB()
-    clear()
-    show_orientacao.value = false
+const save = async () => {
+    const { valid } = await form.value.validate()
+    if(valid){
+        enviaOrientacao(orientacao.value)
+        if(save_next.value) await saveDB()
+        clear()
+        show_orientacao.value = false
+    }
 }
 
 const saveDB = () => {

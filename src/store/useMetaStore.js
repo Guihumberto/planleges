@@ -185,6 +185,17 @@ export const useMetaStore = defineStore('metaStore', {
             this.load = false
         }
     },
+    async deleteMeta(item){
+        this.load = true
+        try {
+            const docRef = doc(db, 'metas', item)
+            await deleteDoc(docRef)
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    },
     async getTask(item){
         this.load = true
         try {

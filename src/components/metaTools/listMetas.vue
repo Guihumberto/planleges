@@ -5,14 +5,14 @@
             <v-list-item 
                 v-for="item, i in list_metas" :key="i" 
                 class="mb-1 bg-indigo-lighten-4" link
-                @click="selected = item.id"
+                @click="$router.push(`/metas/elaborar/${item.id}`)"
             >
                 <template v-slot:prepend>
                     <v-icon>mdi-account</v-icon>
                 </template>
                 <template v-slot:append>
                    <v-switch @click="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>
-                   <v-btn variant="text" color="primary" icon="mdi-chevron-right" @click="$router.push(`/metas/elaborar/${item.id}`)"></v-btn>
+                   <DialogConfirm :id="item.id" :dialogText="dialogText" />
                 </template>
                 {{ item.meta }} 
             </v-list-item>
@@ -32,7 +32,11 @@
     const selected = ref('')
 
     const list_metas = computed(()=> {
-        return metaStore.metas.sort((a, b) => { a.meta - b.meta})
+        return metaStore.metas.sort((a, b) => {
+            if (a.meta < b.meta) return 1;
+            if (a.meta > b.meta) return -1;
+            return 0;
+        })
     })
 
     const selectUser = computed(()=> {
@@ -42,6 +46,14 @@
     const liberarMeta = (item) => {
         metaStore.liberarMeta(item)
     }
+
+    const dialogText = ref({
+        title: 'Apagar Meta',
+        text: 'Confirmar a remoção da meta?',
+        color: 'red',
+        icon: 'mdi-delete',
+        type: 1
+    })
 
 </script>
 

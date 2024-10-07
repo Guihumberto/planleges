@@ -14,8 +14,8 @@
                 <template v-slot:append>
                     <div class="d-flex align-center justify-center">
                         <AddTarefa :taskEdit="item" />
-                        <v-btn @click="deleteTask(item.id)" icon="mdi-delete" color="error" variant="text"></v-btn>
-                        <v-btn @click="item.details = !item.details" icon="mdi-information" variant="text"></v-btn>
+                        <DialogConfirm :id="item.id" :dialogText="dialogText" />
+                        <v-btn @click="item.details = !item.details" icon="mdi-information" color="grey-lighten-1" variant="text"></v-btn>
                         <v-checkbox @click="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox>
                         <v-checkbox @click="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox>
                     </div>
@@ -24,14 +24,14 @@
                 <span :class="item.task_done ? 'taxado' : ''">{{ item.subject }}</span> <br>
                 <div class="mt-3" v-if="item.details">
                     <div v-if="item.type == 4" class="mb-5">
-                        <p v-if="item.caderno_qtoes"><span class="font-weight-bold">Caderno de Questões:</span> {{ item.caderno_qtoes }}</p>
+                        <p v-if="item.caderno_qtoes"><span class="font-weight-bold">Caderno de Questões: </span><a :href="item.caderno_qtoes" target="_blank" rel="noopener noreferrer">Clique aqui</a></p>
                         <p v-if="item.qtd_questoes"><span class="font-weight-bold">Quantidade de Questões:</span> {{ item.qtd_questoes }}</p>
                         <p v-if="item.banca"><span class="font-weight-bold">Banca/Tipo de Questões:</span> {{ item.banca }}/{{ item.tipo_qtoes }}</p>
                     </div>
                     <div>
                         <span v-if="item.task_description" ><span class="font-weight-bold">Atividade:</span> {{ item.task_description }}</span> <br v-if="item.task_description" />
                         <span v-if="item.law" ><span class="font-weight-bold">Norma/Lei:</span> {{ item.law }}</span> <br v-if="item.law" />
-                        <span v-if="item.link"><span class="font-weight-bold">Link do arquivo:</span> {{ item.link }}</span>
+                        <span v-if="item.link"><span class="font-weight-bold">Link do arquivo: </span> <a :href="item.link" target="_blank" rel="noopener noreferrer">Clique aqui</a></span>
                     </div>
                     <div v-if="item.text_orientacao" class="mt-3">
                         <h3>Orientação</h3>
@@ -80,7 +80,7 @@ const type_study = computed(()=> {
 })
 
 const get_stydy = (id) => {
-    return type_study.value.find(x => x.id == id).icon
+    return type_study.value.find(x => x.id == id)
 }
 
 const concluirTask = (item) => {
@@ -91,9 +91,13 @@ const concluirRev = (item) => {
     metaStore.concluirRev(item)
 }
 
-const deleteTask = (id) => {
-    metaStore.deleteTask(id)
-}
+const dialogText = ref({
+        title: 'Apagar Tarefa',
+        text: 'Confirmar a remoção da tarefa?',
+        color: 'red',
+        icon: 'mdi-delete',
+        type: 2
+    })
 
 </script>
 

@@ -8,7 +8,7 @@
             </h3>
             <p>Criado dia: {{ formatarDataTimestamp(get_meta.date_created) }}</p>
             <div class="bg-grey pa-2 my-2">
-                <p>{{ get_meta.text_init }}</p>
+                <p v-html="get_meta.text_init"></p>
             </div>
         </div>
         <v-form @submit.prevent="save()" class="my-5 border pa-5" v-else>
@@ -51,12 +51,16 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, provide } from 'vue'
 import { useRoute } from 'vue-router';
 import { useDateNow } from '@/composables/useDateNow'
 import { useDateFormat } from '@/composables/useDateFormat'
 
 const route = useRoute()
+
+const tipo = 1
+
+provide('tipo', tipo)
 
 import  { useMetaStore  } from '@/store/useMetaStore'
 const metaStore = useMetaStore()
