@@ -56,6 +56,9 @@ export const useMetaStore = defineStore('metaStore', {
     },
     readOrientacoes(){
         return this.orientacoes
+    },
+    readLoad(){
+        return this.load
     }
   },
   actions:{
@@ -270,6 +273,13 @@ export const useMetaStore = defineStore('metaStore', {
     },
     async editar_task(item){
         this.load = true
+        const tarefa = {...item}
+        tarefa.date_update = Date.now()
+        delete tarefa.date_created
+        delete tarefa.id
+        delete tarefa.details
+
+
         try {
             const docRef = doc(db, 'tarefas', item.id)
             const docSpan = await getDoc(docRef)
@@ -277,7 +287,7 @@ export const useMetaStore = defineStore('metaStore', {
             if(!docSpan.exists()) {
                 throw new Error("nao existe doc")
             }
-            await updateDoc(docRef, item)
+            await updateDoc(docRef, tarefa)
         } catch (error) {
             console.log(error);
         }finally{

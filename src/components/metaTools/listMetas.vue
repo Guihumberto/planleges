@@ -11,7 +11,7 @@
                     <v-icon>mdi-account</v-icon>
                 </template>
                 <template v-slot:append>
-                   <v-switch @click="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>
+                   <v-switch @click.stop="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>
                    <DialogConfirm :id="item.id" :dialogText="dialogText" />
                 </template>
                 {{ item.meta }} 

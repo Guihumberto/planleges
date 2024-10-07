@@ -30,7 +30,11 @@
     const selected = ref('')
 
     const list_metas = computed(()=> {
-        return metaStore.metas.filter(x => x.show).sort((a, b) => { a.meta - b.meta})
+        return metaStore.metas.filter(x => x.show).sort((a, b) => {
+            if (a.meta < b.meta) return 1;
+            if (a.meta > b.meta) return -1;
+            return 0;
+        })
     })
 
     const selectUser = computed(()=> {
