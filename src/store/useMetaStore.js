@@ -109,7 +109,7 @@ export const useMetaStore = defineStore('metaStore', {
     async getMeta(idMeta){
         this.load = true
         try {
-            await onSnapshot(doc(db, 'metas', idMeta), (doc) => {
+                await onSnapshot(doc(db, 'metas', idMeta), (doc) => {
                 this.meta = {id:doc.id, ...doc.data()}
             })
         } catch (error) {
@@ -279,6 +279,7 @@ export const useMetaStore = defineStore('metaStore', {
         delete tarefa.id
         delete tarefa.details
 
+        console.log(tarefa);
 
         try {
             const docRef = doc(db, 'tarefas', item.id)

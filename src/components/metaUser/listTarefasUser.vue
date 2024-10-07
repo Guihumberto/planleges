@@ -1,6 +1,9 @@
 <template>
     <div>
-        <h3>Lista de tarefas</h3>
+        <h3 class="d-flex justify-space-between align-center">
+            Lista de tarefas
+            <v-btn :append-icon="concluidas? 'mdi-check':''" variant="text" density="compact" class="text-capitalize" @click="concluidas = !concluidas">ocultar concluídas</v-btn>
+        </h3>
         <p v-if="load">Carregando...</p>
         <v-list v-else>
             <v-list-item
@@ -14,7 +17,7 @@
                 </template>
                 <template v-slot:append>
                     <div class="d-flex align-center justify-center">
-                        <v-btn @click.stop="item.details = !item.details" icon="mdi-information" color="grey-lighten-1" variant="text"></v-btn>
+                        <VincularRev :task="item" />
                         <v-checkbox @click.stop="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox>
                         <v-checkbox @click.stop="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox>
                     </div>
@@ -51,6 +54,7 @@ const route = useRoute()
 
 const tipo = 2
 const load = ref(true)
+const concluidas = ref(false)
 
 provide('tipo', tipo)
 
@@ -66,7 +70,9 @@ onMounted( () => {
 })
 
 const tasks = computed(() => {
-    return metaStore.tarefas.sort((a, b) => a.nro_task - b.nro_task);
+    return concluidas.value 
+    ? metaStore.tarefas.filter(x => !x.task_done).sort((a, b) => a.nro_task - b.nro_task)
+    : metaStore.tarefas.sort((a, b) => a.nro_task - b.nro_task)
 })
 
 

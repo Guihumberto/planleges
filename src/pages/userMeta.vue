@@ -9,6 +9,14 @@
 </template>
 
 <script setup>
+  import { onMounted } from 'vue';
+
+  import { useDbStore } from '@/store/dbStore'
+  const dbStore = useDbStore()
+
+  onMounted(()=> {
+    dbStore.getDisciplinas()
+  })
 
 </script>
 

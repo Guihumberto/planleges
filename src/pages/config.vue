@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <voltar link="/" />
+    <voltar link="/" class="ml-3"/>
     <h1 class="text-h5 ml-4"> <v-icon size="1.7rem" class="mr-2">mdi-book-open</v-icon>Meus Cadernos de Revisão</h1>
     <div class="content">
       <div>
@@ -16,6 +16,13 @@
 <script setup>
   import { onMounted  } from 'vue'
   import { useRouter } from 'vue-router';
+
+  import disciplina from "@/components/planTools/disciplina.vue"
+  import alerta from "@/components/planTools/Alert.vue"
+  import conteudo from "@/components/planTools/conteudo.vue"
+  import concurso from "@/components/planTools/concurso.vue"
+
+  
   const router = useRouter()
 
   import { useDbStore } from '@/store/dbStore'
@@ -25,10 +32,7 @@
 
   dbStore.getDisciplinas()
 
-  import disciplina from "@/components/planTools/disciplina.vue"
-  import alerta from "@/components/planTools/Alert.vue"
-  import conteudo from "@/components/planTools/conteudo.vue"
-  import concurso from "@/components/planTools/concurso.vue"
+  
 
   onMounted(() => {
     if(!userStore.user){

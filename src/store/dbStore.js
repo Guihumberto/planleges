@@ -139,8 +139,13 @@ export const useDbStore = defineStore('dbStore', {
     },
     async getConteudo(){
         this.load = true
+        const userNewStore = useRegisterStore()
+        await userNewStore.fetchUser()
+        const uid = userNewStore.user.uid
+        
         try {
-            onSnapshot(collection(db, 'conteudo'), (querySnapshot) => {
+            const q = query(collection(db, 'conteudo'), where('uid_user', '==', uid));
+            onSnapshot(q, (querySnapshot) => {
                 this.conteudo = []
                 querySnapshot.forEach((doc) => {
                     this.conteudo.push({idU:doc.id, ...doc.data()})
@@ -155,13 +160,20 @@ export const useDbStore = defineStore('dbStore', {
     },
     async addConteudo(item){
         this.load = true
+        const userNewStore = useRegisterStore()
+        await userNewStore.fetchUser()
+        const uid = userNewStore.user.uid
         try {
             const objetoConteudo = {
                 name: item,
                 id: nanoid(6),
-                disciplina: this.disciplinaSelect
+                disciplina: this.disciplinaSelect, 
+                date_create: Date.now(),
+                uid_user: uid,
             }
+            console.log(objetoConteudo);
             const docRef = await addDoc(collection(db, 'conteudo'), objetoConteudo)
+            return docRef.id
         } catch (error) {
             console.log(error);
         } finally {

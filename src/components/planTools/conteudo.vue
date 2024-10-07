@@ -1,19 +1,22 @@
 <template>
     <div class="listConteudo">
         <h2 class="mb-2">Conteúdo</h2>
-        <v-text-field
-            label="Conteúdo"
-            placeholder="Digite o tópico do conteúdo"
-            variant="outlined"
-            density="compact"
-            v-model.trim="topico"
-            clearable
-            @keyup.enter="insertTopico"
-        >
-          <template v-slot:append>
-            <v-btn flat color="primary" @click="insertTopico">Inserir</v-btn>
-          </template>
-        </v-text-field>
+        <v-form ref="form" @click.prevent="insertTopico">
+          <v-text-field
+              label="Conteúdo"
+              placeholder="Digite o tópico do conteúdo"
+              variant="outlined"
+              density="compact"
+              v-model.trim="topico"
+              clearable
+              @keyup.enter="insertTopico"
+              :rules="[rules.required, rules.minfield]"
+          >
+            <template v-slot:append>
+              <v-btn flat color="primary" type="submit">Inserir</v-btn>
+            </template>
+          </v-text-field>
+        </v-form>
         <v-list lines="two" class="py-0" v-if="!!conteudo.length">
           <v-list-item 
             :value="item.idU" v-for="item, i in conteudo" ::key="i" 
@@ -107,6 +110,10 @@
             idDelete: null,
             idEdit: null,
             topicoEditText: null,
+            rules: {
+              required: value => !!value || "campo obrigatório", 
+              minfield: (v) => (v||'').length >= 3 || "Mínimo 4 caracteres",
+            }
           }
         },
         computed:{
@@ -119,9 +126,12 @@
           }
         },
         methods: {
-          insertTopico(){
-            dbStore.addConteudo(this.topico)
-            this.topico = ''
+          async insertTopico(){
+            const { valid } = await this.$refs.form.validate()
+            if(valid){   
+              dbStore.addConteudo(this.topico)
+              this.topico = ''
+            }
           },
           goTO(id){
             this.$router.push(`/revisao/${id}`)
