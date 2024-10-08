@@ -50,7 +50,7 @@ export const useMetaStore = defineStore('metaStore', {
         {id:3, name: 'Misturadas', icon: 'mdi-playlist-plus', color: "grey"}
     ]
   }),
-  getter:{
+  getters:{
     readMentorandos(){
         return this.mentorandos
     },

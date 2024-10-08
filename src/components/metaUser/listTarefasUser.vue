@@ -4,7 +4,7 @@
             Lista de tarefas
             <v-btn :append-icon="concluidas? 'mdi-check':''" variant="text" density="compact" class="text-capitalize" @click="concluidas = !concluidas">ocultar concluídas</v-btn>
         </h3>
-        <p v-if="load">Carregando...</p>
+        <p v-if="load && !metaStore.readLoad">Carregando...</p>
         <v-list v-else>
             <v-list-item
                 v-for="item, i in tasks" :key="i" link

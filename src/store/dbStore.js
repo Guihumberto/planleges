@@ -51,8 +51,15 @@ export const useDbStore = defineStore('dbStore', {
         }
         
     },
+    verifyDisciplinaExist(item){
+        const exist = this.readDisciplinas.find(x => x.nome == item)
+        return !!exist
+    },
     async addDisciplina(item){
         this.load = true
+
+        if(this.verifyDisciplinaExist(item)) return
+
         try {
             const uid = await userStore.user.uid
             const objetoDisciplina = {
@@ -171,7 +178,6 @@ export const useDbStore = defineStore('dbStore', {
                 date_create: Date.now(),
                 uid_user: uid,
             }
-            console.log(objetoConteudo);
             const docRef = await addDoc(collection(db, 'conteudo'), objetoConteudo)
             return docRef.id
         } catch (error) {

@@ -11,7 +11,7 @@
       >
         <v-card-text v-if="!task.notebook">
             <div v-if="!nbExist">
-                <p>Selecione uma disciplina e escola ou crie um caderno para vincular a tarefa a revisão.</p>
+                <p>Selecione uma disciplina e escolha ou crie um caderno para vincular a tarefa a revisão.</p>
                 <p class="my-5"><span class="font-weight-bold">Disciplina: </span>{{ get_disciplina(task.id_disciplina) }}</p>
                 <v-text-field
                   label="Tópico"
@@ -73,7 +73,10 @@
 
     const createNotebook = async () => {
         load.value = true
-        await dbStore.disciplinaSel(get_disciplina(props.task.id_disciplina))
+        const disciplinaName = get_disciplina(props.task.id_disciplina)
+
+        await dbStore.addDisciplina(disciplinaName)
+        await dbStore.disciplinaSel(disciplinaName)
         const id_nb = await dbStore.addConteudo(props.task.subject)
         props.task.notebook = id_nb
         metaStore.editar_task(props.task)
