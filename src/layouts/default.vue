@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+  import { onMounted } from 'vue';
 
   import DefaultView from './View.vue'
   import HeaderONe from './Header.vue'
@@ -16,14 +17,23 @@
   import { useDbStore } from '@/store/dbStore'
   const dbStore = useDbStore()
   import { useRegisterStore } from '@/store/useRegisterStore'
-  import { onMounted } from 'vue';
   const userStore = useRegisterStore()
 
-  // dbStore.getDisciplinas()
+  if ('navigation' in window && 'onpageshow' in window) {
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      location.reload();  // Recarrega a página ao sair do bfcache
+    }
+  });
+}
+
   onMounted(async()=> {
     await userStore.loadUserData()
-    dbStore.getConteudo()
-    dbStore.getConcursos()
+    if(userStore.user){
+      await dbStore.getDisciplinas()
+      dbStore.getConteudo()
+      // dbStore.getConcursos()
+    }
   })
 </script>
 

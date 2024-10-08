@@ -34,8 +34,6 @@
     if(!userStore.user){
       router.push('/')
     }
-    dbStore.getDisciplinas()
-
   })
 
 </script>

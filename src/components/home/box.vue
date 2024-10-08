@@ -4,6 +4,9 @@
             <div class="groupBox">
                 <h1 class="text-h5 mb-10">Revisão Estudo da Lei</h1>
                 <LoginCard v-if="!userStore.user?.uid"/>
+                <div v-else class="wrapper-last">
+                    <LastCards />
+                </div>
             </div>
             <listDisciplinas v-if="userStore.user?.uid" class="listDisciplinas" />
         </div>
@@ -22,7 +25,7 @@
     display: flex;
     justify-content: left;
     color: #212121;
-    gap: .5rem;
+    gap: 1rem;
 }
 .listDisciplinas{
     transition: 1s ease;
@@ -33,7 +36,6 @@
     }
     .groupBox{
         width: 100%;
-        justify-content: center;
     }
     .content{
         justify-content: center;
@@ -41,11 +43,14 @@
 }
 .groupBox{
     width: 100%;
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
-    justify-content: center;
+    justify-content: baseline;
     align-items:center;
     flex-direction: column;
+}
+.wrapper-last{
+    width: 100%;
 }
 .box{
     display: flex;

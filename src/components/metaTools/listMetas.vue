@@ -8,7 +8,7 @@
                 @click="$router.push(`/metas/elaborar/${item.id}`)"
             >
                 <template v-slot:prepend>
-                    <v-icon>mdi-account</v-icon>
+                    <v-icon>mdi-format-list-bulleted</v-icon>
                 </template>
                 <template v-slot:append>
                    <v-switch @click.stop="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, setDoc, doc } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 import router from '@/router'
 
@@ -26,7 +26,7 @@ export const useRegisterStore = defineStore('registerStore', {
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
             this.addUsers()
-            router.push('/config')
+            router.push('/home')
         } catch (error) {
             console.log(error);
         } finally{
@@ -40,7 +40,7 @@ export const useRegisterStore = defineStore('registerStore', {
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
             await this.getUserData()
-            router.push('/config')
+            router.push('/home')
         } catch (error) {
             console.log(error);
         } finally {
@@ -110,7 +110,7 @@ export const useRegisterStore = defineStore('registerStore', {
                 email: this.user.email,
                 uid: this.user.uid
             }
-            await addDoc(collection(db, 'usuarios'), objetoUser)
+            await setDoc(doc(db, 'usuarios', objetoUser.uid), objetoUser)
 
         } catch (error) {
             console.log(error);

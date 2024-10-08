@@ -1,23 +1,22 @@
 <template>
     <div>
         <h3>Lista de tarefas</h3>
-        <p>vincular com a revisao</p>
         <v-list>
             <v-list-item
                 v-for="item, i in tasks" :key="i" link
-                class=" mb-1"
+                class="mb-1"
+                @click="item.details = !item.details"
                 :class="item.task_done ? 'bg-blue-grey-lighten-4':'bg-blue-grey-lighten-5'"
             >
                 <template v-slot:prepend>
-                    <v-icon size="2rem">{{get_stydy(item.type)}}</v-icon>
+                    <v-icon size="2rem">{{get_stydy(item.type)?.icon}}</v-icon>
                 </template>
                 <template v-slot:append>
                     <div class="d-flex align-center justify-center">
                         <AddTarefa :taskEdit="item" />
                         <DialogConfirm :id="item.id" :dialogText="dialogText" />
-                        <v-btn @click="item.details = !item.details" icon="mdi-information" color="grey-lighten-1" variant="text"></v-btn>
-                        <v-checkbox @click="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox>
-                        <v-checkbox @click="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox>
+                        <!-- <v-checkbox @click="concluirTask(item)" title="concluir" color="success" v-model="item.task_done" hide-details></v-checkbox> -->
+                        <!-- <v-checkbox @click="concluirRev(item)" title="revisão" v-if="item.task_done" color="error" v-model="item.rev_done" hide-details></v-checkbox> -->
                     </div>
                 </template>
                 <h3> Tarefa {{i+1}} - <span :class="item.task_done ? 'taxado' : ''"> {{ get_disciplina(item.id_disciplina) }}</span></h3>

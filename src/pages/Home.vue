@@ -7,10 +7,20 @@
 </template>
 
 <script setup>
+    import { onMounted } from 'vue';
+
+    import { useDbStore } from '@/store/dbStore'
+    const dbStore = useDbStore()
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
 
-   
+    onMounted(async()=> {
+        await userStore.loadUserData()
+        if(userStore.user){
+            await dbStore.getDisciplinas()
+            dbStore.getConteudo()
+        }
+    })
 </script>
 
 <style lang="scss" scoped>

@@ -10,9 +10,8 @@
 </template>
 
 <script setup>
-import FormInit from '@/components/elaborar/formInit.vue';
-import ListTarefas from '@/components/elaborar/listTarefas.vue';
-
+  import { useMetaStore } from '@/store/useMetaStore';
+  const metaStore = useMetaStore()
 
 </script>
 

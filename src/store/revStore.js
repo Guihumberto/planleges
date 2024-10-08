@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid'
 
 import { useRegisterStore } from '@/store/useRegisterStore'
 
-
 export const useRevStore = defineStore('revStore', {
   state: () => ({
     listRevs: [],
@@ -17,7 +16,8 @@ export const useRevStore = defineStore('revStore', {
     markRevUser: [],
     loadCrud: false,
     favoritosList: [],
-    revMarkList: []
+    revMarkList: [],
+    listIdVinculados: []
   }),
   getters:{
     readTypes(){
@@ -256,6 +256,6 @@ export const useRevStore = defineStore('revStore', {
       } finally{
         this.loadCrud = false
       }
-    }
+    },
   },
 })
