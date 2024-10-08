@@ -279,8 +279,6 @@ export const useMetaStore = defineStore('metaStore', {
         delete tarefa.id
         delete tarefa.details
 
-        console.log(tarefa);
-
         try {
             const docRef = doc(db, 'tarefas', item.id)
             const docSpan = await getDoc(docRef)

@@ -35,7 +35,11 @@
         <v-card-text v-else>
             <div>
                 <p>Esta tarefa já possui um caderno de revisão vinculado a ela.</p>
+                <div class="bg-grey-lighten-3 pa-2 my-2" v-if="caderno?.name">
+                  {{ caderno.name }} ({{ caderno.disciplina }})
+                </div>
                 <router-link target="blank" :to="`/revisao/${task.notebook}`">Ir para o caderno de revisão vinculado</router-link>
+                <v-btn @click="desvincularNB" class="ml-2" density="compact" variant="text" color="error">Desvincular</v-btn>
 
             </div>
         </v-card-text>
@@ -51,13 +55,21 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
 
     import  { useMetaStore  } from '@/store/useMetaStore'
     const metaStore = useMetaStore()
 
     import  { useDbStore  } from '@/store/dbStore'
     const dbStore = useDbStore()
+
+    const caderno = ref(null)
+
+    onMounted( async () => {
+        if(props.task.notebook) {
+          caderno.value = await dbStore.getCaderno(props.task.notebook)
+        }
+    })
 
     const dialog = ref(false)
     const load = ref(false)
@@ -81,6 +93,13 @@
         props.task.notebook = id_nb
         metaStore.editar_task(props.task)
         load.value = false
+    }
+
+    const desvincularNB = async () => {
+      load.value = true
+      props.task.notebook = null
+      await metaStore.editar_task(props.task)
+      load.value = false
     }
 </script>
 

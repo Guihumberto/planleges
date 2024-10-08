@@ -124,6 +124,10 @@ export const useDbStore = defineStore('dbStore', {
             this.load = false
         }
     },
+    async getCaderno(item){
+        const rev = await this.readConteudo.find(x => x.idU == item)
+        return rev
+    },
     async deleteConcurso(item){
         this.load = true
         try {
