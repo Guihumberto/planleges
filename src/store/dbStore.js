@@ -41,7 +41,7 @@ export const useDbStore = defineStore('dbStore', {
             onSnapshot(q, (querySnapshot) => {
                 this.disciplinas = [];
                 querySnapshot.forEach((doc) => {
-                    this.disciplinas.push(doc.data())
+                    this.disciplinas.push({ idU:doc.id, ...doc.data() })
                 })
             })
         } catch (error) {
@@ -78,7 +78,8 @@ export const useDbStore = defineStore('dbStore', {
     async deleteDisciplina(item){
         this.load = true
         try {
-            console.log("adicionar disciplina", item);
+            const docRef = doc(db, 'disciplinas', item)
+            await deleteDoc(docRef)
         } catch (error) {
             console.log(error);
         }finally{

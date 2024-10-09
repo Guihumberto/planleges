@@ -24,9 +24,7 @@
             :class="idDelete == item.idU ? 'bg-error' : ''"
           >
             <template v-slot:prepend="{ isActive }">
-              <v-list-item-action start>
-                <v-checkbox-btn :model-value="isActive"></v-checkbox-btn>
-              </v-list-item-action>
+              <v-icon>mdi-notebook</v-icon>
             </template>
             <div v-if="idDelete == item.idU">
               <v-list-item-title>Deseja apagar este Registro?</v-list-item-title>
@@ -66,10 +64,10 @@
                   <v-btn variant="text" class="ml-1" flat @click.stop="idEdit =null, topicoEditText = null">cancelar</v-btn>
                 </div>
                 <div v-else>
-                  <v-btn variant="outlined" flat @click.stop="goTO(item.idU)">Revisão</v-btn>
+                  <v-btn title="Inserir comentário" icon="mdi-square-edit-outline" variant="tonal" density="comfortable" @click.stop="goTO(item.idU)"></v-btn>
                   <v-menu>
                     <template v-slot:activator="{ props }">
-                      <v-btn class="ml-1" flat variant="text" icon="mdi-dots-vertical" v-bind="props"></v-btn>
+                      <v-btn class="ml-1" flat variant="text" density="comfortable" icon="mdi-dots-vertical" v-bind="props"></v-btn>
                     </template>
   
                     <v-list>

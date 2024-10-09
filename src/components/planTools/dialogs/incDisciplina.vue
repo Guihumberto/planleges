@@ -10,7 +10,7 @@
         activator="parent"
         width="auto"
       >
-      <v-card width="500" title="Adicionar">
+      <v-card min-width="330" title="Adicionar">
 
         <v-card-text class="pa-5">
           <v-form @submit.prevent="emitEvent">
@@ -19,10 +19,15 @@
                 :placeholder="tipoName.placeholder"
                 density="compact"
                 v-model.trim="name"
+                variant="outlined"
             ></v-text-field>
-            <v-btn type="submit" color="primary">Adicionar</v-btn>
+            <div class="text-right">
+              <v-btn type="submit" color="primary">Adicionar</v-btn>
+            </div>
           </v-form>
         </v-card-text>
+        <v-btn variant="text" @click="showDisciplinas = !showDisciplinas">Listar Disciplinas</v-btn>
+        <listDisciplinas v-if="showDisciplinas" :excluir="true"  />
         <v-card-actions>
             <v-btn color="primary" block @click="dialog = false">Fechar</v-btn>
           </v-card-actions>
@@ -37,7 +42,8 @@
     data () {
       return {
         dialog: false,
-        name: ""
+        name: "",
+        showDisciplinas: false
       }
     },
     props:{
