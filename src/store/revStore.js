@@ -118,12 +118,10 @@ export const useRevStore = defineStore('revStore', {
         if (docSnap.exists()) {
           this.dadosRev = {idU: docSnap.id, ...docSnap.data()}
         } else {
-          // docSnap.data() will be undefined in this case
-          console.log("No such document!");
+          console.log("documento não encontrado!");
         }
-
       } catch (error) {
-        console.log(error)
+        console.log('error getDadosRev')
       } finally {
         this.load = false
       }

@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-15 border pa-5" v-if="listTitleTopics.length">
+    <div class="mt-5 border py-2" v-if="listTitleTopics.length">
         <div class="d-flex justify-space-between">
             <h1 class="ml-5">Tópicos</h1>
             <v-btn variant="flat" @click="showListTopics = !showListTopics">{{ showListTopics ? 'ocultar' : 'mostrar' }}</v-btn>

@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center pa-4">
+    <div class="text-center">
         <v-btn flat @click="dialog = true"> 
           <v-icon>mdi-plus</v-icon>Questão
           <template v-slot:append>

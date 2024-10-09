@@ -1,10 +1,10 @@
 <template>
     <div class="listConteudo">
-        <h2 class="mb-2">Conteúdo</h2>
+        <h2 class="mb-2">Caderno</h2>
         <v-form ref="form" @click.prevent="insertTopico">
           <v-text-field
-              label="Conteúdo"
-              placeholder="Digite o tópico do conteúdo"
+              label="Caderno"
+              placeholder="Digite o tópico do caderno"
               variant="outlined"
               density="compact"
               v-model.trim="topico"

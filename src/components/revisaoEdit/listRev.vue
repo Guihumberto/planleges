@@ -6,83 +6,88 @@
             color="primary"
           ></v-progress-circular>
         </div>
-        <div class="d-flex border pa-3 mt-5">
-            <v-checkbox
-              v-for="item, i in filtros" :key="i"
-              v-model="item.select"
-              color="red"
-              :label="item.name"
-              value="red"
-              hide-details
-       
-            ></v-checkbox>
+        <div class="border pa-3 mt-5 bg-blue-lighten-5">
+            <h5 class="ml-2 text-h6">Filtrar</h5>
+            <div class="d-flex">
+              <v-checkbox
+                v-for="item, i in filtros" :key="i"
+                v-model="item.select"
+                color="red"
+                :label="item.name"
+                value="red"
+                hide-details
+              ></v-checkbox>
+            </div>
         </div>
-        <listTopics :topics="listRev" @findIndice="findPage($event)" />
-        <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" 
-          v-if="listRev.length" :id="item.idU">
-          <div v-show="idEdit == item.idU" spellcheck="true" lang="pt-BR">
-            <h2>{{ item.title }}</h2>
-              <v-text-field
-                label="Título"
-                density="compact"
-                variant="outlined"
-                style="max-width: 500px;"
-                v-model.trim="topicoEditText.title"
-                class="mt-5"
-                clearable
-                spellcheck="true" lang="pt-BR"
-              ></v-text-field>
-              <textEdit 
-                :texto="topicoEditText.textrev" 
-                @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
-                @cancel="idEdit =null, topicoEditText.title = null" 
-              />
-          </div>
-          <div v-if="idEdit != item.idU" class="boxTextoRevisao">
-            <h2>{{ item.title }}</h2>
-            <p v-html="item.textrev"></p>
-          </div>
-          <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
-            <div v-if="loadCrud" class="text-center mb-2">
-              <v-progress-circular
-                indeterminate
-                color="primary"
-              ></v-progress-circular>
+        <div v-if="!readLoad">
+          <listTopics :topics="listRev" @findIndice="findPage($event)" />
+          <div v-if="listRev.length" v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" 
+             :id="item.idU">
+            <div v-show="idEdit == item.idU" spellcheck="true" lang="pt-BR">
+              <h2>{{ item.title }}</h2>
+                <v-text-field
+                  label="Título"
+                  density="compact"
+                  variant="outlined"
+                  style="max-width: 500px;"
+                  v-model.trim="topicoEditText.title"
+                  class="mt-5"
+                  clearable
+                  spellcheck="true" lang="pt-BR"
+                ></v-text-field>
+                <textEdit 
+                  :texto="topicoEditText.textrev" 
+                  @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
+                  @cancel="idEdit =null, topicoEditText.title = null" 
+                />
             </div>
-            <div v-else class="mb-2">
-              Apagar registro? 
-              <v-btn class="ml-2" variant="outlined"  flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
-              <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
+            <div v-if="idEdit != item.idU" class="boxTextoRevisao">
+              <h2>{{ item.title }}</h2>
+              <p class="texto" v-html="item.textrev"></p>
             </div>
+            <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
+              <div v-if="loadCrud" class="text-center mb-2">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                ></v-progress-circular>
+              </div>
+              <div v-else class="mb-2">
+                Apagar registro? 
+                <v-btn class="ml-2" variant="outlined"  flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
+                <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
+              </div>
+            </div>
+            <div v-else class="barraAcoes">
+              <div>
+               <!-- {{ formatteDate(item.dateCreated) }} -->
+                 <barraPost :revItem="item" />
+              </div>
+              <div class="questoes">
+                <addQuestion :revItem="item" />
+                <v-menu>
+                  <template v-slot:activator="{ props }">
+                    <v-btn class="ml-1" flat variant="text" icon="mdi-dots-vertical" v-bind="props"></v-btn>
+                  </template>
+  
+                  <v-list>
+                    <v-list-item
+                      v-for="(opt, o) in options"
+                      :key="o"
+                      @click.stop="actionSelect(opt.id, item)"
+                    >
+                      <v-list-item-title>{{ opt.title }}</v-list-item-title>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
+              </div>
+            </div>
+            <addTag :revItem="item" />
+            <v-btn v-if="tela" class="upBtn" color="success" variant="elevated" icon="mdi-arrow-up"  @click="findPage('top')"></v-btn>
           </div>
-          <div v-else class="barraAcoes">
-            <div>
-             <!-- {{ formatteDate(item.dateCreated) }} -->
-               <barraPost :revItem="item" />
-            </div>
-            <div class="questoes">
-              <addQuestion :revItem="item" />
-              <v-menu>
-                <template v-slot:activator="{ props }">
-                  <v-btn class="ml-1" flat variant="text" icon="mdi-dots-vertical" v-bind="props"></v-btn>
-                </template>
-
-                <v-list>
-                  <v-list-item
-                    v-for="(opt, o) in options"
-                    :key="o"
-                    @click.stop="actionSelect(opt.id, item)"
-                  >
-                    <v-list-item-title>{{ opt.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </div>
-          </div>
-          <addTag :revItem="item" />
-          <v-btn v-if="tela" class="upBtn" color="success" icon="mdi-arrow-up"  @click="findPage('top')"></v-btn>
+          <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-if="!listRev.length" />
         </div>
-        <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-else />
+        <v-alert v-else>Carregando...</v-alert>
     </div>
 </template>
 
@@ -167,6 +172,9 @@
           },
           loadCrud(){
             return revStore.readLoadCrud
+          },
+          readLoad(){
+            return revStore.readLoad
           }
         },
         methods:{
@@ -202,11 +210,10 @@
           findPage(item){
               const element = document.getElementById(item)
               element.scrollIntoView({behavior: "smooth"})
-              this.tela = true
-              if(item == 'top'){
-                this.tela = false
-              }
           },
+          handleScroll() {
+            this.tela = window.scrollY > 0;
+          }
         },
         mounted(){
           this.quill = new Quill(this.$refs.editor, {
@@ -221,7 +228,11 @@
                   ],
               },
           });
-      }
+          window.addEventListener('scroll', this.handleScroll);
+        },
+        beforeDestroy() {
+          window.removeEventListener('scroll', this.handleScroll);
+        }
     }
 </script>
 
@@ -254,11 +265,11 @@
   right: 1.5rem;
 }
 .barraAcoes{
-  // d-flex justify-space-between align-center border-t mt-5 pt-2
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px rgb(219, 209, 209) solid;
+  margin: 0 .8rem;
   margin-top: 1em;
   padding: .2em;
   transition: 1s ease;
@@ -269,6 +280,7 @@
   align-items: center;
   transition: 1s ease;
 }
+
 @media (max-width: 600px) {
   .barraAcoes{
     flex-direction: column-reverse;

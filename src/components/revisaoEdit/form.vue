@@ -9,7 +9,7 @@
           placeholder="Digite um título curto"
           variant="outlined"
           density="compact"
-          v-model.trim="conteudo.title"
+          v-model="conteudo.title"
           :rules="[rules.required, rules.minname]"
         ></v-text-field>
         <div class="mb-5">

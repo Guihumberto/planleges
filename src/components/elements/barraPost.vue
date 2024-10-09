@@ -57,9 +57,4 @@
     text-align: right;
     transition: 1s ease;
 }
-@media (max-width: 600px){
-    .barra{
-
-    }
-}
 </style>
