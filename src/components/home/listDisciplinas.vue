@@ -71,6 +71,7 @@
     }
 
     const selectDisciplina = (item) => {
+        if (props.excluir) return
         if(dbStore.readDisciplinaSel == item) {
             dbStore.disciplinaSel('', false)
             router.push('/')
@@ -80,7 +81,7 @@
         router.push(`/?disciplina=${item}`)
     }
 
-    const setDisciplina = () => {
+    const setDisciplina = () => {    
         const disciplina = route.query.disciplina ? route.query.disciplina : ''
         dbStore.disciplinaSel(disciplina, false)
     }

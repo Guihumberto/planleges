@@ -7,9 +7,12 @@
         <v-card
           class="card"
           prepend-icon="mdi-tag-outline"
-          :text="item.name"
-          :title="item.disciplina"
+          :text="caderno.name"
+          :title="caderno.disciplina"
         >
+        <v-card-text>
+            
+        </v-card-text>
             <v-carousel
                 min-height="400"
                 progress="primary"
@@ -25,10 +28,11 @@
                 >
                     <div class="d-flex fill-height justify-center pa-5 pai">
                         <div v-if="revStore.readLoad">Carregando...</div>
-                        <div class="text-h6 filho" v-else>
+                        <div class="text-h6 filho" v-if="slides.length">
                             <h1 class="text-h5 pa-2 bg-grey-lighten-3">{{ slide.title }}</h1>
                             <p v-html="slide.textrev" class="px-1"></p>
                         </div>
+                        <div v-else>Não há cards cadastrados no caderno.</div>
                     </div>
                 </v-sheet>
                 </v-carousel-item>
@@ -44,6 +48,7 @@
     const revStore = useRevStore()
 
     const dialog = inject('dialogRevisar')
+    const caderno = inject('caderno')
 
     const props = defineProps({
         item: Object
@@ -60,7 +65,7 @@
     overflow: auto;
    }
    .card{
-    width: 600px;
+    width: 700px;
    }
    @media (max-width: 500px) {
     .card{

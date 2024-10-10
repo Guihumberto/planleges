@@ -32,8 +32,10 @@
     const revStore = useRevStore()
 
     const dialog = ref(false)
+    const caderno = ref(null)
 
     provide('dialogRevisar', dialog)
+    provide('caderno', caderno)
 
     import { useDbStore } from '@/store/dbStore';
     const dbStore = useDbStore()
@@ -47,8 +49,9 @@
     }) 
 
     const revisaoAction = async (item) => {
+        caderno.value = item
         if(!dbStore.readDisciplinaSel){
-            dbStore.disciplinaSel(item.nome, false)
+            dbStore.disciplinaSel(item.diciplina, false)
         }
         await revStore.getRev(item.idU)
         dialog.value = true
