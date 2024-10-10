@@ -54,7 +54,9 @@
             dbStore.disciplinaSel(item.diciplina, false)
         }
         await revStore.getRev(item.idU)
-        dialog.value = true
+        setTimeout(()=>{
+            dialog.value = true
+        },1000)
     }
 
 </script>
