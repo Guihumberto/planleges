@@ -11,6 +11,17 @@
           :title="caderno.disciplina"
         >
         <v-card-text>
+        
+        <v-card-text class="d-flex align-center ma-0 pa-0">
+            <p class="text-h6" >Filtrar: </p>
+            <v-checkbox
+                v-for="item, i in checkb" :key="i"
+                :label="item.name"
+                v-model="item.check"
+                color="primary"
+                hide-details
+            ></v-checkbox>
+        </v-card-text>
             
         </v-card-text>
             <v-carousel
@@ -29,6 +40,9 @@
                     <div class="d-flex fill-height justify-center pa-5 pai">
                         <div v-if="revStore.readLoad">Carregando...</div>
                         <div class="text-h6 filho" v-if="slides.length">
+                            <div class="mb-5">
+                                <v-icon v-if="slide.fav" color="yellow">mdi-star</v-icon> <v-chip color="primary" v-if="slide.revMark">Marcado Para Revisão</v-chip>
+                            </div>
                             <h1 class="text-h5 pa-2 bg-grey-lighten-3">{{ slide.title }}</h1>
                             <p v-html="slide.textrev" class="px-1"></p>
                         </div>
@@ -50,12 +64,22 @@
     const dialog = inject('dialogRevisar')
     const caderno = inject('caderno')
 
+    const checkb = ref([
+            {name: 'Favoritos', check: false },
+            {name: 'Marcado para revisão', check: false }
+        ]
+    )
+
     const props = defineProps({
         item: Object
     })
 
     const slides = computed(() => {
-        return revStore.readListRevs
+        let list = revStore.readListRevs
+        if(checkb.value[0].check) list = list.filter(x => x.fav)
+        if(checkb.value[1].check) list = list.filter(x => x.revMark)
+
+        return list
     })
  
 </script>

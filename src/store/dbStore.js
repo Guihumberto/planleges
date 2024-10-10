@@ -26,6 +26,9 @@ export const useDbStore = defineStore('dbStore', {
     },
     readDisciplinaSel(){
         return this.disciplinaSelect
+    },
+    readLoad(){
+        return this.load
     }
   },
   actions:{

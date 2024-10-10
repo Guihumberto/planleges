@@ -51,12 +51,10 @@
     const revisaoAction = async (item) => {
         caderno.value = item
         if(!dbStore.readDisciplinaSel){
-            dbStore.disciplinaSel(item.diciplina, false)
+            dbStore.disciplinaSel(item.disciplina, false)
         }
         await revStore.getRev(item.idU)
-        setTimeout(()=>{
-            dialog.value = true
-        },1000)
+        dialog.value = true
     }
 
 </script>

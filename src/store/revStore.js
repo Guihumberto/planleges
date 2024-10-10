@@ -224,35 +224,39 @@ export const useRevStore = defineStore('revStore', {
       }
     },
     async addFavUser(item){
-      const userStore = useRegisterStore()
+      this.load = true
       try {
-        this.loadCrud = true
+          const docRef = doc(db, 'listRev', item.idU)
+          const docSpan = await getDoc(docRef)
 
-        const uid = userStore.user.uid
-        const idRev = {id: item.idU, active: item.fav}
-        const db = getDatabase();
-        set(ref(db, 'users/' + uid + '/favoritos/' + idRev.id), idRev);
-
+          if(!docSpan.exists()) {
+              throw new Error("nao existe doc")
+          }
+          await updateDoc(docRef, {
+              fav: item.fav
+          })
       } catch (error) {
-        console.log('erro')
-      } finally{
-        this.loadCrud = false
+          console.log(error);
+      }finally{
+          this.load = false
       }
     },
     async addMarkRevUser(item){
-      const userStore = useRegisterStore()
+      this.load = true
       try {
-        this.loadCrud = true
+          const docRef = doc(db, 'listRev', item.idU)
+          const docSpan = await getDoc(docRef)
 
-        const uid = userStore.user.uid
-        const idRev = {id: item.idU, active: item.revMark}
-        const db = getDatabase();
-        set(ref(db, 'users/' + uid + '/markrev/' + idRev.id), idRev);
-
+          if(!docSpan.exists()) {
+              throw new Error("nao existe doc")
+          }
+          await updateDoc(docRef, {
+            revMark: item.revMark
+          })
       } catch (error) {
-        console.log('erro')
-      } finally{
-        this.loadCrud = false
+          console.log(error);
+      }finally{
+          this.load = false
       }
     },
   },

@@ -87,7 +87,7 @@
     }
 
     onMounted(()=>{
-        // setDisciplina
+        setDisciplina()
     })
 
 </script>
