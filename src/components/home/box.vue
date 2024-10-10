@@ -1,14 +1,13 @@
 <template>
     <div>
         <div class="content">
+            <listDisciplinas v-if="userStore.user?.uid" class="listDisciplinas" />
             <div class="groupBox">
-                <h1 class="text-h5 mb-10">Revisão Estudo da Lei</h1>
                 <LoginCard v-if="!userStore.user?.uid"/>
                 <div v-else class="wrapper-last">
                     <LastCards />
                 </div>
             </div>
-            <listDisciplinas v-if="userStore.user?.uid" class="listDisciplinas" />
         </div>
     </div>
     

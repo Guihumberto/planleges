@@ -228,9 +228,11 @@ export const useDbStore = defineStore('dbStore', {
             this.load = false
         }
     },
-    disciplinaSel(item){
+    disciplinaSel(item, load = true){
         this.disciplinaSelect = item
-        this.getConteudo()
+        if(load){
+            this.getConteudo()
+        }
     }
   }
 })

@@ -47,6 +47,7 @@
 }
 .title:hover{
     color: grey;
+    cursor: pointer;
 }
 .link{
     text-decoration: none;

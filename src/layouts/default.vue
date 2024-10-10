@@ -30,8 +30,8 @@
   onMounted(async()=> {
     await userStore.loadUserData()
     if(userStore.user){
+      await dbStore.getConteudo()
       await dbStore.getDisciplinas()
-      dbStore.getConteudo()
       // dbStore.getConcursos()
     }
   })
