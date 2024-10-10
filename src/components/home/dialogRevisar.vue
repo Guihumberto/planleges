@@ -5,7 +5,7 @@
         width="auto"
       >
         <v-card
-          width="500px"
+          class="card"
           prepend-icon="mdi-tag-outline"
           :text="item.name"
           :title="item.disciplina"
@@ -59,6 +59,12 @@
    .pai{
     overflow: auto;
    }
-   .filho{
+   .card{
+    width: 600px;
+   }
+   @media (max-width: 500px) {
+    .card{
+        width: 330px;
+    }
    }
 </style>
