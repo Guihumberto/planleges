@@ -35,7 +35,7 @@
                 :key="i"
                 >
                 <v-sheet
-                    height="100%"
+                    class="sheet"
                 >
                     <div class="d-flex fill-height justify-center pa-5 pai">
                         <div v-if="revStore.readLoad">Carregando...</div>
@@ -91,9 +91,15 @@
    .card{
     width: 700px;
    }
+   .sheet{
+    height: 95%;
+   }
    @media (max-width: 500px) {
     .card{
         width: 330px;
     }
+    .sheet{
+    height: 85%;
+   }
    }
 </style>

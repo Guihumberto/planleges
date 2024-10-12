@@ -2,8 +2,30 @@
     <div>
         <h3 class="d-flex justify-space-between align-center">
             Lista de tarefas
-            <v-btn :append-icon="concluidas? 'mdi-check':''" variant="text" density="compact" class="text-capitalize" @click="concluidas = !concluidas">ocultar concluídas</v-btn>
+            <div>
+                <v-btn :append-icon="reordenar? 'mdi-pencil':''"
+                variant="text" class="text-capitalize" @click="reordenar = !reordenar">Ordenar</v-btn>
+                <v-btn :append-icon="concluidas? 'mdi-check':''" 
+                variant="text" density="compact" class="text-capitalize" @click="concluidas = !concluidas">ocultar concluídas</v-btn>
+            </div>
         </h3>
+        <div class="filter">
+            <v-select
+                label="Disciplina"
+                variant="outlined"
+                density="compact"
+                placeholder="Escolha a disciplina"
+                prepend-inner-icon="mdi-alpha-d-box"
+                hide-details
+                :items="listDisciplinas"
+                item-title="name"
+                item-value="id"
+                v-model="filterDisciplina"
+                clearable
+            ></v-select>
+            <p class="pa-2 border text-center"> {{ metaStore.tarefas.filter(x=> x.task_done).length }} / {{ metaStore.tarefas.length }} concluídas</p>    
+        </div>
+        <p v-if="metaStore.readLoad">Aguarde...</p>
         <p v-if="load && !metaStore.readLoad">Carregando...</p>
         <v-list v-else>
             <v-list-item
@@ -11,8 +33,21 @@
                 class=" mb-1"
                 :class="item.task_done ? 'bg-blue-grey-lighten-4':'bg-blue-grey-lighten-5'"
                 @click.stop="item.details = !item.details"
+                :id="item.nro_task"
             >
                 <template v-slot:prepend>
+                    <div style="width: 20px;" v-if="reordenar && !concluidas">
+                        {{ item.nro_task }}
+                    </div>
+                    <div class="d-flex align-center flex-column mr-3" v-if="reordenar && !concluidas">
+                        <v-btn @click.stop="reord_up(item)" 
+                            :disabled="i == 0 || metaStore.readLoad"
+                            color="success" density="compact" variant="text" 
+                            icon="mdi-arrow-up-bold-box"></v-btn>
+                        <v-btn @click.stop="reord_down(item)" 
+                            :disabled="i == tasks.length - 1 || metaStore.readLoad"
+                            color="success" density="compact" variant="text" icon="mdi-arrow-down-bold-box"></v-btn>
+                    </div>
                     <v-icon size="2rem">{{get_stydy(item.type)}}</v-icon>
                 </template>
                 <template v-slot:append>
@@ -55,6 +90,8 @@ const route = useRoute()
 const tipo = 2
 const load = ref(true)
 const concluidas = ref(false)
+const reordenar = ref(false) 
+const filterDisciplina = ref(null)
 
 provide('tipo', tipo)
 
@@ -70,11 +107,32 @@ onMounted( () => {
 })
 
 const tasks = computed(() => {
+
+    if(filterDisciplina.value){
+        return metaStore.tarefas.filter(x => x.id_disciplina == filterDisciplina.value).sort((a, b) => a.nro_task - b.nro_task)
+    }
     return concluidas.value 
     ? metaStore.tarefas.filter(x => !x.task_done).sort((a, b) => a.nro_task - b.nro_task)
     : metaStore.tarefas.sort((a, b) => a.nro_task - b.nro_task)
 })
 
+const listDisciplinas = computed(()=> {
+    let list = metaStore.tarefas.map( x => x.id_disciplina)
+    list = [...new Set(list)]
+    const newList = []
+    list.forEach(x => {
+        const objeto = {
+            id: x,
+            name: get_disciplina(x)
+        }
+        newList.push(objeto)
+    })
+    return newList
+})
+
+const disciplinas = computed(()=> {
+    return metaStore.disciplinas
+})
 
 const get_disciplina = (id) => {
     return metaStore.disciplinas.find(x => x.id == id).name
@@ -100,11 +158,85 @@ const concluirRev = (item) => {
     metaStore.concluirRev(item)
 }
 
+const reord_up = async (item) => {
+    const task_desce = tasks.value.find(t => t.nro_task == item.nro_task - 1)
+    task_desce.nro_task++
+    item.nro_task--
+    addClassDown(item.nro_task)
+    addClassTop(task_desce.nro_task)
+    await metaStore.editar_task(item)
+    await metaStore.editar_task(task_desce)
+}
+
+const reord_down = async (item) => {
+    const task_desce = tasks.value.find(t => t.nro_task == item.nro_task + 1)
+    task_desce.nro_task--
+    item.nro_task++
+    addClassTop(item.nro_task)
+    addClassDown(task_desce.nro_task)
+    await metaStore.editar_task(item)
+    await metaStore.editar_task(task_desce)
+    removeClassTop(item.nro_task)
+    addClassDown(task_desce.nro_task)
+}
+
+const addClassTop = (id) => {
+    document.getElementById(id).classList.add('effectTop');
+    
+}
+
+const addClassDown = (id) => {
+    document.getElementById(id).classList.add('effectDown');
+}
+
+const removeClassTop = (id) => {
+    setTimeout(()=> {
+        document.getElementById(id).classList.remove('effectTop');
+    }, 1000)
+}
+
+const removeClassDown = (id) => {
+    setTimeout(()=> {
+        document.getElementById(id).classList.remove('effectDown');
+    }, 1000)
+}
+
 </script>
 
 <style lang="scss" scoped>
 .taxado {
   text-decoration: line-through;
+}
+.filter{
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.effectTop {
+    animation: slideTop 1s ease;
+}
+.effectDown {
+    animation: slideDown 1s ease;
+}
+@keyframes slideTop {
+    from{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideDown {
+    from{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 @media (max-width:500px) {
     .titleTask{
@@ -112,6 +244,9 @@ const concluirRev = (item) => {
     }
     .hidden{
         display: none;
+    }
+    .filter{
+        flex-direction: column-reverse;
     }
 }
 </style>
