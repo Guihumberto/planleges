@@ -12,7 +12,10 @@
                         <v-icon>mdi-format-list-bulleted</v-icon>
                     </template>
                     <template v-slot:append>
-                       <v-btn variant="text" color="primary" icon="mdi-chevron-right" @click="$router.push(`/metas/user/${item.id}`)"></v-btn>
+                        <div class="d-flex align-center">
+                           <progresso :item="item" />
+                           <v-btn variant="text" color="primary" icon="mdi-chevron-right" @click="$router.push(`/metas/user/${item.id}`)"></v-btn>
+                        </div>
                     </template>
                     {{ item.meta }} 
                 </v-list-item>
@@ -25,7 +28,7 @@
 </template>
 
 <script setup>
-    import { computed, ref } from 'vue'
+    import { computed, onMounted, ref } from 'vue'
 
     import  { useMetaStore  } from '@/store/useMetaStore'
     const metaStore = useMetaStore()

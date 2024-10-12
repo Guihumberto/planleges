@@ -16,11 +16,11 @@
   import { useRegisterStore } from '@/store/useRegisterStore'
   const useStore = useRegisterStore()
 
-  const carregarMetaUser = () => {
-    metaStore.selectedUser(useStore.user?.uid)
-  }
+  // const carregarMetaUser = () => {
+  //   metaStore.selectedUser(useStore.user?.uid)
+  // }
 
-  carregarMetaUser()
+  // carregarMetaUser()
   
 </script>
 

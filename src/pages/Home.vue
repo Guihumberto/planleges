@@ -13,12 +13,15 @@
     const dbStore = useDbStore()
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
+    import  { useMetaStore  } from '@/store/useMetaStore'
+    const metaStore = useMetaStore()
 
     onMounted(async()=> {
         await userStore.loadUserData()
         if(userStore.user){
             await dbStore.getDisciplinas()
             dbStore.getConteudo()
+            metaStore.selectedUser(userStore.user?.uid)
         }
     })
 </script>

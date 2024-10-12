@@ -18,6 +18,8 @@
   const dbStore = useDbStore()
   import { useRegisterStore } from '@/store/useRegisterStore'
   const userStore = useRegisterStore()
+  import  { useMetaStore  } from '@/store/useMetaStore'
+  const metaStore = useMetaStore()
 
   if ('navigation' in window && 'onpageshow' in window) {
   window.addEventListener('pageshow', (event) => {
@@ -32,6 +34,7 @@
     if(userStore.user){
       await dbStore.getConteudo()
       await dbStore.getDisciplinas()
+      metaStore.selectedUser(userStore.user?.uid)
       // dbStore.getConcursos()
     }
   })

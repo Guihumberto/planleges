@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
-import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where, Timestamp } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
-import router from '@/router'
 
 import { useDbStore } from '@/store/dbStore'
 const dbStore = useDbStore()
@@ -13,6 +12,7 @@ export const useMetaStore = defineStore('metaStore', {
     metas: [],
     meta: null,
     tarefas: [],
+    allTarefas: [],
     selected: null,
     orientacoes: [],
     bancas: [
@@ -48,7 +48,8 @@ export const useMetaStore = defineStore('metaStore', {
         {id:1, name: 'Certo/errado', icon: 'mdi-list-status', color: "primary"},
         {id:2, name: 'Multipla Escola', icon: 'mdi-playlist-check', color: "red"},
         {id:3, name: 'Misturadas', icon: 'mdi-playlist-plus', color: "grey"}
-    ]
+    ],
+    loadTasksMeta: false
   }),
   getters:{
     readMentorandos(){
@@ -59,6 +60,15 @@ export const useMetaStore = defineStore('metaStore', {
     },
     readLoad(){
         return this.load
+    },
+    readMetas() {
+        return this.metas
+    },
+    readAllTarefas(){
+        return this.allTarefas
+    },
+    readloadTasksMeta(){
+        return this.loadTasksMeta
     }
   },
   actions:{
@@ -99,12 +109,12 @@ export const useMetaStore = defineStore('metaStore', {
                     this.metas.push({id: doc.id, ...doc.data()})
                 })
             })
+            this.rodarMetas()
         } catch (error) {
             console.log(error);
         }finally{
             this.load = false
-        }
-        
+        }    
     },
     async getMeta(idMeta){
         this.load = true
@@ -304,5 +314,27 @@ export const useMetaStore = defineStore('metaStore', {
             this.load = false
         }
     },
+    rodarMetas(){
+        this.allTarefas = []
+        this.readMetas.forEach(x => {
+            this.getTaskMeta(x.id)
+        })
+    },
+    async getTaskMeta(item){
+        this.loadTasksMeta = true
+        try {
+            const q = query(collection(db, 'tarefas'), where('id_meta', '==', item));
+            await onSnapshot(q, (querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    this.allTarefas.push({id: doc.id, details: false, ...doc.data()})
+                })
+            })
+        } catch (error) {
+            console.log('error');
+        } finally {
+             this.loadTasksMeta = false
+        }
+      
+    }
   }
 })

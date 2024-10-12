@@ -10,7 +10,6 @@
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
 
-   
 </script>
 
 <style lang="scss" scoped>
