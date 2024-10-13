@@ -33,7 +33,10 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 8, name: 'Direito Previdenciário'},
         {id: 9, name: 'Administração Financeira Orçamentária'},
         {id: 10, name: 'Administração Pública'},
-        {id: 11, name: 'Administração GEral'},
+        {id: 11, name: 'Administração Geral'},
+        {id: 12, name: 'Gestão de Pessoas'},
+        {id: 13, name: 'Gestão de Projetos'},
+        {id: 14, name: 'Gestão de Contratos'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [

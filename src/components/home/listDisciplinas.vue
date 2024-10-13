@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="dbStore.readDisciplinas.length">
         <h5 class="text-h6 mb-2"><v-icon size="1.5rem">mdi-view-module</v-icon> Disciplinas</h5>
         <div class="content">
             <v-alert v-if="dbStore.load">
