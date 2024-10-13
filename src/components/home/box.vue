@@ -3,7 +3,12 @@
         <div class="content">
             <listDisciplinas v-if="userStore.user?.uid" class="listDisciplinas" />
             <div class="groupBox">
-                <LoginCard v-if="!userStore.user?.uid"/>
+                <div v-if="!userStore.user?.uid" class="inicio">
+                    <Apresentation />
+                    <div class="loginca">
+                        <LoginCard />
+                    </div>
+                </div>
                 <div v-else class="wrapper-last">
                     <LastCards />
                 </div>
@@ -15,6 +20,7 @@
 
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
+    import Apresentation from './apresentation.vue';
     const userStore = useRegisterStore()
     
 </script>
@@ -26,8 +32,29 @@
     color: #212121;
     gap: 1rem;
 }
+.inicio{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.loginca{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .listDisciplinas{
     transition: 1s ease;
+}
+@media (max-width: 500px) {
+    .inicio{
+        width: 100%;
+        flex-direction: column;
+    }
+    .loginca{
+        width: 100%;
+    }
 }
 @media (max-width: 1100px) {
     .listDisciplinas{
@@ -41,7 +68,7 @@
     }
 }
 .groupBox{
-    width: 100%;
+    width: min(100%, 1080px);
     min-height: 70vh;
     display: flex;
     justify-content: baseline;
