@@ -7,6 +7,7 @@
                     <!-- <router-link to="/config" class="link">Criar</router-link> -->
                     <router-link to="/config" class="link">Revisar</router-link>
                     <router-link to="/metas/user" class="link">Metas</router-link>
+                    <Notifications />
                 </div>
                 <div>
                     <v-btn v-if="!!useStore.user" @click="logout" flat variant="text" title="sair" icon="mdi-logout"></v-btn>
@@ -19,6 +20,7 @@
 
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
+import Notifications from './notifications.vue';
     const useStore = useRegisterStore()
 
     const logout = () => {

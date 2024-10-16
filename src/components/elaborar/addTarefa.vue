@@ -9,7 +9,7 @@
             width="800px"
         >
             <v-card>
-                <v-card-title>Adicionar Tarefa</v-card-title>
+                <v-card-title v-text="title.title"></v-card-title>
                 <v-card-text>
                     <v-form @submit.prevent="addTask()" ref="form">
                         <v-row>
@@ -48,11 +48,26 @@
                             :rules="[rules.required, rules.minfield]"
                         ></v-text-field>
                         <v-radio-group
+                            v-model="task.priority"
+                            inline
+                            hide-details
+                            class="border pa-2 mb-4"
+                            label="Prioridade"
+                            >
+                            <v-radio
+                                v-for="pr, p, in priority" :key="p"
+                                :label="pr.name"
+                                :value="pr.id"
+                                :color="pr.color"
+                            ></v-radio>
+                        </v-radio-group>
+                        <v-radio-group
                             v-model="task.type"
                             inline
                             class="border pa-2 mb-4"
                             hide-details
                             :rules="[rules.required]"
+                            label="Tipo de Estudo"
                         >
                             <v-radio
                                 v-for="type, t in type_study" :key="t"
@@ -144,7 +159,7 @@
                             </div>
                         </div>
                         <v-btn variant="text" @click="dialog = false">Cancelar</v-btn>
-                        <v-btn type="submit" variant="flat" color="primary" class="ml-2">Salvar</v-btn>
+                        <v-btn type="submit" variant="flat" :color="title.color" class="ml-2">Salvar</v-btn>
                     </v-form>
                 </v-card-text>
             </v-card>
@@ -174,6 +189,12 @@ const dialog = ref(false)
 
 const props = defineProps({
     taskEdit: Object
+})
+
+const title = computed(() => {
+    return tipo == 2 
+    ? {title: 'Editar Tarefa', color:'yellow', icon: 'mdi-pencil'}
+    : {title: 'Adicionar Tarefa', color:'primary', icon: 'mdi-plus'}
 })
 
 onMounted( async () => {
@@ -213,11 +234,19 @@ const type_questoes = computed(()=> {
     return metaStore.type_questoes
 })
 
+const priority = [
+    {id:1, name: 'Baixa', icon: 'mdi-arrow-down-drop', color: 'grey'},
+    {id:2, name: 'Média', icon: 'mdi-minus-thick', color: 'black'},
+    {id:3, name: 'Alta', icon: 'mdi-arrow-up-drop', color: 'orange'},
+    {id:4, name: 'Relevante', icon: 'mdi-exclamation-thick', color: 'red'},
+]
+
 const task = ref({
     nro_task: null,
     id_disciplina: 0,
     subject: null,
     type: 0,
+    priority: 2,
     task_description: null,
     link: null,
     law: null, 
@@ -266,6 +295,7 @@ const addTask = async () => {
             } 
             task.value.id_meta = route.params.id
             task.value.nro_task = nro_task.value
+            task.uid = metaStore.selectedUser
         
             if(text_orientacao.value.id){
                 task.value.text_orientacao = text_orientacao.value.text
@@ -274,6 +304,7 @@ const addTask = async () => {
             text_orientacao.value = {}
             nro_task.value++
             clear()
+            dialog.value = false
         }
 }
 </script>
