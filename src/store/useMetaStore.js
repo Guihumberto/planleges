@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where, Timestamp } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 
+import { useNotificacaoStore } from '@/store/useNotificacaoStore'
+const notifcacaoStore = useNotificacaoStore()
 import { useDbStore } from '@/store/dbStore'
 const dbStore = useDbStore()
 
@@ -278,6 +280,8 @@ export const useMetaStore = defineStore('metaStore', {
             await updateDoc(docRef, {
                 show: item.show,
             })
+            item.notification_title = "Uma nova meta foi liberada"
+            if(item.show) notifcacaoStore.addNotificacoes(item)
         } catch (error) {
             console.log(error);
         }finally{

@@ -5,6 +5,8 @@ import { auth, db } from '@/firebaseConfig'
 import router from '@/router'
 
 import { useRevStore } from "@/store/revStore";
+import { useNotificacaoStore } from '@/store/useNotificacaoStore'
+const notifcacaoStore = useNotificacaoStore()
 
 
 export const useRegisterStore = defineStore('registerStore', {
@@ -26,6 +28,7 @@ export const useRegisterStore = defineStore('registerStore', {
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
             this.addUsers()
+            notifcacaoStore.getNotificacoes(user.uid)
             router.push('/home')
         } catch (error) {
             console.log(error);
@@ -40,6 +43,7 @@ export const useRegisterStore = defineStore('registerStore', {
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
             await this.getUserData()
+            await notifcacaoStore.getNotificacoes(user.uid)
             router.push('/home')
         } catch (error) {
             console.log(error);
@@ -90,6 +94,7 @@ export const useRegisterStore = defineStore('registerStore', {
           }
           if(login.email) {
             this.user = {email: login.email, uid: login.uid}
+            notifcacaoStore.getNotificacoes(login.uid)
         }
       }
     },
