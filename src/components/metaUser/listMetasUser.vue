@@ -6,18 +6,20 @@
                 <v-list-item 
                     v-for="item, i in list_metas" :key="i" 
                     class="mb-1 bg-indigo-lighten-4" link
+                    :class="item?.meta_done ? 'bg-blue-grey-lighten-4' : 'bg-blue-grey-darken-1'"
                     @click="$router.push(`/metas/user/${item.id}`)"
                 >
                     <template v-slot:prepend>
-                        <v-icon>mdi-format-list-bulleted</v-icon>
+                        <v-icon v-if="item?.meta_done">mdi-check-all</v-icon>
+                        <v-icon v-else>mdi-format-list-bulleted</v-icon>
                     </template>
                     <template v-slot:append>
                         <div class="d-flex align-center">
-                           <progresso :item="item" />
-                           <v-btn variant="text" color="primary" icon="mdi-chevron-right" @click="$router.push(`/metas/user/${item.id}`)"></v-btn>
+                           <v-icon title="Concluído" v-if="item?.meta_done" color="success">mdi-check-bold</v-icon>
+                           <v-icon v-else>mdi-progress-helper</v-icon>
                         </div>
                     </template>
-                    {{ item.meta }} 
+                    <span :class="item.meta_done ? 'taxado' : ''">{{ item.meta }} </span>
                 </v-list-item>
             </v-list>
             <v-alert class="mt-5" type="info" variant="outlined"v-else>
@@ -43,5 +45,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.taxado {
+  text-decoration: line-through;
+}
 </style>

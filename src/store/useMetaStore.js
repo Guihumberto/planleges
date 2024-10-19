@@ -160,6 +160,24 @@ export const useMetaStore = defineStore('metaStore', {
             this.load = false
         }
     },
+    async concluirMeta(item, value){
+        this.load = true
+        try {
+            const docRef = doc(db, 'metas', item)
+            const docSpan = await getDoc(docRef)
+
+            if(!docSpan.exists()) {
+                throw new Error("nao existe doc")
+            }
+            await updateDoc(docRef, {
+                meta_done: value
+            })
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    },
     async addOrientacao(item){
         this.load = true
         try {

@@ -23,7 +23,7 @@
                 v-model="filterDisciplina"
                 clearable
             ></v-select>
-            <p class="pa-2 border text-center"> {{ metaStore.tarefas.filter(x=> x.task_done).length }} / {{ metaStore.tarefas.length }} concluídas</p>    
+            <p class="pa-2 border text-center"> {{ total_concluidas }} / {{ metaStore.tarefas.length }} concluídas</p>    
         </div>
         <p v-if="metaStore.readLoad">Aguarde...</p>
         <p v-if="load && !metaStore.readLoad">Carregando...</p>
@@ -116,6 +116,10 @@ const tasks = computed(() => {
     : metaStore.tarefas.sort((a, b) => a.nro_task - b.nro_task)
 })
 
+const total_concluidas = computed(() => {
+    return metaStore.tarefas.filter(x=> x.task_done).length
+})
+
 const listDisciplinas = computed(()=> {
     let list = metaStore.tarefas.map( x => x.id_disciplina)
     list = [...new Set(list)]
@@ -152,6 +156,15 @@ const get_tipo_qtoes = (id) => {
 
 const concluirTask = (item) => {
     metaStore.concluirTask(item)
+    verifica_finalizacao()
+}
+
+const verifica_finalizacao = () => {
+    if(total_concluidas.value + 1 == tasks.value.length){
+        metaStore.concluirMeta(route.params.id, true)
+    } else {
+        metaStore.concluirMeta(route.params.id, false)
+    }
 }
 
 const concluirRev = (item) => {
