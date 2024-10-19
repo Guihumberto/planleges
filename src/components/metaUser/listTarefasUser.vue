@@ -154,8 +154,8 @@ const get_tipo_qtoes = (id) => {
     return metaStore.type_questoes.find(x => x.id == id).name
 }
 
-const concluirTask = (item) => {
-    metaStore.concluirTask(item)
+const concluirTask = async (item) => {
+    await metaStore.concluirTask(item)
     verifica_finalizacao(item)
 }
 
