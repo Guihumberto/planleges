@@ -48,7 +48,7 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 21, name: 'Desenvolvimento de Sistemas'},
         {id: 22, name: 'Governança de TI'},
         {id: 23, name: 'Análise de Dados'},
-        {id: 23, name: 'Inglês'},
+        {id: 24, name: 'Inglês'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [
