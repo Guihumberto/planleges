@@ -156,12 +156,12 @@ const get_tipo_qtoes = (id) => {
 
 const concluirTask = (item) => {
     metaStore.concluirTask(item)
-    verifica_finalizacao()
+    verifica_finalizacao(item)
 }
 
-const verifica_finalizacao = () => {
+const verifica_finalizacao = (item) => {
     if(total_concluidas.value + 1 == tasks.value.length){
-        metaStore.concluirMeta(route.params.id, true)
+        if(!item.task_done) metaStore.concluirMeta(route.params.id, true)
     } else {
         metaStore.concluirMeta(route.params.id, false)
     }
