@@ -64,6 +64,12 @@ export const useMetaStore = defineStore('metaStore', {
         {id:2, name: 'Multipla Escola', icon: 'mdi-playlist-check', color: "red"},
         {id:3, name: 'Misturadas', icon: 'mdi-playlist-plus', color: "grey"}
     ],
+    priority: [
+        {id:1, name: 'Baixa', icon: 'mdi-arrow-down-drop', color: 'grey'},
+        {id:2, name: 'Média', icon: 'mdi-minus-thick', color: 'black'},
+        {id:3, name: 'Alta', icon: 'mdi-arrow-up-drop', color: 'orange'},
+        {id:4, name: 'Relevante', icon: 'mdi-exclamation-thick', color: 'red'}
+    ],
     loadTasksMeta: false
   }),
   getters:{

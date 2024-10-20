@@ -3,10 +3,14 @@
         <h3 class="d-flex justify-space-between align-center">
             Lista de tarefas
             <div>
-                <v-btn :append-icon="reordenar? 'mdi-pencil':''"
-                variant="text" class="text-capitalize" @click="reordenar = !reordenar">Ordenar</v-btn>
-                <v-btn :append-icon="concluidas? 'mdi-check':''" 
-                variant="text" density="compact" class="text-capitalize" @click="concluidas = !concluidas">ocultar concluídas</v-btn>
+                <Esta_metas />
+                <v-btn :append-icon="reordenar? 'mdi-close':''"
+                    prepend-icon="mdi-swap-vertical"
+                    variant="text" class="text-capitalize" 
+                    @click="reordenar = !reordenar"><span class="hidden">Ordenar</span></v-btn>
+                <v-btn :prepend-icon="concluidas? 'mdi-eye-off':'mdi-eye'" 
+                    variant="text" density="compact" class="text-capitalize" 
+                    @click="concluidas = !concluidas"><span class="hidden">ocultar concluídas</span></v-btn>
             </div>
         </h3>
         <div class="filter">

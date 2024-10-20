@@ -234,12 +234,9 @@ const type_questoes = computed(()=> {
     return metaStore.type_questoes
 })
 
-const priority = [
-    {id:1, name: 'Baixa', icon: 'mdi-arrow-down-drop', color: 'grey'},
-    {id:2, name: 'Média', icon: 'mdi-minus-thick', color: 'black'},
-    {id:3, name: 'Alta', icon: 'mdi-arrow-up-drop', color: 'orange'},
-    {id:4, name: 'Relevante', icon: 'mdi-exclamation-thick', color: 'red'},
-]
+const priority = computed(()=> {
+    return metaStore.priority
+})
 
 const task = ref({
     nro_task: null,
