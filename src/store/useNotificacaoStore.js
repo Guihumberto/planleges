@@ -4,10 +4,14 @@ import { auth, db } from '@/firebaseConfig'
 
 export const useNotificacaoStore = defineStore('notifcationStore', {
   state: () => ({
+    usuario: {},
     notifacoes: [],
     load: false,
   }),
   getters:{
+    readUsuario(){
+        return this.usuario
+    },
     readNotificacoes(){
         return this.notifacoes
     },
@@ -16,6 +20,36 @@ export const useNotificacaoStore = defineStore('notifcationStore', {
     },
   },
   actions:{
+    async getUsuario(id){
+        this.load = true
+        try {
+                await onSnapshot(doc(db, 'usuarios', id), (doc) => {
+                this.usuario = {id:doc.id, ...doc.data()}
+            })
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    },
+    async updateNotificacoes(uid, value){
+        this.load = true
+        try {
+            const docRef = doc(db, 'usuarios', uid)
+            const docSpan = await getDoc(docRef)
+
+            if(!docSpan.exists()) {
+                throw new Error("nao existe doc")
+            }
+            await updateDoc(docRef, {
+                notificacoes: value,
+            })
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }
+    },
     async addNotificacoes(item){
         this.load = true
         const objeto = { 
@@ -27,10 +61,11 @@ export const useNotificacaoStore = defineStore('notifcationStore', {
             date_created: Date.now(),
             uid: item.user
         }
-        console.log(objeto)
+        const existeNotificacaoIgual = this.readNotificacoes.find(x => x.url == objeto.url)
+        if(existeNotificacaoIgual) return
         try {
             await addDoc(collection(db, 'notificacoes'), objeto)
-
+            this.updateNotificacoes(objeto.uid, true)
         } catch (error) {
             console.log(error);
         }finally{
@@ -39,6 +74,7 @@ export const useNotificacaoStore = defineStore('notifcationStore', {
     },
     async getNotificacoes(user){
         this.load = true
+        await this.getUsuario(user)
         try {
             const q = query(collection(db, 'notificacoes'), where('uid', '==', user));
             await onSnapshot(q, (querySnapshot) => {
@@ -75,6 +111,9 @@ export const useNotificacaoStore = defineStore('notifcationStore', {
         }finally{
             this.load = false
         }
+    },
+    viewNotificacoes(){
+        this.updateNotificacoes(this.readUsuario.id, false)
     }
   }
 })
