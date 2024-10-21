@@ -41,6 +41,22 @@
 </script>
 
 <style>
+  *::-webkit-scrollbar{
+    width: 8px;
+    height: 0.4rem;
+  }
+  
+  *::-webkit-scrollbar-track{
+    background: rgb(232, 224, 224);
+    border-radius: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb{
+    background: rgb(138, 135, 135);
+    border-radius: 20px;
+  }
+
+
   @media print {
     .ocultar-impressao {
         display: none;

@@ -14,11 +14,11 @@
           title="Estatísticas"
         >
             <v-card-text>
-                <div class="item" :class="total_concluidas.length == metaStore.tarefas.length ? 'bg-green-lighten-5' : ''">
-                    Tarefas Realizadas: {{ total_concluidas.length }} / {{ metaStore.tarefas.length }}
+                <div class="item d-flex flex-wrap justify-center" :class="total_concluidas.length == metaStore.tarefas.length ? 'bg-green-lighten-5' : ''">
+                    <span>Tarefas Realizadas:&ensp; </span><span>{{ total_concluidas.length }} / {{ metaStore.tarefas.length }}</span> 
                 </div>
-                <div class="item" :class="total_concluidas.length == metaStore.tarefas.length ? 'bg-green-lighten-5' : ''">
-                    Questões Respondidas: {{ totalQuestoesFeitas }} / {{ totalQuestoes }}
+                <div class="item d-flex flex-wrap justify-center" :class="total_concluidas.length == metaStore.tarefas.length ? 'bg-green-lighten-5' : ''">
+                    <span>Questões Respondidas:&ensp; </span> <span> {{ totalQuestoesFeitas }} / {{ totalQuestoes }}</span> 
                 </div>
                 <div class="container">
                     <div class="item" v-if="totalVideo" :class="totalVideoFeito == totalVideo ? 'bg-green-lighten-5' : ''">
@@ -43,7 +43,7 @@
                     </div>
             
                 </div>
-                <v-timeline align="start">
+                <v-timeline align="start" :density="isMobile ? 'compact' : 'default'">
                     <v-timeline-item
                     v-for="(task, i) in tasksPorDataConcluida"
                     :key="i"
@@ -56,7 +56,7 @@
                         v-text="task.date"
                         ></div>
                     </template>
-                    <div :class="i % 2 === 0 ? 'text-left' : 'text-right'"> 
+                    <div :class="i % 2 === 0 || isMobile? 'text-left' : 'text-right'"> 
                         <h2 
                             class="mt-n1 headline font-weight-light mb-4 text-primary"
                         >
@@ -92,6 +92,9 @@
     import { computed, ref } from 'vue';
     import { useDateNowFormat } from '@/composables/useDateNowFormat'
     import { useDiaSemana } from '@/composables/useDiaSemana'
+    import { useDisplay } from 'vuetify'
+    const { smAndDown } = useDisplay()
+    const isMobile = smAndDown
 
     const dialog = ref(false)
 
@@ -137,7 +140,6 @@
     const totalQuestoes = computed(() => {
         const total = metaStore.tarefas.reduce((acc, item) => {
             acc += item.qtd_questoes
-            console.log(item.qtd_questoes)
             return acc
         }, 0)
         return total
@@ -237,6 +239,7 @@
 .container {
   display: flex;
   justify-content: space-between; /* Opcional: espaço entre os itens */
+  overflow-x: auto;
 }
 
 .item {
