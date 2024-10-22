@@ -82,6 +82,7 @@ import { computed, onMounted, ref, provide } from 'vue'
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
+
 const concluidas = ref(false)
 const reordenar = ref(false) 
 const filterDisciplina = ref(null)
@@ -89,13 +90,19 @@ const tipo = 2
 
 provide('tipo', tipo)
 
+const url = ref(route.params.id)
+
+
 import  { useMetaStore  } from '@/store/useMetaStore'
-import AddTarefa from './addTarefa.vue';
 const metaStore = useMetaStore()
 
 onMounted( () => {
-    metaStore.getTask(route.params.id)
+    carregarMeta()
 })
+
+const carregarMeta = () => {
+    metaStore.getTask(url.value)
+} 
 
 const tasks = computed(() => {
 

@@ -45,8 +45,9 @@
             <v-btn variant="flat" type="submit" color="yellow" v-if="get_meta?.date_created">Editar</v-btn>
             <v-btn variant="flat" type="submit" color="primary" v-else>Salvar</v-btn>
         </v-form>
-        
-        <AddTarefa />
+        <div class="d-flex align-center">
+            <AddTarefa /> <AddMultiplasTasks />
+        </div>
     </div>
 </template>
 
@@ -63,6 +64,7 @@ const tipo = 1
 provide('tipo', tipo)
 
 import  { useMetaStore  } from '@/store/useMetaStore'
+import AddMultiplasTasks from './addMultiplasTasks.vue';
 const metaStore = useMetaStore()
 
 const get_meta = computed(()=>{

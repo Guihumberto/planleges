@@ -292,7 +292,7 @@ const addTask = async () => {
             } 
             task.value.id_meta = route.params.id
             task.value.nro_task = nro_task.value
-            task.uid = metaStore.selectedUser
+            task.uid = metaStore.meta.user
         
             if(text_orientacao.value.id){
                 task.value.text_orientacao = text_orientacao.value.text
