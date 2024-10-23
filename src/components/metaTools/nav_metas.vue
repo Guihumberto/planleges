@@ -7,14 +7,23 @@
 </template>
 
 <script setup>
-    import { ref, watch} from 'vue';
-    import { useRouter } from 'vue-router';
+    import { onMounted, ref, watch} from 'vue';
+    import { useRouter, useRoute } from 'vue-router';
     const router = useRouter()
+    const route = useRoute()
 
     const page = ref(1)
 
     import { useMetaStore } from '@/store/useMetaStore';
     const metaStore = useMetaStore()
+
+    const setPage = ()=> {
+        if (!metaStore.readLoad) page.value += list_metas.value.findIndex(x => x.id == route.params.id);
+    }
+
+    setTimeout(() => {
+        setPage()
+    }, 2000)
 
     const list_metas = computed(()=> {
         return metaStore.metas.sort((a, b) => {

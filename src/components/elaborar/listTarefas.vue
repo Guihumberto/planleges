@@ -4,6 +4,8 @@
             Lista de tarefas
             <div>
                 <v-btn :append-icon="reordenar? 'mdi-pencil':''"
+                variant="text" class="text-capitalize" @click="move = !move, filterDisciplina = null, selected = []">Mover</v-btn>
+                <v-btn :append-icon="reordenar? 'mdi-pencil':''"
                 variant="text" class="text-capitalize" @click="reordenar = !reordenar">Ordenar</v-btn>
                 <v-btn :append-icon="concluidas? 'mdi-check':''" 
                 variant="text" density="compact" class="text-capitalize" @click="concluidas = !concluidas">ocultar concluídas</v-btn>
@@ -21,19 +23,47 @@
             item-value="id"
             v-model="filterDisciplina"
             clearable
+            v-if="!move"
         ></v-select>
+        <div v-if="move && selected.length" class="d-flex align-center">
+            <span>Mover para ({{ selected.length }}): &nbsp;</span> 
+            <v-select
+                label="Disciplina"
+                variant="outlined"
+                density="compact"
+                placeholder="Escolha a disciplina"
+                prepend-inner-icon="mdi-alpha-m-box"
+                hide-details
+                :items="metaStore.metas.sort(useOrderName)"
+                item-title="meta"
+                item-value="id"
+                v-model="selectedMeta"
+                clearable
+                style="max-width: 500px;"
+            >
+            <template v-slot:append>
+                <v-btn :disabled="!selectedMeta" color="primary" variant="flat" @click="moverTasks()">
+                    Mover
+                </v-btn>
+            </template>
+            <v-btn>Mover</v-btn>
+            </v-select>
+        </div>
         <p v-if="metaStore.readLoad">Aguarde...</p>
         <v-list>
             <v-list-item
                 v-for="item, i in tasks" :key="i" link
                 class="mb-1"
-                @click="item.details = !item.details"
+                @click.stop="item.details = !item.details"
                 :class="item.task_done ? 'bg-blue-grey-lighten-4':'bg-blue-grey-lighten-5'"
                 :id="item.nro_task"
             >
                 <template v-slot:prepend>
-                    <div style="width: 20px;" v-if="reordenar && !concluidas">
-                        {{ item.nro_task }}
+                    <div v-if="move && !concluidas">
+                        <v-checkbox hide-details @click.stop="move ? selectForMove(item) : item.details = !item.details"></v-checkbox>
+                    </div>
+                    <div style="max-width: 40px;" v-if="reordenar && !concluidas" @keyup.enter="metaStore.editar_task(item)">
+                        <input type="number" v-model="item.nro_task" style="width: 30px;" />
                     </div>
                     <div class="d-flex align-center flex-column mr-3" v-if="reordenar && !concluidas">
                         <v-btn @click.stop="reord_up(item)" 
@@ -81,8 +111,13 @@
 import { computed, onMounted, ref, provide } from 'vue'
 import { useRoute } from 'vue-router';
 
+import { useOrderName } from '@/composables/useOrderName';
+
 const route = useRoute()
 
+const move = ref(false)
+const selected = ref([])
+const selectedMeta =  ref(null)
 const concluidas = ref(false)
 const reordenar = ref(false) 
 const filterDisciplina = ref(null)
@@ -186,6 +221,26 @@ const addClassTop = (id) => {
 
 const addClassDown = (id) => {
     document.getElementById(id).classList.add('effectDown');
+}
+
+const selectForMove = (item) => {
+    if(!selected.value.includes(item.id)){
+        selected.value.push(item.id)
+    } else {
+        selected.value = selected.value.filter( x => x != item.id)
+    }
+}
+
+const moverTasks = async () => {
+    selected.value.forEach(async x => {
+        const task = {
+         id: x,
+         id_meta: selectedMeta.value
+        }
+        await metaStore.editar_task(task)
+    })
+    move.value = false
+    selected.value = []
 }
 
 </script>

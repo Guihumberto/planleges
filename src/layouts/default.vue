@@ -4,11 +4,14 @@
     <DefaultView v-if="true" />
     <div v-else>Loading</div>
     <FooterONe class="ocultar-impressao" />
+    <!-- {{ metaStore.readAllMetasAllUsers.sort(useOrderDateCreated) }} -->
   </v-app>
 </template>
 
 <script setup>
   import { onMounted } from 'vue';
+
+  // import { useOrderDateCreated } from '@/composables/useOrderDateCreated';
 
   import DefaultView from './View.vue'
   import HeaderONe from './Header.vue'
@@ -36,6 +39,7 @@
       await dbStore.getDisciplinas()
       metaStore.selectedUser(userStore.user?.uid)
       // dbStore.getConcursos()
+      // metaStore.getAllMetasAllUsers()
     }
   })
 </script>

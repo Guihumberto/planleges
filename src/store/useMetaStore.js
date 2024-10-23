@@ -70,7 +70,8 @@ export const useMetaStore = defineStore('metaStore', {
         {id:3, name: 'Alta', icon: 'mdi-arrow-up-drop', color: 'orange'},
         {id:4, name: 'Relevante', icon: 'mdi-exclamation-thick', color: 'red'}
     ],
-    loadTasksMeta: false
+    loadTasksMeta: false,
+    allMetasAllUsers: []
   }),
   getters:{
     readMentorandos(){
@@ -90,6 +91,9 @@ export const useMetaStore = defineStore('metaStore', {
     },
     readloadTasksMeta(){
         return this.loadTasksMeta
+    },
+    readAllMetasAllUsers(){
+        return this.allMetasAllUsers
     }
   },
   actions:{
@@ -376,6 +380,23 @@ export const useMetaStore = defineStore('metaStore', {
              this.loadTasksMeta = false
         }
       
-    }
+    },
+    async getAllMetasAllUsers(){
+        this.load = true
+        try {
+            const q = query(collection(db, 'tarefas'));
+            await onSnapshot(q, (querySnapshot) => {
+                this.allMetasAllUsers = [];
+                querySnapshot.forEach((doc) => {
+                    this.allMetasAllUsers.push({id: doc.id, ...doc.data()})
+                })
+            })
+            this.rodarMetas()
+        } catch (error) {
+            console.log(error);
+        }finally{
+            this.load = false
+        }    
+    },
   }
 })

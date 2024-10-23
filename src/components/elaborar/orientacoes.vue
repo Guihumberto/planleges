@@ -14,6 +14,7 @@
                     density="compact"
                     v-model="orientacao.title"
                     :rules="[rules.required, rules.minfield]"
+                    v-if="save_next"
                 ></v-text-field>
                 <v-textarea
                     label="Texto da orientação"

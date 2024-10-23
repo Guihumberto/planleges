@@ -100,7 +100,7 @@
 </template>
 
 <script setup>
-    import { onMounted, ref } from 'vue';
+    import { ref } from 'vue';
     import { useRoute } from 'vue-router';
     const route = useRoute()
     const dialog = ref(false)
@@ -170,24 +170,25 @@
     ])
 
     const clear = () => {
-        task.value = {
-            name_task: null,
-            id_disciplina: 0,
-            subject: null,
-            type: 0,
-            priority: 2,
-            task_description: null,
-            link: null,
-            law: null, 
-            caderno_qtoes: null,
-            qtd_questoes: 0,
-            banca: null, 
-            tipo_qtoes: 0,
-            task_done: false, 
-            date_done: null, 
-            rev_done: false, 
-            date_rev: null
-        }
+        listTask.value = [
+            {
+                nro_task: nro_task.value,
+                subject: null,
+                type: 0,
+                priority: 2,
+                task_description: null,
+                link: null,
+                law: null, 
+                caderno_qtoes: null,
+                qtd_questoes: 0,
+                banca: null, 
+                tipo_qtoes: 0,
+                task_done: false, 
+                date_done: null, 
+                rev_done: false, 
+                date_rev: null
+            }
+        ]
     }
 
     const addTask = async () => {

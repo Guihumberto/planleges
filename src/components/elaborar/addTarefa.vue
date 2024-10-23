@@ -121,7 +121,7 @@
                             ></v-radio>
                             </v-radio-group>
                             <orientacoes @text_orientacao="add_orientacao" />
-                            <div v-if="text_orientacao?.id" class="my-5">
+                            <div v-if="text_orientacao?.text" class="my-5">
                                 <h3 class="mb-2">Orientação:</h3>
                                 <p v-html="text_orientacao.text"></p>
                             </div>
@@ -153,7 +153,7 @@
                                 v-model="task.link"
                             ></v-text-field>
                             <orientacoes @text_orientacao="add_orientacao" />
-                            <div v-if="text_orientacao?.id" class="my-5">
+                            <div v-if="text_orientacao?.text" class="my-5">
                                 <h3 class="mb-2">Orientação:</h3>
                                 <p v-html="text_orientacao.text"></p>
                             </div>
@@ -210,6 +210,7 @@ const typeSelect = computed(() => {
 const text_orientacao = ref({})
 
 const add_orientacao = (evento) => {
+    console.log(evento);
     text_orientacao.value = evento
 }   
 
@@ -279,6 +280,7 @@ const clear = () => {
 
 const editar_task  = () => {
     metaStore.editar_task(task.value)
+    text_orientacao.value = {}
     dialog.value = false
     clear()
 }
@@ -286,6 +288,11 @@ const editar_task  = () => {
 const addTask = async () => {
     const { valid } = await form.value.validate()
         if(valid){
+
+            if(text_orientacao.value.text){
+                task.value.text_orientacao = text_orientacao.value.text
+            }
+
             if(tipo == 2) {
                 editar_task()
                 return
@@ -294,10 +301,8 @@ const addTask = async () => {
             task.value.nro_task = nro_task.value
             task.uid = metaStore.meta.user
         
-            if(text_orientacao.value.id){
-                task.value.text_orientacao = text_orientacao.value.text
-            }
-            metaStore.addTask(task.value);
+            
+            await metaStore.addTask(task.value);
             text_orientacao.value = {}
             nro_task.value++
             clear()
