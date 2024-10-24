@@ -210,7 +210,6 @@ const typeSelect = computed(() => {
 const text_orientacao = ref({})
 
 const add_orientacao = (evento) => {
-    console.log(evento);
     text_orientacao.value = evento
 }   
 
