@@ -82,6 +82,9 @@
                 </div>
             </v-list-item>
         </v-list>
+        <div class="text-right">
+            <v-btn :disabled="metaStore.readMeta?.meta_done" variant="flat" v-if="tasks.length == total_concluidas" color="success" @click="metaStore.concluirMeta(route.params.id, true)">Concluir</v-btn>
+        </div>
     </div>
 </template>
 
@@ -105,6 +108,7 @@ const metaStore = useMetaStore()
 onMounted( () => {
     metaStore.tarefas = []
     metaStore.getTask(route.params.id)
+    metaStore.getMeta(route.params.id)
     setTimeout(()=> {
         load.value = false
     }, 1000)
@@ -163,9 +167,10 @@ const concluirTask = async (item) => {
     verifica_finalizacao(item)
 }
 
-const verifica_finalizacao = (item) => {
-    if(total_concluidas.value + 1 == tasks.value.length){
-        if(!item.task_done) metaStore.concluirMeta(route.params.id, true)
+const verifica_finalizacao = async (item) => {
+    console.log('total:', tasks.value.length, 'conc:',  total_concluidas.value);
+    if(total_concluidas.value == tasks.value.length){
+        await metaStore.concluirMeta(route.params.id, true)
     } else {
         metaStore.concluirMeta(route.params.id, false)
     }

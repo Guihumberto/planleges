@@ -93,6 +93,9 @@ export const useMetaStore = defineStore('metaStore', {
     readMetas() {
         return this.metas
     },
+    readMeta() {
+        return this.meta
+    },
     readAllTarefas(){
         return this.allTarefas
     },
