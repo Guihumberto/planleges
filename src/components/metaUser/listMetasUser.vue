@@ -25,12 +25,13 @@
             <v-alert class="mt-5" type="info" variant="outlined"v-else>
                 <p>Não há metas adicionadas.</p>
             </v-alert>
+            <All_subjects />
         </div>
     </div>
 </template>
 
 <script setup>
-    import { computed, onMounted, ref } from 'vue'
+    import { computed } from 'vue'
 
     import  { useMetaStore  } from '@/store/useMetaStore'
     const metaStore = useMetaStore()

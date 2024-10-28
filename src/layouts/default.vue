@@ -39,7 +39,7 @@
       await dbStore.getDisciplinas()
       metaStore.selectedUser(userStore.user?.uid)
       // dbStore.getConcursos()
-      // metaStore.getAllMetasAllUsers()
+      metaStore.getAllMetasAllUsers()
     }
   })
 </script>

@@ -380,6 +380,7 @@ export const useMetaStore = defineStore('metaStore', {
         try {
             const q = query(collection(db, 'tarefas'), where('id_meta', '==', item));
             await onSnapshot(q, (querySnapshot) => {
+                this.allTarefas = []
                 querySnapshot.forEach((doc) => {
                     this.allTarefas.push({id: doc.id, details: false, ...doc.data()})
                 })
