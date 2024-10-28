@@ -1,6 +1,6 @@
 <template>
   <v-app :theme="dark">
-    <v-app-bar
+    <!-- <v-app-bar
         class="fixed-bar"
         color="primary"
         density="compact"
@@ -16,7 +16,7 @@
         <template v-slot:append>
           <v-btn icon="mdi-theme-light-dark" @click="theme = !theme"></v-btn>
         </template>
-      </v-app-bar>
+      </v-app-bar> -->
 
     <DefaultView v-if="true" />
     <div v-else>Loading</div>
@@ -44,6 +44,15 @@
 </script>
 
 <style>
+.quill-content blockquote{
+  color: grey;
+  border-left: 5px solid rgb(135, 130, 130);
+  padding-left: .8rem
+}
+
+.quill-content ol, ul {
+  margin-left: 2rem;
+}
 .fixed-bar {
   position: sticky;
   position: -webkit-sticky; /* for Safari */

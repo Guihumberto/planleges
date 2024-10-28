@@ -6,6 +6,7 @@
         <v-btn 
             @click="markFav(revItem)" variant="text" title="favoritos" class="ml-2" flat 
             :color="revItem.fav? 'yellow':'grey'" :icon="revItem.fav ? 'mdi-star' : 'mdi-star-outline'"></v-btn>
+        <v-btn variant="text" color="primary" :loading="load"></v-btn>
     </div>
 </template>
 
@@ -29,6 +30,9 @@
             },
             listRevMark(){
                 return revStore.readRevMarkList
+            },
+            load(){
+                return revStore.readLoadFav
             }
         },
         methods:{

@@ -23,7 +23,7 @@
           <listTopics :topics="listRev" @findIndice="findPage($event)" />
           <div v-if="listRev.length" v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" 
              :id="item.idU">
-            <div v-show="idEdit == item.idU" spellcheck="true" lang="pt-BR">
+            <div v-show="idEdit == item.idU" spellcheck="true" lang="pt-BR" class="px-3"> 
               <h2>{{ item.title }}</h2>
                 <v-text-field
                   label="Título"
@@ -43,7 +43,10 @@
             </div>
             <div v-if="idEdit != item.idU" class="boxTextoRevisao">
               <h2>{{ item.title }}</h2>
-              <p class="texto" v-html="item.textrev"></p>
+              <div v-html="item.textrev" class="quill-content"></div>
+              <div class="mt-5">
+                <small>Data da criação: {{ formatteDate(item.dateCreated) }}</small>
+              </div>
             </div>
             <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
               <div v-if="loadCrud" class="text-center mb-2">
@@ -58,9 +61,8 @@
                 <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
               </div>
             </div>
-            <div v-else class="barraAcoes">
+            <div v-if="idEdit != item.idU && idDelete != item.idU" class="barraAcoes">
               <div>
-               <!-- {{ formatteDate(item.dateCreated) }} -->
                  <barraPost :revItem="item" />
               </div>
               <div class="questoes">
@@ -92,6 +94,8 @@
 </template>
 
 <script>
+  import 'quill/dist/quill.core.css'
+  import 'quill/dist/quill.snow.css'
   import { useRevStore } from "@/store/revStore";
   const revStore = useRevStore()
 
@@ -102,10 +106,6 @@
 
   import moment from 'moment'
   import 'moment/locale/pt-br'
-
-  import 'quill/dist/quill.core.css'
-  import 'quill/dist/quill.snow.css'
-  import Quill from 'quill'
 
     export default {
         data(){
@@ -119,8 +119,6 @@
             idEdit: null,
             topicoEditText:{title: null, textrev: null},
             reverse: false,
-            quill: null,
-            editor:'',
             tela: false,
             filtros:[
               {name:'Marcados para Revisão', select: false},
@@ -216,18 +214,6 @@
           }
         },
         mounted(){
-          this.quill = new Quill(this.$refs.editor, {
-              theme: 'snow', // 'snow' é um tema popular
-              modules: {
-                  toolbar: [
-                      [{ header: [1, 2, false] }],
-                      ['bold', 'italic', 'underline'],
-                      ['image', 'code-block'],
-                      [{ list: 'ordered' }, { list: 'bullet' }],
-                      ['link'],
-                  ],
-              },
-          });
           window.addEventListener('scroll', this.handleScroll);
         },
         beforeDestroy() {
@@ -236,7 +222,18 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style>
+
+.quill-content blockquote{
+  color: grey;
+  border-left: 5px solid rgb(135, 130, 130);
+  padding-left: .8rem
+}
+
+.quill-content ol, ul {
+  margin-left: 2rem;
+}
+
 .boxTextoRevisao{
   margin-left: 1rem;
   margin-top: .5rem;

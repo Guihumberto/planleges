@@ -10,6 +10,7 @@ export const useRevStore = defineStore('revStore', {
   state: () => ({
     listRevs: [],
     types: ['comentario', 'jurisprudencia', 'doutrina', 'legislacao'],
+    loadFav: false,
     load: false,
     dadosRev: null,
     favoritos: [],
@@ -34,6 +35,9 @@ export const useRevStore = defineStore('revStore', {
     },
     readLoadCrud(){
       return this.loadCrud
+    },
+    readLoadFav(){
+      return this.loadFav
     },
     readFavoritos(){
       return this.favoritos
@@ -224,7 +228,7 @@ export const useRevStore = defineStore('revStore', {
       }
     },
     async addFavUser(item){
-      this.load = true
+      this.loadFav = true
       try {
           const docRef = doc(db, 'listRev', item.idU)
           const docSpan = await getDoc(docRef)
@@ -236,13 +240,13 @@ export const useRevStore = defineStore('revStore', {
               fav: item.fav
           })
       } catch (error) {
-          console.log(error);
+          console.log('error dfav');
       }finally{
-          this.load = false
+          this.loadFav = false
       }
     },
     async addMarkRevUser(item){
-      this.load = true
+      this.loadFav = true
       try {
           const docRef = doc(db, 'listRev', item.idU)
           const docSpan = await getDoc(docRef)
@@ -254,9 +258,9 @@ export const useRevStore = defineStore('revStore', {
             revMark: item.revMark
           })
       } catch (error) {
-          console.log(error);
+          console.log('error mark rev');
       }finally{
-          this.load = false
+          this.loadFav = false
       }
     },
   },

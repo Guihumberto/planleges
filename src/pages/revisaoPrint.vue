@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <voltar class="ocultar-impressao" />
     <div class="content" v-if="!revStore.readLoad">
+      <div class="text-center">
+        <voltar class="ocultar-impressao" /> <v-btn class="ocultar-impressao" icon="mdi-printer-outline" @click="printPage()"></v-btn>
+      </div>
       <listRev v-if="true" />
     </div>
     <loading v-else />
@@ -23,6 +25,10 @@
 
   revStore.getDadosRev(idURev)
   revStore.getRev(idURev)
+
+  const printPage = () => {
+    window.print();
+  }
 
   
 </script>

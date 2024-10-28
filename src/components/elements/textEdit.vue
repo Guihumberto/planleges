@@ -1,7 +1,7 @@
 <template>
     <div>
         <div ref="editor"></div>
-        <div class="mt-5"> 
+        <div class="mt-5 text-right"> 
             <v-btn @click="copyPost()" variant="outlined" color="success">Salvar</v-btn>
             <v-btn @click="cancel()" flat>Cancelar</v-btn>
         </div>
@@ -59,6 +59,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
-    
+<style>
+    @import "quill/dist/quill.snow.css";
 </style>

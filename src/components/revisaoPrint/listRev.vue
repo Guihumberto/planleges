@@ -6,7 +6,7 @@
             color="primary"
           ></v-progress-circular>
         </div>
-        <div class="ocultar-impressao">
+        <!-- <div class="ocultar-impressao">
           <v-text-field density="compact" v-model="namePDF" style="max-width: 500px;">
             <template v-slot:append>
               <v-btn color="red" variant="outlined" @click.prevent="generatePDF">
@@ -15,48 +15,18 @@
               </v-btn>
             </template>
           </v-text-field>
-        </div>
+        </div> -->
         <div v-if="listRev.length" ref="pdfContent" id="pdf-content">
           <titlePrint />
           <listTopicsPrint :topics="listRev" />
-          <div v-for="item, i in listRev" :key="i" class="w-100 border pa-2 my-5 postRev" >
-            <div v-show="idEdit == item.idU">
-              <h2>{{ item.title }}</h2>
-                <v-text-field
-                  label="Título"
-                  density="compact"
-                  variant="outlined"
-                  style="max-width: 500px;"
-                  v-model.trim="topicoEditText.title"
-                  class="mt-5"
-                  clearable
-                ></v-text-field>
-                <textEdit 
-                :texto="topicoEditText.textrev" 
-                @insertNew="topicoEditText.textrev = $event, editRegistro(item, topicoEditText)" 
-                @cancel="idEdit =null, topicoEditText.title = null" 
-                />
-            </div>
-            <div v-if="idEdit != item.idU">
-              <h2>{{ item.title }}</h2>
-              <p v-html="item.textrev"></p>
-            </div>
-            <div v-if="idDelete == item.idU" class="d-flex justify-center align-center border-t mt-5 pt-2" :class=" idDelete ? 'bg-red' : 'bg-grey'">
-              <div v-if="loadCrud" class="text-center mb-2">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                ></v-progress-circular>
-              </div>
-              <div v-else class="mb-2">
-                Apagar registro? 
-                <v-btn class="ml-2" variant="outlined"  flat @click.stop="deleteRegistro(item.idU)">Apagar</v-btn>
-                <v-btn variant="text" class="ml-1" flat @click.stop="idDelete =null">cancelar</v-btn>
-              </div>
+          <div v-for="item, i in listRev" :key="i" class="w-100 border-t pa-2 my-5 postRev" >
+            <div class="pa-2">
+              <h2 class="mb-5">{{ item.title }}</h2>
+              <div v-html="item.textrev" class="quill-content"></div>
             </div>
           </div>
-          <div class="mt-15">
-            João Humberto - Revisão
+          <div class="mt-15 text-center">
+            Estudo da Lei - Revisão
           </div>
         </div>
         <alerta text="Não há comentários da revisão cadastrados." variant="outlined" v-else />
@@ -169,10 +139,6 @@
         padding: 40px 30px;
         background: #fff;
         page-break-after: always; /* Cria uma nova página após o conteúdo */
-}
-p{
-  margin-left: 1rem;
-  margin-top: .5rem;
 }
 .postRev, .conteudo{
   animation: appear 1s ease;
