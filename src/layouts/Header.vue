@@ -1,7 +1,7 @@
 <template>
     <div class="wrapperHeader">
         <div class="container">
-            <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
+            <h2 class="title" @click="$router.push('/')">Estudo da Lei</h2>
             <div class="d-flex align-center">
                 <div class="links" v-if="!!useStore.user">
                     <!-- <router-link to="/config" class="link">Criar</router-link> -->

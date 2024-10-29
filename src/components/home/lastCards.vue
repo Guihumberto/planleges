@@ -73,7 +73,7 @@
 }
 .wrapper-list{
     position: relative;
-    height: 78vh;
+    height: 52vh;
     width: 100%;
     overflow-y: auto; /* exibe a barra de rolagem vertical se necessário */
 }

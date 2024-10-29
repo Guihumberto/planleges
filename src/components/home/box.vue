@@ -14,6 +14,7 @@
                 </div>
             </div>
         </div>
+        <ListCardsRev v-if="userStore.user?.uid" />
     </div>
     
 </template>
@@ -21,6 +22,7 @@
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
     import Apresentation from './apresentation.vue';
+import ListCardsRev from './listCardsRev.vue';
     const userStore = useRegisterStore()
     
 </script>
@@ -69,7 +71,7 @@
 }
 .groupBox{
     width: min(100%, 1080px);
-    min-height: 70vh;
+    min-height: 10vh;
     display: flex;
     justify-content: baseline;
     align-items:center;

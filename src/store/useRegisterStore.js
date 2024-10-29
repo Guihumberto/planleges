@@ -38,12 +38,14 @@ export const useRegisterStore = defineStore('registerStore', {
     },
     async loginUser(userLogin){
         this.load = true
+        const revStore = useRevStore()
         try {
             const { user } = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
             await this.getUserData()
             await notifcacaoStore.getNotificacoes(user.uid)
+            await revStore.getAllConteudo()
             router.push('/home')
         } catch (error) {
             console.log(error);
@@ -85,8 +87,9 @@ export const useRegisterStore = defineStore('registerStore', {
     saveUserData() {
       localStorage.setItem('userDataRev', JSON.stringify(this.user));
     },
-    loadUserData() {
+    async loadUserData() {
       const data = localStorage.getItem('userDataRev');
+      const revStore = useRevStore()
       if (data) {
           const login = {
               email: JSON.parse(data).email,
@@ -95,6 +98,7 @@ export const useRegisterStore = defineStore('registerStore', {
           if(login.email) {
             this.user = {email: login.email, uid: login.uid}
             notifcacaoStore.getNotificacoes(login.uid)
+            await revStore.getAllConteudo()
         }
       }
     },

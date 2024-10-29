@@ -4,6 +4,7 @@ import { auth, db } from '@/firebaseConfig'
 
 import { useNotificacaoStore } from '@/store/useNotificacaoStore'
 const notifcacaoStore = useNotificacaoStore()
+
 import { useDbStore } from '@/store/dbStore'
 const dbStore = useDbStore()
 

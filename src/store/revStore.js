@@ -9,6 +9,7 @@ import { useRegisterStore } from '@/store/useRegisterStore'
 export const useRevStore = defineStore('revStore', {
   state: () => ({
     listRevs: [],
+    listAllRevs: [],
     types: ['comentario', 'jurisprudencia', 'doutrina', 'legislacao'],
     loadFav: false,
     load: false,
@@ -18,7 +19,8 @@ export const useRevStore = defineStore('revStore', {
     loadCrud: false,
     favoritosList: [],
     revMarkList: [],
-    listIdVinculados: []
+    listIdVinculados: [],
+    conteudos: []
   }),
   getters:{
     readTypes(){
@@ -26,6 +28,9 @@ export const useRevStore = defineStore('revStore', {
     },
     readListRevs(){
       return this.listRevs
+    },
+    readAllListRevs(){
+      return this.listAllRevs
     },
     readDadosRev(){
       return this.dadosRev
@@ -72,6 +77,9 @@ export const useRevStore = defineStore('revStore', {
       });
 
       return newList
+    },
+    readConteudos(){
+      return this.conteudos
     }
   },
   actions:{
@@ -93,6 +101,7 @@ export const useRevStore = defineStore('revStore', {
     },
     async addRev(item){
         this.loadCrud = true
+        const uid = await userStore.user?.uid
         try {
           const id = nanoid(6)
           const objConteudo = {
@@ -102,7 +111,8 @@ export const useRevStore = defineStore('revStore', {
               textrev: item.textrev,
               title: item.title,
               type: item.type,
-              idVinculado: item.idVinculado
+              idVinculado: item.idVinculado,
+              uid_user: uid
           }
           const docRef = await addDoc(collection(db, 'listRev'), objConteudo)
           this.listRevs.unshift({idU:docRef.id, ...objConteudo})
@@ -261,6 +271,37 @@ export const useRevStore = defineStore('revStore', {
           console.log('error mark rev');
       }finally{
           this.loadFav = false
+      }
+    },
+    async getAllConteudo(){
+      const userStore = useRegisterStore()
+      const uid = await userStore.user?.uid
+      try {
+          const q = query(collection(db, 'conteudo'), where('uid_user', '==', uid));
+          await onSnapshot(q, (querySnapshot) => {
+              this.conteudos = []
+              querySnapshot.forEach((doc) => {
+                  this.conteudos.push({id_conteudo: doc.id, details: false, ...doc.data()})
+                  this.getAllRev(doc.id)
+              })
+          })
+          await this.getAllRev()
+      } catch (error) {
+          console.log('error');
+      } finally {
+        console.log('final');
+      }
+    },
+    async getAllRev(item){
+      try {
+          const q = query(collection(db, 'listRev'), where('idVinculado', '==', item))
+          const querySnapshot = await getDocs(q)
+            this.listAllRevs = []
+            querySnapshot.forEach((doc) => {
+                this.listAllRevs.push({idU:doc.id, ...doc.data()})
+            })
+      } catch (error) {
+        console.log('error')
       }
     },
   },
