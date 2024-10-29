@@ -10,11 +10,6 @@
                     v-if="dbStore.readConteudo.length"
                     @click="revisaoAction(item)"
                     v-for="item, i in conteudo" :key="i" class="bg-grey-lighten-4 mb-1" link>
-                    <template v-slot:prepend>
-                        <v-icon>
-                            mdi-content-paste
-                        </v-icon>
-                    </template>
                     <v-list-item-title>{{ item.name }}</v-list-item-title>
                     <v-list-item-subtitle>{{ item.disciplina }}</v-list-item-subtitle>
                     <dialogRevisar :item="item" />
@@ -73,7 +68,8 @@
 }
 .wrapper-list{
     position: relative;
-    height: 52vh;
+    min-height: 32vh;
+    max-height: 50vh;
     width: 100%;
     overflow-y: auto; /* exibe a barra de rolagem vertical se necessário */
 }

@@ -1,6 +1,6 @@
 <template>
     <div v-if="list_revs.length">
-        <h1 class="text-h5 mb-2">Últimos cards adicionados </h1>
+        <h5 class="text-h6 mb-2"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos cards adicionados</h5>
         <div>
             <div v-for="item, i in list_revs" :key="i" class="quill-content">
                 <div class="card-title">
