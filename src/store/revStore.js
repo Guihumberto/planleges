@@ -101,6 +101,7 @@ export const useRevStore = defineStore('revStore', {
     },
     async addRev(item){
         this.loadCrud = true
+        const userStore = useRegisterStore()
         const uid = await userStore.user?.uid
         try {
           const id = nanoid(6)
@@ -288,8 +289,6 @@ export const useRevStore = defineStore('revStore', {
           await this.getAllRev()
       } catch (error) {
           console.log('error');
-      } finally {
-        console.log('final');
       }
     },
     async getAllRev(item){
