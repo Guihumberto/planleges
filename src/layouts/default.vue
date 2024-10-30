@@ -60,6 +60,12 @@
     border-radius: 20px;
   }
 
+  @media (max-width: 600px) {
+    html{
+      font-size: 75%;
+    }
+  }
+
 
   @media print {
     .ocultar-impressao {

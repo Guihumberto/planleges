@@ -19,9 +19,9 @@
         <div v-if="listRev.length" ref="pdfContent" id="pdf-content">
           <titlePrint />
           <listTopicsPrint :topics="listRev" />
-          <div v-for="item, i in listRev" :key="i" class="w-100 border-t pa-2 my-5 postRev" >
-            <div class="pa-2">
-              <h2 class="mb-5">{{ item.title }}</h2>
+          <div v-for="item, i in listRev" :key="i" class="w-100 border-t py-2 my-2 postRev" >
+            <div>
+              <h2 class="mb-2">{{ item.title }}</h2>
               <div v-html="item.textrev" class="quill-content"></div>
             </div>
           </div>

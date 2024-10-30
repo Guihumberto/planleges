@@ -94,7 +94,8 @@
 
 <style lang="scss" scoped>
 .content{
-    min-height: 10vh;
+    min-height: 32vh;
+    max-height: 50vh;
     min-width: 300px;
     padding: 1rem;
     border: 1px solid rgb(220, 219, 219);

@@ -25,6 +25,7 @@
   width: min(100vw, 1080px);
   margin-inline: auto;
   animation: apper 1s ease;
+  margin-top: 5rem;
 }
 .conteudo{
   animation: apper 1s ease;

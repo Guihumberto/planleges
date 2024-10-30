@@ -36,6 +36,7 @@
 .container{
   width: min(100vw, 1080px);
   margin-inline: auto;
+  margin-top: 5rem;
 }
 @keyframes appear {
   0%{

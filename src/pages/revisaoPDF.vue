@@ -43,6 +43,7 @@
     .containerPDF{
         background: rgb(200, 199, 199);
         padding: 2rem;
+        margin-top: 5rem;
     }
     .content {
         font-family: Arial, sans-serif;

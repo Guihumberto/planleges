@@ -34,6 +34,7 @@
   border: 1px solid rgb(224, 215, 215);
   border-radius: 10px;
   padding: 1rem;
+  margin-top: 5rem;
 }
 .cardLogin{
     width: min(95vw, 500px);

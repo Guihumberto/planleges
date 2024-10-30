@@ -1,7 +1,7 @@
 <template>
     <div class="wrapperHeader">
         <div class="container">
-            <h2 class="title" @click="$router.push('/')">Estudo da Lei</h2>
+            <h2 class="title" @click="$router.push('/')">EL - Estudo da Lei</h2>
             <div class="d-flex align-center">
                 <div class="links" v-if="!!useStore.user">
                     <!-- <router-link to="/config" class="link">Criar</router-link> -->
@@ -30,17 +30,22 @@ import Notifications from './notifications.vue';
 
 <style lang="scss" scoped>
 .wrapperHeader{
+    position: fixed;
     display: flex;
     justify-content: center;
     color: #fff;
+    margin-inline: 0 auto;
+    width: 100%;
+    background: #fff;
+    z-index: 99;
 }
 .container{
     display: flex;
     justify-content: space-between;
     background-color: #23424a;
-    margin: 0.5rem 0.1rem;
+    margin: 0.5rem 0.1rem 0;
     padding: 0.3rem 1rem  ;
-    border-radius: 20px;
+    border-radius: 8px;
     align-items: center;
     width: min(100vw, 1080px);
 }
@@ -48,16 +53,16 @@ import Notifications from './notifications.vue';
     transition: all .5s ease;
 }
 .title:hover{
-    color: grey;
+    color:#bfdbfe;
     cursor: pointer;
 }
 .link{
     text-decoration: none;
     color: #fff;
-    transition: 1s ease;
+    transition: .5s;
 }
 .link:hover{
-    color: rgb(172, 172, 238);
+    color:#bfdbfe;
 }
 .links{
     display: flex;

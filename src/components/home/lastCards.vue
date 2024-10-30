@@ -61,7 +61,6 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    min-height: 200px;
     border: 1px solid rgb(210, 202, 202);
     border-radius: 8px;
     padding: 1rem;

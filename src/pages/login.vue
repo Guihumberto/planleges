@@ -16,6 +16,7 @@
 .container{
   width: min(80vw, 1080px);
   margin-inline: auto;
+  margin-top: 5rem;
 }
 
 .appear{

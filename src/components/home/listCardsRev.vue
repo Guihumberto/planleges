@@ -1,5 +1,5 @@
 <template>
-    <div v-if="list_revs.length">
+    <div v-if="list_revs.length" class="mt-5">
         <h5 class="text-h6 mb-2"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos cards adicionados</h5>
         <div>
             <div v-for="item, i in list_revs" :key="i" class="quill-content">
@@ -35,7 +35,7 @@
     })
 
     const conteudo = (id) => {
-        return list_conteudos.value.find(c => c.id = id)
+        return list_conteudos.value.find(c => c.id_conteudo == id)
     }
 
 
@@ -43,12 +43,12 @@
 
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .quill-content{
     background: rgb(247, 246, 246);
     padding: 0 1rem;
     margin-bottom: .5rem;
-    border-top: .3rem solid #23424a;
+    border-top: .2rem solid #23424a;
 }
 .card-title {
     display: flex;
