@@ -1,8 +1,6 @@
 <template>
     <div class="container">
-        <div>
-            <box />
-        </div>
+        <box />
     </div>
 </template>
 
@@ -14,14 +12,14 @@
 
 <style lang="scss" scoped>
 .container{
-  width: min(98%, 1070px);
+  width: min(98%, 1080px);
   margin: 0.5rem;
   margin-inline: auto;
-  margin-top: 5rem;
   border: 1px solid rgb(224, 215, 215);
   border-radius: 10px;
   padding: 1rem;
   margin-top: 5rem;
+  background-color: #01003f;
 }
 .cardLogin{
     width: min(95vw, 500px);

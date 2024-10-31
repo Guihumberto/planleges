@@ -1,21 +1,18 @@
 <template>
-    <v-card color="blue-grey-lighten-5" class="cardLogin pb-5" flat variant="flat" max-width="400px">
-        <v-card-title class="d-flex justify-space-between my-5 appear">
-            <h3 v-text="isLogin.title"></h3>
-            <v-btn variant="text" @click="login = !login">{{ login ? 'Criar Conta' : 'Login' }}</v-btn>
-        </v-card-title>
+    <v-card class="cardLogin" variant="flat" max-width="400px">
         <v-card-text>
-            <v-form @submit.prevent="createUser">
+            <v-form @submit.prevent="createUser" class="mt-5" ref="form">
                 <v-text-field
                     label="Nome"
                     placeholder="Digite seu nome completo"
                     density="compact"
                     variant="outlined"
-                    class="appear"
+                    class="appear mb-2"
                     prepend-inner-icon="mdi-account"
                     v-model.trim="user.name"
                     clearable
                     v-if="!login"
+                    :rules="[rules.required, rules.minfield]"
                 ></v-text-field>
                 <v-text-field
                     label="E-mail"
@@ -25,6 +22,8 @@
                     prepend-inner-icon="mdi-email"
                     v-model.trim="user.email"
                     clearable
+                    :rules="[rules.required, rules.minfield]"
+                    class="mb-2"
                 ></v-text-field>
                 <v-text-field
                     label="Senha"
@@ -34,13 +33,22 @@
                     prepend-inner-icon="mdi-lock"
                     v-model.trim="user.password"
                     :type="show ? 'text' : 'password'"
+                    :rules="[rules.required, rules.minfield]"
+                    clearable
+                    class="mb-2"
                 >
                 <template v-slot:append-inner>
                     <v-icon @click="show = !show">{{show ? 'mdi-eye':'mdi-eye-off'}}</v-icon>
                 </template>
                 </v-text-field>
-                <v-btn :disabled="loadUser" :loading="loadUser" flat :color="isLogin.color" type="submit" block>{{ isLogin.title }}</v-btn>
+                <div class="text-center">
+                    <v-btn :disabled="loadUser" :loading="loadUser" flat :color="isLogin.color" type="submit" block>{{ isLogin.title }}</v-btn>
+                    <v-btn class="mt-5" variant="flat" color="var(--main-color)" @click="login = !login">{{ login ? 'Criar Conta' : 'Login' }}</v-btn>
+                </div>
             </v-form>
+            <v-alert variant="text" type="error" class="mt-5" v-if="msgError">
+                {{ msgError }}
+            </v-alert>
         </v-card-text>
     </v-card>
 </template>
@@ -58,7 +66,11 @@
                     email: '',
                     password: ''
                 },
-                show: false
+                show: false,
+                rules: {
+                required: value => !!value || "campo obrigatório", 
+                minfield: (v) => (v||'').length >= 3 || "Mínimo 4 caracteres",
+                }
             }
         },
         computed:{
@@ -69,14 +81,20 @@
             },
             loadUser(){
                 return userStore.load
+            },
+            msgError(){
+                return userStore.readMsgError
             }
         },
         methods:{
             async createUser(){
-                if(this.login){
-                    await userStore.loginUser(this.user)
-                } else {
-                    await userStore.registerUser(this.user)
+                const { valid } = await this.$refs.form.validate()
+                if(valid) {
+                    if(this.login){
+                        await userStore.loginUser(this.user)
+                    } else {
+                        await userStore.registerUser(this.user)
+                    }
                 }
             }
         }

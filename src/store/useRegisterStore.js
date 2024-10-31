@@ -13,16 +13,21 @@ export const useRegisterStore = defineStore('registerStore', {
   state: () => ({
     user: null,
     load: false,
-    userData: null
+    userData: null, 
+    msgError: null
   }),
-  getter:{
+  getters:{
     readUser(){
         return this.user
     },
+    readMsgError(){
+        return this.msgError
+    }
   },
   actions:{
     async registerUser(userLogin){
         this.load = true
+        this.msgError = null
         try {
             const { user } = await createUserWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
@@ -39,6 +44,7 @@ export const useRegisterStore = defineStore('registerStore', {
     async loginUser(userLogin){
         this.load = true
         const revStore = useRevStore()
+        this.msgError = null
         try {
             const { user } = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
@@ -48,7 +54,23 @@ export const useRegisterStore = defineStore('registerStore', {
             await revStore.getAllConteudo()
             router.push('/home')
         } catch (error) {
-            console.log(error);
+            switch (error.code) {
+                case 'auth/user-not-found':
+                //   console.error("Erro: Conta não existe.");
+                  this.msgError = "Conta não existe."
+                  break;
+                case 'auth/wrong-password':
+                //   console.error("Erro: Senha incorreta.");
+                  this.msgError = "E-mail e/ou senha incorreto(s)."
+                  break;
+                case 'auth/invalid-email':
+                //   console.error("Erro: E-mail inválido.");
+                  this.msgError = "E-mail e/ou senha incorreto(s)."
+                  break;                default:
+                //   console.error("Erro desconhecido:", error.message);
+                  this.msgError = "E-mail e/ou senha incorreto(s)."
+                  break;
+              }
         } finally {
             this.load = false
         }

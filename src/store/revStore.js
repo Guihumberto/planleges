@@ -277,6 +277,7 @@ export const useRevStore = defineStore('revStore', {
     async getAllConteudo(){
       const userStore = useRegisterStore()
       const uid = await userStore.user?.uid
+      this.load = true
       try {
           const q = query(collection(db, 'conteudo'), where('uid_user', '==', uid));
           await onSnapshot(q, (querySnapshot) => {
@@ -286,9 +287,10 @@ export const useRevStore = defineStore('revStore', {
                   this.getAllRev(doc.id)
               })
           })
-          await this.getAllRev()
       } catch (error) {
           console.log('error');
+      } finally {
+        this.load = false
       }
     },
     async getAllRev(item){

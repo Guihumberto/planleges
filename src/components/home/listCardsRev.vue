@@ -1,5 +1,5 @@
 <template>
-    <div v-if="list_revs.length" class="mt-5">
+    <div v-if="list_revs.length">
         <h5 class="text-h6 mb-2"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos cards adicionados</h5>
         <div>
             <div v-for="item, i in list_revs" :key="i" class="quill-content">
@@ -14,6 +14,11 @@
                     <p class="text-overline">{{ useDateNow(item.dateCreated) }}</p>
                 </div>
             </div>
+            <div class="text-center mt-5">
+                <v-btn 
+                    v-if="limit <= revStore.readAllListRevs.length" 
+                    @click="addLimite()" class="text-white" variant="flat" color="var(--second-color)">Carregar Mais</v-btn>
+            </div>
         </div>
     </div>
 </template>
@@ -24,10 +29,20 @@
     import { useOrderDateCreated } from '@/composables/useOrderDateCreated';
     import { useDateNow } from '@/composables/useDateNow'; 
     
-    import { computed } from 'vue';
+    import { computed, ref } from 'vue';
+
+    const limit = ref(5)
+
+    const addLimite = () => {
+        limit.value += 5
+    }
 
     const list_revs = computed(() => {
-        return revStore.readAllListRevs.sort(useOrderDateCreated).slice(0, 5)
+        // console.log(revStore.readAllListRevs);
+        return revStore.readAllListRevs
+            .sort(useOrderDateCreated)
+            .slice(0, limit.value)
+            
     })
 
     const list_conteudos = computed(() => {
@@ -37,8 +52,6 @@
     const conteudo = (id) => {
         return list_conteudos.value.find(c => c.id_conteudo == id)
     }
-
-
 
 
 </script>

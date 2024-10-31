@@ -45,6 +45,17 @@
 </script>
 
 <style>
+  :root{
+    --second-color: #01003f;
+    --main-color: #42c1e8;
+    --background-color: #f9fafb;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
   *::-webkit-scrollbar{
     width: 8px;
     height: 0.4rem;
@@ -65,7 +76,6 @@
       font-size: 75%;
     }
   }
-
 
   @media print {
     .ocultar-impressao {

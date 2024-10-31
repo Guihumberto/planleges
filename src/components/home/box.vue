@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="content">
-            <listDisciplinas v-if="userStore.user?.uid" class="listDisciplinas" />
+        <ListCardsRev v-if="userStore.user?.uid" />
+        <div class="content" v-else>
             <div class="groupBox">
                 <div v-if="!userStore.user?.uid" class="inicio">
                     <Apresentation />
@@ -9,20 +9,15 @@
                         <LoginCard />
                     </div>
                 </div>
-                <div v-else class="wrapper-last">
-                    <LastCards />
-                </div>
             </div>
         </div>
-        <ListCardsRev v-if="userStore.user?.uid" />
     </div>
     
 </template>
 
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
-    import Apresentation from './apresentation.vue';
-import ListCardsRev from './listCardsRev.vue';
+    import ListCardsRev from './listCardsRev.vue';
     const userStore = useRegisterStore()
     
 </script>
@@ -38,10 +33,10 @@ import ListCardsRev from './listCardsRev.vue';
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    gap: .5rem;
 }
 .loginca{
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
