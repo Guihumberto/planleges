@@ -1,7 +1,6 @@
 <template>
     <div class="container">
-        <p v-if="load && !revStore.readLoad" class="load-dots">carregando <span class="dots"></span></p>
-        <box v-else />
+        <box />
     </div>
 </template>
 
@@ -35,14 +34,10 @@
 
 <style lang="scss" scoped>
 .container{
-  width: min(98%, 1070px);
+  width: min(98%, 1080px);
   margin: 0.5rem;
   margin-inline: auto;
-  border: 1px solid rgb(224, 215, 215);
-  border-radius: 10px;
-  padding: 1rem;
-  margin-top: 6rem;
-  background: rgb(247, 246, 246);
+  margin-top: 5rem;
 }
 .cardLogin{
     width: min(95vw, 500px);
@@ -63,5 +58,10 @@
     33% { content: '.'; }
     66% { content: '..'; }
     100% { content: '...'; }
+}
+@media (max-width: 500px) {
+    .container{
+        margin-top: 6rem;
+    }
 }
 </style>

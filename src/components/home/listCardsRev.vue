@@ -1,18 +1,34 @@
 <template>
-    <div v-if="list_revs.length">
-        <h5 class="text-h6 mb-2"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos cards adicionados</h5>
-        <div>
+    <div v-if="revStore.readAllListRevs.length">
+        <div class="title-last-cards">
+            <h5 class="text-h5"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos cards adicionados</h5>
+            <v-btn 
+                class="btn-show"
+                color="primary"
+                variant="text"
+                :append-icon="show_revisados ? 'mdi-eye' : 'mdi-eye-off'" @click="show_revisados = !show_revisados">
+                {{ show_revisados ? 'Mostrar revisados' : 'Ocultar Revisados' }}</v-btn>
+        </div>
+        <div class="mt-10">
             <div v-for="item, i in list_revs" :key="i" class="quill-content">
                 <div class="card-title">
-                    <h2>{{ conteudo(item.idVinculado).name }}</h2>
-                    <h2>{{ conteudo(item.idVinculado).disciplina }}</h2>
+                    <h3>{{ conteudo(item.idVinculado).name }}</h3>
+                    <h3>{{ conteudo(item.idVinculado).disciplina }}</h3>
                 </div>
-                <div>{{ item.title }}</div>
+                <h2 class="text-h5 mb-3">{{ item.title }}</h2>
                 <div v-html="item.textrev" class="card-text"></div>
-                <div><v-chip v-for="tag, t in item.tags">{{tag}}</v-chip></div>
-                <div class="text-right mt-5">
+                <div><v-chip class="mr-1"v-for="tag, t in item.tags">{{tag}}</v-chip></div>
+                <div class="text-center my-3">
+                    <v-btn 
+                        @click="markRevisado(item)"
+                        variant="text" append-icon="mdi-check" color="primary">
+                        Marcar como revisado <span v-if="item?.revisado">({{ item.revisado }})</span> <span v-else>(0)</span></v-btn>
+                </div>
+                <div class="d-flex justify-space-between align-center">
+                    <BarraPost :revItem="item" />
                     <p class="text-overline">{{ useDateNow(item.dateCreated) }}</p>
                 </div>
+                
             </div>
             <div class="text-center mt-5">
                 <v-btn 
@@ -21,6 +37,12 @@
             </div>
         </div>
     </div>
+    <v-alert v-else>
+        <div class="d-flex justify-space-between">     
+            <p>Você ainda não criou cards de revisão.</p>
+            <router-link to="/config">Criar cards de Revisão</router-link>
+        </div>
+    </v-alert>
 </template>
 
 <script setup>
@@ -32,6 +54,7 @@
     import { computed, ref } from 'vue';
 
     const limit = ref(5)
+    const show_revisados = ref(true)
 
     const addLimite = () => {
         limit.value += 5
@@ -39,7 +62,11 @@
 
     const list_revs = computed(() => {
         // console.log(revStore.readAllListRevs);
-        return revStore.readAllListRevs
+        let list = revStore.readAllListRevs
+        if(!show_revisados.value){
+            list = list.filter(x => !x.revisado)
+        }
+        return list
             .sort(useOrderDateCreated)
             .slice(0, limit.value)
             
@@ -52,6 +79,17 @@
     const conteudo = (id) => {
         return list_conteudos.value.find(c => c.id_conteudo == id)
     }
+    const markRevisado = async (item) => {
+        if(!item.revisado){
+            item.revisado = 1
+            item.dateRevisado = Date.now()
+            await revStore.editNewRev(item)
+        } else {
+            item.revisado++
+            item.dateRevisado = Date.now()
+            await revStore.editNewRev(item)
+        }
+    }
 
 
 </script>
@@ -61,21 +99,30 @@
     background: rgb(247, 246, 246);
     padding: 0 1rem;
     margin-bottom: .5rem;
-    border-top: .2rem solid #23424a;
+    border-top: .1rem solid #23424a;
+}
+.title-last-cards{
+    display: flex;
+    justify-content: space-between;
 }
 .card-title {
     display: flex;
     justify-content: space-between;
-    font-size: .8rem;
-    color: #23424a;
+    font-size: 1rem;
+    color: #333434;
     margin-bottom: .5rem;
 }
 .card-text{
     overflow-x: auto;
 }
-@media (max-width:500px) {
-    .card-title{
-        flex-direction: column-reverse;
+@media (max-width: 500px) {
+    .title-last-cards{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .btn-show{
+        margin-left: .6rem;
     }
 }
 </style>

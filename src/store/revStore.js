@@ -13,6 +13,7 @@ export const useRevStore = defineStore('revStore', {
     types: ['comentario', 'jurisprudencia', 'doutrina', 'legislacao'],
     loadFav: false,
     load: false,
+    loadGetAll: false,
     dadosRev: null,
     favoritos: [],
     markRevUser: [],
@@ -88,11 +89,14 @@ export const useRevStore = defineStore('revStore', {
       this.listRevs = []
       try {
         const q = query(collection(db, 'listRev'), where('idVinculado', '==', item))
-        const querySnapshot = await getDocs(q)
+
+        await onSnapshot(q, (querySnapshot) => {
           this.listRevs = []
-          querySnapshot.forEach((doc) => {
+            querySnapshot.forEach((doc) => {
               this.listRevs.push({idU:doc.id, ...doc.data()})
-          })
+            })
+        })
+        
       } catch (error) {
         console.log(error)
       } finally {
@@ -116,7 +120,6 @@ export const useRevStore = defineStore('revStore', {
               uid_user: uid
           }
           const docRef = await addDoc(collection(db, 'listRev'), objConteudo)
-          this.listRevs.unshift({idU:docRef.id, ...objConteudo})
 
         } catch (error) {
             console.log(error);
@@ -170,9 +173,6 @@ export const useRevStore = defineStore('revStore', {
                 title: edit.title,
                 textrev: edit.textrev
             })
-
-            this.listRevs = this.listRevs.map( x => x.idU == item.idU ? ({ ...item, title: edit.title, textrev: edit.textrev}) : x)
-
         } catch (error) {
             console.log(error);
         }finally{
@@ -190,8 +190,6 @@ export const useRevStore = defineStore('revStore', {
           }
 
           await updateDoc(docRef, item)
-
-          this.listRevs = this.listRevs.map( x => x.idU == item.idU ? item : x)
 
       } catch (error) {
           console.log(error);
@@ -277,27 +275,26 @@ export const useRevStore = defineStore('revStore', {
     async getAllConteudo(){
       const userStore = useRegisterStore()
       const uid = await userStore.user?.uid
-      this.load = true
+      this.loadGetAll = true
       try {
           const q = query(collection(db, 'conteudo'), where('uid_user', '==', uid));
           await onSnapshot(q, (querySnapshot) => {
               this.conteudos = []
+              this.listAllRevs = []
               querySnapshot.forEach((doc) => {
                   this.conteudos.push({id_conteudo: doc.id, details: false, ...doc.data()})
                   this.getAllRev(doc.id)
               })
+              this.loadGetAll = false
           })
       } catch (error) {
           console.log('error');
-      } finally {
-        this.load = false
       }
     },
     async getAllRev(item){
       try {
           const q = query(collection(db, 'listRev'), where('idVinculado', '==', item))
           const querySnapshot = await getDocs(q)
-            this.listAllRevs = []
             querySnapshot.forEach((doc) => {
                 this.listAllRevs.push({idU:doc.id, ...doc.data()})
             })
@@ -305,5 +302,22 @@ export const useRevStore = defineStore('revStore', {
         console.log('error')
       }
     },
+    async editNewRev(item){
+      console.log(item)
+      return
+      try {
+        const docRef = doc(db, 'listRev', item.id)
+        const docSpan = await getDoc(docRef)
+
+        if(!docSpan.exists()) {
+            throw new Error("nao existe doc")
+        }
+        await updateDoc(docRef, item)
+      } catch (error) {
+          console.log(error);
+      }finally{
+          this.load = false
+      }
+    }
   },
 })

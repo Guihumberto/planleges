@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <ListCardsRev v-if="userStore.user?.uid" />
+    <div class="box-wrapper">
+        <div v-if="userStore.user?.uid">
+            <p v-if="revStore.loadGetAll">carregando...</p>
+            <ListCardsRev v-else  />
+        </div>
         <div class="content" v-else>
             <div class="groupBox">
                 <div v-if="!userStore.user?.uid" class="inicio">
@@ -17,8 +20,10 @@
 
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
-    import ListCardsRev from './listCardsRev.vue';
     const userStore = useRegisterStore()
+
+    import { useRevStore } from '@/store/revStore';
+    const revStore = useRevStore()
     
 </script>
 
@@ -28,6 +33,10 @@
     justify-content: left;
     color: #212121;
     gap: 1rem;
+    background-color: #01003f;
+    border: 1px solid rgb(224, 215, 215);
+    border-radius: 10px;
+    padding: 1rem;
 }
 .inicio{
     width: 100%;

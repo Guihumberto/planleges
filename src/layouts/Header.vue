@@ -69,6 +69,7 @@
     width: 100%;
     background: var(--background-color);
     z-index: 99;
+    transition: .5s;
 }
 .container{
     position: relative;
