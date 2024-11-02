@@ -25,8 +25,8 @@
                         Marcar como revisado <span v-if="item?.revisado">({{ item.revisado }})</span> <span v-else>(0)</span></v-btn>
                 </div>
                 <div class="d-flex justify-space-between align-center">
-                    <BarraPost :revItem="item" />
                     <p class="text-overline">{{ useDateNow(item.dateCreated) }}</p>
+                    <BarraPost :revItem="item" />
                 </div>
                 
             </div>

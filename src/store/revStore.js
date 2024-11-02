@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, where, query, getDocs } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, where, query, getDocs, limit } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import { nanoid } from 'nanoid'
@@ -52,7 +52,7 @@ export const useRevStore = defineStore('revStore', {
       return this.markRevUser
     },
     readFavList(){
-      const list = this.favoritosList
+      const list = this.favoritosList || {}
       let newList = []
 
       Object.entries(list).forEach(([key, value]) => {
@@ -66,7 +66,7 @@ export const useRevStore = defineStore('revStore', {
       return newList
     },
     readRevMarkList(){
-      const list = this.revMarkList
+      const list = this.revMarkList || {}
       let newList = []
 
       Object.entries(list).forEach(([key, value]) => {
@@ -277,13 +277,20 @@ export const useRevStore = defineStore('revStore', {
       const uid = await userStore.user?.uid
       this.loadGetAll = true
       try {
-          const q = query(collection(db, 'conteudo'), where('uid_user', '==', uid));
+          const q = query(
+            collection(db, 'conteudo'), 
+            where('uid_user', '==', uid),
+            limit(5)
+          );
           await onSnapshot(q, (querySnapshot) => {
               this.conteudos = []
               this.listAllRevs = []
               querySnapshot.forEach((doc) => {
-                  this.conteudos.push({id_conteudo: doc.id, details: false, ...doc.data()})
-                  this.getAllRev(doc.id)
+                  const existe = this.conteudos.find(x => x.id_conteudo == doc.id)
+                  if(!existe){
+                    this.conteudos.push({id_conteudo: doc.id, details: false, ...doc.data()})
+                    this.getAllRev(doc.id)
+                  }
               })
               this.loadGetAll = false
           })
@@ -293,20 +300,24 @@ export const useRevStore = defineStore('revStore', {
     },
     async getAllRev(item){
       try {
-          const q = query(collection(db, 'listRev'), where('idVinculado', '==', item))
+          const q = query(
+            collection(db, 'listRev'), 
+            where('idVinculado', '==', item),
+            // orderBy('dateCreated', 'desc'),
+            // limit(10) // Limite de 10 documentos
+          )
           const querySnapshot = await getDocs(q)
             querySnapshot.forEach((doc) => {
-                this.listAllRevs.push({idU:doc.id, ...doc.data()})
+                const existe = this.listAllRevs.find(x => x.idU == doc.id)
+                if(!existe) this.listAllRevs.push({idU:doc.id, ...doc.data()})
             })
       } catch (error) {
         console.log('error')
       }
     },
     async editNewRev(item){
-      console.log(item)
-      return
       try {
-        const docRef = doc(db, 'listRev', item.id)
+        const docRef = doc(db, 'listRev', item.idU)
         const docSpan = await getDoc(docRef)
 
         if(!docSpan.exists()) {

@@ -1,12 +1,12 @@
 <template>
     <div class="barra">
         <v-btn 
-            @click="markRev(revItem)" :variant="revItem.revMark ? 'outlined':'tonal'" title="adiciona o card na revisão" 
-            :color="revItem.revMark ? 'grey':'black'" :append-icon="revItem.revMark ? 'mdi-check':'mdi-square-rounded-outline'" >REVISÃO</v-btn>
-        <v-btn 
             @click="markFav(revItem)" variant="text" title="favoritos" class="ml-2" flat 
             :color="revItem.fav? 'yellow':'grey'" :icon="revItem.fav ? 'mdi-star' : 'mdi-star-outline'"></v-btn>
-        <v-btn variant="text" color="primary" :loading="load"></v-btn>
+        <v-btn 
+            @click="markRev(revItem)" :variant="revItem.revMark ? 'outlined':'tonal'" title="adiciona o card na revisão" 
+            :color="revItem.revMark ? 'grey':'black'" :append-icon="revItem.revMark ? 'mdi-check':'mdi-square-rounded-outline'" >REVISÃO</v-btn>
+        <v-btn v-if="load" variant="text" color="primary" :loading="load"></v-btn>
     </div>
 </template>
 
