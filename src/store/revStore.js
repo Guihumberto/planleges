@@ -279,8 +279,7 @@ export const useRevStore = defineStore('revStore', {
       try {
           const q = query(
             collection(db, 'conteudo'), 
-            where('uid_user', '==', uid),
-            limit(5)
+            where('uid_user', '==', uid)
           );
           await onSnapshot(q, (querySnapshot) => {
               this.conteudos = []

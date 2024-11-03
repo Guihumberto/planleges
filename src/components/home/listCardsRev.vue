@@ -54,7 +54,7 @@
     import { computed, ref } from 'vue';
 
     const limit = ref(5)
-    const show_revisados = ref(true)
+    const show_revisados = ref(false)
 
     const addLimite = () => {
         limit.value += 5
@@ -104,6 +104,9 @@
 .title-last-cards{
     display: flex;
     justify-content: space-between;
+}
+.title-last-cards h5 {
+    color: var(--main-color);
 }
 .card-title {
     display: flex;
