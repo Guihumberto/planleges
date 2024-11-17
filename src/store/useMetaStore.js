@@ -57,6 +57,11 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 29, name: 'Estatística'},
         {id: 30, name: 'Informática'},
         {id: 31, name: 'Comunicação Social'},
+        {id: 32, name: 'Legislação SUS'},
+        {id: 33, name: 'Enfermagem'},
+        {id: 34, name: 'Ética Profissional Enfermagem'},
+        {id: 35, name: 'Legislação EBESERH'},
+        {id: 36, name: 'Direito Sanitário'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [
