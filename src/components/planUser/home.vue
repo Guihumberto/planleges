@@ -124,6 +124,7 @@
         }
 
         await conteudoStore.savePlanUser(objeto)
+        await conteudoStore.getPlanMain()
 
         clear()
     }
