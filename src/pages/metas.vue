@@ -1,7 +1,8 @@
 <template>
     <div class="container">
       <voltar link="/" />
-      <h1 class="text-h5 ml-4"> <v-icon size="1.7rem" class="mr-2">mdi-finance</v-icon>Metas</h1>
+      <h1 class="text-h5 ml-4 mb-3"> <v-icon size="1.7rem" class="mr-2">mdi-finance</v-icon>Metas</h1>
+      <router-link class="ml-4" to="/conteudo">Add Conteúdo</router-link>
       <div class="content">
         <forms />
         <listMetas />

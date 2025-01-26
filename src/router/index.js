@@ -62,6 +62,21 @@ const routes = [
         name: 'mostrar',
         component: () => import('@/pages/userMeta.vue'),
       },
+      {
+        path: '/conteudo',
+        name: 'conteudo',
+        component: () => import('@/pages/addConteudo.vue'),
+      },
+      {
+        path: '/conteudo/:id',
+        name: 'inserir',
+        component: () => import('@/pages/addementa.vue'),
+      },
+      {
+        path: '/conteudo/cadementa/:id',
+        name: 'ementa',
+        component: () => import('@/pages/cadEmenta.vue'),
+      },
     ],
   },
   {

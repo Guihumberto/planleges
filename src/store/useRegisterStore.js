@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { addDoc, collection, setDoc, doc } from 'firebase/firestore'
+import { addDoc, collection, setDoc, doc, query, where, onSnapshot} from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 import router from '@/router'
 
@@ -14,7 +14,8 @@ export const useRegisterStore = defineStore('registerStore', {
     user: null,
     load: false,
     userData: null, 
-    msgError: null
+    msgError: null,
+    userDados: {}
   }),
   getters:{
     readUser(){
@@ -22,6 +23,9 @@ export const useRegisterStore = defineStore('registerStore', {
     },
     readMsgError(){
         return this.msgError
+    },
+    readUserDados(){
+        return this.userDados
     }
   },
   actions:{
@@ -52,6 +56,7 @@ export const useRegisterStore = defineStore('registerStore', {
             await this.getUserData()
             await notifcacaoStore.getNotificacoes(user.uid)
             await revStore.getAllConteudo()
+            await this.getUser()
             router.push('/home')
         } catch (error) {
             switch (error.code) {
@@ -119,6 +124,7 @@ export const useRegisterStore = defineStore('registerStore', {
           }
           if(login.email) {
             this.user = {email: login.email, uid: login.uid}
+            await this.getUser()
             notifcacaoStore.getNotificacoes(login.uid)
             await revStore.getAllConteudo()
         }
@@ -147,6 +153,19 @@ export const useRegisterStore = defineStore('registerStore', {
             console.log(error);
         }finally{
             this.load = false
+        }
+    },
+    async getUser(){
+        try {
+            const q = query(collection(db, 'usuarios'), where('uid', '==', this.readUser.uid));
+                await onSnapshot(q, (querySnapshot) => {
+                    this.userDados = {};
+                    querySnapshot.forEach((doc) => {
+                        this.userDados = {id: doc.id, ...doc.data()}
+                    })
+            })
+        } catch (error) {
+            console.log(error);
         }
     },
   }

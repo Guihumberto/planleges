@@ -22,7 +22,10 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 1, name: 'CESPE'},
         {id: 2, name: 'FGV'},
         {id: 3, name: 'FCC'},
-        {id: 4, name: 'FGV'}
+        {id: 4, name: 'CESGRANRIO'},
+        {id: 5, name: 'CONSULPLAN'},
+        {id: 98, name: 'VÁRIAS'},
+        {id: 99, name: 'Outras'}
     ],
     disciplinas : [
         {id: 0, name: 'Selecione uma Disciplina'},
@@ -65,6 +68,8 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 37, name: 'Ética e Legislação'},
         {id: 38, name: 'Administração de Materiais'},
         {id: 39, name: 'Contabilidade Pública'},
+        {id: 40, name: 'Biomedicina'},
+        {id: 41, name: 'POLÍTICAS PÚBLICAS DE SAÚDE E EDUCAÇÃO'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [
@@ -86,6 +91,7 @@ export const useMetaStore = defineStore('metaStore', {
         {id:3, name: 'Alta', icon: 'mdi-arrow-up-drop', color: 'orange'},
         {id:4, name: 'Relevante', icon: 'mdi-exclamation-thick', color: 'red'}
     ],
+    periodos:[2025, 2024],
     loadTasksMeta: false,
     allMetasAllUsers: []
   }),
@@ -113,6 +119,15 @@ export const useMetaStore = defineStore('metaStore', {
     },
     readAllMetasAllUsers(){
         return this.allMetasAllUsers
+    },
+    readBancas(){
+        return this.bancas
+    },
+    readPeriodos(){
+        return this.periodos
+    },
+    readDisciplinas(){
+        return this.disciplinas
     }
   },
   actions:{

@@ -2,7 +2,10 @@
     <div class="box-wrapper">
         <div v-if="userStore.user?.uid">
             <p v-if="revStore.loadGetAll">carregando...</p>
-            <ListCardsRev v-else  />
+            <div  v-else>
+                <Home />
+                <ListCardsRev  />
+            </div>
         </div>
         <div class="content" v-else>
             <div class="groupBox">
@@ -23,6 +26,7 @@
     const userStore = useRegisterStore()
 
     import { useRevStore } from '@/store/revStore';
+import Home from '../planUser/home.vue';
     const revStore = useRevStore()
     
 </script>

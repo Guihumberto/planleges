@@ -1,7 +1,7 @@
 <template>
     <div v-if="revStore.readAllListRevs.length">
         <div class="title-last-cards">
-            <h5 class="text-h5"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos cards adicionados</h5>
+            <h5 class="text-h5"><v-icon size="1.5rem">mdi-cards</v-icon> Últimos  adicionados</h5>
             <v-btn 
                 class="btn-show"
                 color="primary"
@@ -39,8 +39,8 @@
     </div>
     <v-alert v-else>
         <div class="d-flex justify-space-between">     
-            <p>Você ainda não criou cards de revisão.</p>
-            <router-link to="/config">Criar cards de Revisão</router-link>
+            <p>Você ainda não criou  de revisão.</p>
+            <router-link to="/config">Criar  de Revisão</router-link>
         </div>
     </v-alert>
 </template>
