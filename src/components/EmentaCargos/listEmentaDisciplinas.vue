@@ -8,7 +8,7 @@
                 <v-expansion-panel-title expand-icon="mdi-menu-down">
                     <div class="d-flex justify-space-between align-center w-100">
                         {{  metaStore.readDisciplinas.find(x => x.id == item.name ).name  }}
-                        <v-btn @click.stop="deleteItem(item.id)" variant="text" icon="mdi-delete" color="error"></v-btn>
+                        <v-btn v-if="!modo" @click.stop="deleteItem(item.id)" variant="text" icon="mdi-delete" color="error"></v-btn>
                     </div>
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
@@ -53,7 +53,8 @@
     }
 
     const props = defineProps({
-        disciplinas: Object
+        disciplinas: Object,
+        modo: Boolean
     })
 
 </script>

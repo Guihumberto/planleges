@@ -18,13 +18,16 @@
             <div class="d-flex" v-if="!confirm">
                 <v-list class="pa-0 bg-transparent">
                     <v-list-item link v-for="item, i in conteudoStore.readListEdital" :key="i" 
+                        variant="plain"
                         @click.stop="selectCargo(item.idU)" :title="item.concurso">
                         <template v-slot:prepend><v-icon>mdi-list-box-outline</v-icon></template>
                     </v-list-item>
                 </v-list>
                 <div>
                     <v-list class="pa-0 bg-transparent" v-if="concurso">
-                        <v-list-item link v-for="item, i in conteudoStore.readCargos" :key="i" @click ="selectDisciplinas(item.id)" :title="item.name">
+                        <v-list-item 
+                            variant="plain"
+                            link v-for="item, i in conteudoStore.readCargos" :key="i" @click ="selectDisciplinas(item.id)" :title="item.name">
                             <template v-slot:prepend><v-icon>mdi-account</v-icon></template>
                         </v-list-item>
                     </v-list>
@@ -47,7 +50,7 @@
                         </v-list-item>
                         <div class="text-right pa-2" v-if="conteudoStore.readDisciplinas.length">
                             <v-btn variant="text" prepend-icon="mdi-list-box" color="primary" @click="importAll">Importar todas</v-btn>
-                            <v-btn variant="text" prepend-icon="mdi-check-all" color="success" @click="importSelect">Importar Selecionadas</v-btn>
+                            <v-btn variant="text" prepend-icon="mdi-check-all" color="success" @click="importSelect" :disabled="!settingsSelection.length">Importar Selecionadas</v-btn>
                         </div>
                     </v-list>
                 </div>
@@ -56,7 +59,7 @@
                 {{ conteudoStore.readListEdital.find(x => x.idU == concurso).concurso }}<br>
                 {{ conteudoStore.readCargos.find(x => x.id == cargoSelect).name  }}<br><br>
                 <h4 class="mb-5">Disciplinas</h4>
-                <ListEmentaDisciplinas v-if="disciplinasSelect.length" :disciplinas="disciplinasSelect" />
+                <ListEmentaDisciplinas :modo="true" v-if="disciplinasSelect.length" :disciplinas="disciplinasSelect" />
                 <div class="text-right pa-2">
                     <v-btn variant="text" prepend-icon="mdi-list-box" color="grey" @click="confirm = false">Cancelar</v-btn>
                     <v-btn variant="flat" prepend-icon="mdi-check-all" color="success" @click="salvePlan">Salvar</v-btn>
@@ -94,6 +97,7 @@
 
     const selectCargo = async (item) => {
         concurso.value = item
+        conteudoStore.disciplinas = []
         await conteudoStore.getCargos(item)
     }
 
