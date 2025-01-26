@@ -70,6 +70,12 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 39, name: 'Contabilidade Pública'},
         {id: 40, name: 'Biomedicina'},
         {id: 41, name: 'POLÍTICAS PÚBLICAS DE SAÚDE E EDUCAÇÃO'},
+        {id: 42, name: 'Direito Penal'},
+        {id: 43, name: 'Direito Processual Penal'},
+        {id: 44, name: 'Direito do Trabalho'},
+        {id: 45, name: 'Direito Processual do Trabalho'},
+        {id: 46, name: 'Direito Empresarial'},
+        {id: 46, name: 'Legislação Sobre Educação e Ciência, Tecnologia e Inovação'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [
