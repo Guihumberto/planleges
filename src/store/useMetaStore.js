@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where, Timestamp } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where, Timestamp, orderBy, limit, getDocs, startAfter } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 
 import { useNotificacaoStore } from '@/store/useNotificacaoStore'
@@ -8,10 +8,13 @@ const notifcacaoStore = useNotificacaoStore()
 import { useDbStore } from '@/store/dbStore'
 const dbStore = useDbStore()
 
+import { useRegisterStore } from '@/store/useRegisterStore'
+
 export const useMetaStore = defineStore('metaStore', {
   state: () => ({
     mentorandos: [],
     load: false,
+    loadMetas: false,
     metas: [],
     meta: null,
     tarefas: [],
@@ -99,7 +102,11 @@ export const useMetaStore = defineStore('metaStore', {
     ],
     periodos:[2025, 2024],
     loadTasksMeta: false,
-    allMetasAllUsers: []
+    allMetasAllUsers: [],
+    //firebase
+    lastVisible: null, // Armazena o último documento carregado
+    hasMore: true, // Indica se há mais documentos para carregar
+    pageSize: 10, // Quantidade de documentos por página
   }),
   getters:{
     readMentorandos(){
@@ -110,6 +117,9 @@ export const useMetaStore = defineStore('metaStore', {
     },
     readLoad(){
         return this.load
+    },
+    readLoadMetas(){
+        return this.loadMetas
     },
     readMetas() {
         return this.metas
@@ -155,31 +165,100 @@ export const useMetaStore = defineStore('metaStore', {
     async addMeta(item){
         this.load = true
         try {
-            const meta = { ...item }
+            const meta = { ...item, date_created: Date.now() }
             await addDoc(collection(db, 'metas'), meta)
-
         } catch (error) {
             console.log(error);
         }finally{
             this.load = false
         }
     },
-    async getMetas(){
-        this.load = true
+    async getMetas(initialLoad = false){
+        this.loadMetas = true
+        const userStore = useRegisterStore()
+        const uid =  userStore.readUser?.uid
+
+        if(!uid) return  
+ 
         try {
-            const q = query(collection(db, 'metas'), where('user', '==', this.selected));
-            await onSnapshot(q, (querySnapshot) => {
-                this.metas = [];
-                querySnapshot.forEach((doc) => {
-                    this.metas.push({id: doc.id, ...doc.data()})
-                })
-            })
-            this.rodarMetas()
+            let q;
+
+            if (initialLoad) {
+                // Primeira carga: pega os primeiros `pageSize` documentos
+                q = query(
+                    collection(db, "metas"),
+                    where("user", "==", uid),
+                    orderBy("date_created", "desc"),
+                    limit(this.pageSize)
+                );
+            } else {
+                // Carrega mais documentos a partir do último carregado
+                if (!this.lastVisible) return;
+
+                q = query(
+                    collection(db, "metas"),
+                    where("user", "==", uid),
+                    orderBy("date_created", "desc"),
+                    startAfter(this.lastVisible), // Começa do último documento carregado
+                    limit(this.pageSize)
+                );
+            }
+
+            const querySnapshot = await getDocs(q);
+
+            if (initialLoad) {
+                this.metas = []; // Se for a primeira carga, limpa o array
+            }
+
+            querySnapshot.forEach((doc) => {
+                this.metas.push({ id: doc.id, ...doc.data() });
+            });
+
+            // await onSnapshot(q, (querySnapshot) => {
+            //     querySnapshot.forEach((doc) => {
+            //         this.metas.push({ id: doc.id, ...doc.data() });
+            //     })
+            // })
+
+            // Atualiza o último documento carregado
+            this.lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+
+            // Verifica se ainda há mais documentos para carregar
+            this.hasMore = querySnapshot.docs.length === this.pageSize;
+
+            // this.rodarMetas()
+            
         } catch (error) {
             console.log(error);
-        }finally{
-            this.load = false
+        } finally {
+            this.loadMetas = false
         }    
+    },
+    async getMetasMentorando(item){
+        this.loadMetas = true
+        const userStore = useRegisterStore()
+        const uid = userStore.readUser?.uid
+        if(!uid) return
+        try {
+            const  q = query(
+                collection(db, "metas"),
+                where("user", "==", item),
+                orderBy("date_created", "desc"),
+                limit(this.pageSize)
+            )
+
+            await onSnapshot(q, (querySnapshot) => {
+                this.metas = []
+                querySnapshot.forEach((doc) => {
+                    this.metas.push({ id: doc.id, ...doc.data() });
+                })
+            })
+
+        } catch (error) {
+            console.log('erro getMentorando', error);
+        } finally {
+            this.loadMetas = false
+        }
     },
     async getMeta(idMeta){
         this.load = true
@@ -194,8 +273,9 @@ export const useMetaStore = defineStore('metaStore', {
         }
     },
     selectedUser(item){
+        this.metas = []
         this.selected = item
-        this.getMetas()
+        this.getMetas(true, item)
     },
     async editMeta(item){
         this.load = true
@@ -423,6 +503,7 @@ export const useMetaStore = defineStore('metaStore', {
       
     },
     async getAllMetasAllUsers(){
+        console.log('getAllMetasAllUsers');
         this.load = true
         try {
             const q = query(collection(db, 'tarefas'));

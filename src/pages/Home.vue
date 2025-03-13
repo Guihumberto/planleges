@@ -1,35 +1,22 @@
 <template>
     <div class="container">
-        <box />
+        <div class="content">
+            <v-alert icon="mdi-progress-helper" text="Carregando..." v-if="userStore.readAllLoad || metaStore.readLoadMetas"></v-alert>
+            <listMetasUser />
+            <!-- <homePlan /> -->
+            <!-- <ListCardsRev  /> -->
+            <!-- <TypeUser v-if="!userStore.readUserDados?.type && !userStore.readAllLoad" /> -->
+        </div>
     </div>
 </template>
 
 <script setup>
-    import { onMounted, ref } from 'vue';
-
-    import { useDbStore } from '@/store/dbStore'
-    const dbStore = useDbStore()
-
-    import { useRegisterStore } from '@/store/useRegisterStore'
+    import { useRegisterStore } from '@/store/useRegisterStore';
     const userStore = useRegisterStore()
 
-    import  { useMetaStore  } from '@/store/useMetaStore'
+    import { useMetaStore } from '@/store/useMetaStore'
     const metaStore = useMetaStore()
-
-    import  { useRevStore  } from '@/store/revStore'
-    const revStore = useRevStore()
-
-    const load = ref(true)
-
-    onMounted(async()=> {
-        await userStore.loadUserData()
-        if(userStore.user){
-            await dbStore.getDisciplinas()
-            await dbStore.getConteudo()
-            await metaStore.selectedUser(userStore.user?.uid)
-            load.value = false
-        }
-    })
+    
 </script>
 
 <style lang="scss" scoped>

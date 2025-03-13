@@ -17,6 +17,16 @@ const routes = [
         component: () => import('@/pages/Home.vue'),
       },
       {
+        path: '/mentor',
+        name: 'Mentor',
+        component: () => import('@/pages/mentorPage.vue'),
+      },
+      {
+        path: '/addmentor/:id',
+        name: 'Add mentor',
+        component: () => import('@/pages/addmentor.vue'),
+      },
+      {
         path: '/about',
         name: 'about',
         component: () => import('@/pages/about.vue'),
@@ -71,6 +81,11 @@ const routes = [
         path: '/conteudo/:id',
         name: 'inserir',
         component: () => import('@/pages/addementa.vue'),
+      },
+      {
+        path: '/conteudo/cadementa/:id',
+        name: 'ementa',
+        component: () => import('@/pages/cadEmenta.vue'),
       },
       {
         path: '/conteudo/cadementa/:id',

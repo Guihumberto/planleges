@@ -25,7 +25,7 @@
               <v-list-item
                 class="py-0 mb-1 bg-white"
                 v-for="(item, i) in listNotificaceos"
-                :key="i"
+                :key="item.id"
                 link
                 :to="`/metas/user/${item.url}`"
               >

@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia'
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { addDoc, collection, setDoc, doc, query, where, onSnapshot} from 'firebase/firestore'
+import { addDoc, collection, setDoc, doc, getDoc, query, where, onSnapshot, updateDoc, getDocs} from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 import router from '@/router'
 
+import { useDbStore } from '@/store/dbStore'
+import { useMetaStore  } from '@/store/useMetaStore'
 import { useRevStore } from "@/store/revStore";
 import { useNotificacaoStore } from '@/store/useNotificacaoStore'
 const notifcacaoStore = useNotificacaoStore()
@@ -13,6 +15,7 @@ export const useRegisterStore = defineStore('registerStore', {
   state: () => ({
     user: null,
     load: false,
+    loadAll: false,
     userData: null, 
     msgError: null,
     userDados: {}
@@ -26,6 +29,9 @@ export const useRegisterStore = defineStore('registerStore', {
     },
     readUserDados(){
         return this.userDados
+    },
+    readAllLoad(){
+        return this.loadAll
     }
   },
   actions:{
@@ -47,17 +53,26 @@ export const useRegisterStore = defineStore('registerStore', {
     },
     async loginUser(userLogin){
         this.load = true
+        this.loadAll = true
         const revStore = useRevStore()
         this.msgError = null
+
         try {
             const { user } = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password)
             this.user = {email: user.email, uid: user.uid}
             this.saveUserData()
             await this.getUserData()
+            await this.getUser()
             await notifcacaoStore.getNotificacoes(user.uid)
             await revStore.getAllConteudo()
-            await this.getUser()
-            router.push('/home')
+            
+            if(this.readUserDados?.type == 1){
+                router.push('/mentor')
+                return
+            }
+            await this.initializer()
+            router.push('/home') 
+    
         } catch (error) {
             switch (error.code) {
                 case 'auth/user-not-found':
@@ -87,9 +102,32 @@ export const useRegisterStore = defineStore('registerStore', {
     },
     async logoutUser(){
         this.load = true
+        const dbStore = useDbStore()
+        const metaStore = useMetaStore()
+        const notifcacaoStore = useNotificacaoStore()
+        const revStore = useRevStore()
         try {
             await signOut(auth)
             this.user = null
+            this.userData = null
+            this.userDados = {}
+
+            metaStore.metas = []
+            metaStore.meta = []
+            metaStore.tarefas = []
+            metaStore.allTarefas = []
+
+            dbStore.disciplinas = []
+            dbStore.concursos = []
+            dbStore.conteudo = []
+            dbStore.disciplinaSelect = null
+
+            notifcacaoStore.notificacoes = []
+            notifcacaoStore.usuario = {}
+
+            revStore.listAllRevs = []
+            revStore.listRevs = []
+    
             localStorage.removeItem('userDataRev');
             router.push('/')
         } catch (error) {
@@ -115,8 +153,11 @@ export const useRegisterStore = defineStore('registerStore', {
       localStorage.setItem('userDataRev', JSON.stringify(this.user));
     },
     async loadUserData() {
+      if(this.readUser?.uid) return
+      this.loadAll = true
       const data = localStorage.getItem('userDataRev');
       const revStore = useRevStore()
+      console.log('loadUserData');
       if (data) {
           const login = {
               email: JSON.parse(data).email,
@@ -127,8 +168,30 @@ export const useRegisterStore = defineStore('registerStore', {
             await this.getUser()
             notifcacaoStore.getNotificacoes(login.uid)
             await revStore.getAllConteudo()
+
+            if(this.readUserDados?.type != 1){
+                this.initializer()
+            }
         }
       }
+    },
+    async initializer(){
+        this.loadAll = true
+        try {
+            const dbStore = useDbStore()
+            const metaStore = useMetaStore()
+    
+            // await dbStore.getConteudo() //da pra retirar e chamar em outra tela
+            // await dbStore.getDisciplinas() //da prar retirar e chamar em outra tela
+            await metaStore.selectedUser(this.user.uid)
+            // dbStore.getConcursos()
+            // await metaStore.getAllMetasAllUsers() //da prar retirar e chamar em outra tela tarefas das metas
+
+        } catch (error) {
+            console.log('erro initializar', error);
+        } finally {
+            this.loadAll = false
+        }
     },
     async fetchUser() {
         this.load = true;
@@ -155,18 +218,41 @@ export const useRegisterStore = defineStore('registerStore', {
             this.load = false
         }
     },
-    async getUser(){
+    async getUser(){ 
         try {
-            const q = query(collection(db, 'usuarios'), where('uid', '==', this.readUser.uid));
-                await onSnapshot(q, (querySnapshot) => {
-                    this.userDados = {};
-                    querySnapshot.forEach((doc) => {
-                        this.userDados = {id: doc.id, ...doc.data()}
-                    })
-            })
+            const q = query(collection(db, 'usuarios'), where('uid', '==', this.readUser.uid))
+            const querySnapshot = await getDocs(q); 
+
+            if (!querySnapshot.empty) {
+                this.userDados = {};
+                const doc = querySnapshot.docs[0]; // Pega o primeiro documento encontrado
+                this.userDados = { id: doc.id, ...doc.data() };
+                return { ...this.userDados }
+            } else {
+                return {}
+            }
+            
         } catch (error) {
-            console.log(error);
+            console.log('error getUser');
+            this.userDados = {};
         }
     },
+    async setTypeUser(typeUser) {
+        const uid = this.readUser.uid
+      try {
+        const docRef = doc(db, 'usuarios', uid)
+        const docSpan = await getDoc(docRef)
+
+        if(!docSpan.exists()) {
+            throw new Error("nao existe doc")
+        }
+        await updateDoc(docRef, {
+            type: typeUser.type,
+            area: typeUser.area
+        })
+      } catch (error) {
+        console.log('error setTypeUser');
+      }
+    }
   }
 })

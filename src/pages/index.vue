@@ -5,28 +5,28 @@
 </template>
 
 <script setup>
+    import { onMounted } from 'vue';
+
     import { useRegisterStore } from '@/store/useRegisterStore'
     const userStore = useRegisterStore()
+
+    import { useRouter } from 'vue-router'
+    const router = useRouter()
+
+    onMounted(async() => {
+        if(userStore.user) router.push('/home')
+    })
+
+   
+
 
 </script>
 
 <style lang="scss" scoped>
-.container{
-  width: min(98%, 1080px);
-  margin: 0.5rem;
-  margin-inline: auto;
-  margin-top: 5rem;
-  background: rgb(247, 246, 246);
-}
-.cardLogin{
-    width: min(95vw, 500px);
-}
-.appear, .cardLogin{
-    transition: .5s ease all;
-}
-@media (max-width: 500px) {
     .container{
-        margin-top: 6rem;
+        width: min(100%, 1080px);
+        margin: 0.5rem;
+        margin-inline: auto;
+        margin-top: 4rem;
     }
-}
 </style>

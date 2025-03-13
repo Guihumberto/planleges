@@ -4,7 +4,6 @@ import { auth, db } from '@/firebaseConfig'
 import { nanoid } from 'nanoid'
 
 import { useRegisterStore } from '@/store/useRegisterStore'
-const userStore = useRegisterStore()
 
 export const useDbStore = defineStore('dbStore', {
   state: () => ({
@@ -33,6 +32,7 @@ export const useDbStore = defineStore('dbStore', {
   },
   actions:{
     async getDisciplinas(){
+        console.log('getDisciplinas');
         this.load = true
         
         const userNewStore = useRegisterStore()
@@ -60,7 +60,7 @@ export const useDbStore = defineStore('dbStore', {
     },
     async addDisciplina(item){
         this.load = true
-
+        const userStore = useRegisterStore()
         if(this.verifyDisciplinaExist(item)) return
 
         try {
@@ -153,6 +153,7 @@ export const useDbStore = defineStore('dbStore', {
         }
     },
     async getConteudo(){
+        console.log('getconteudo');
         this.load = true
         const userNewStore = useRegisterStore()
         await userNewStore.fetchUser()

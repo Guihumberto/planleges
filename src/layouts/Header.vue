@@ -29,11 +29,12 @@
 
 <script setup>
     import { useRegisterStore } from '@/store/useRegisterStore'
-    import Notifications from './notifications.vue';
-    import { useRouter } from 'vue-router';
     const useStore = useRegisterStore()
-
+   
+    import { useRouter } from 'vue-router';
     const router = useRouter()
+    
+    import Notifications from './notifications.vue';
 
     const side_bar = ref(false)
     const idNameActiveSelect = ref('home')
@@ -76,8 +77,8 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--second-color);
-    margin: 0.5rem 0.1rem 0;
-    padding: 0.3rem 1rem  ;
+    margin: 0.5rem 0.1rem ,5rem;
+    padding: 0.3rem 1rem;
     border-radius: 6px;
     align-items: center;
     width: min(100vw, 1080px);

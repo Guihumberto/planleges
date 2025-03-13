@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where, Timestamp } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, updateDoc, onSnapshot, query, where, Timestamp, limit, orderBy } from 'firebase/firestore'
 import { auth, db } from '@/firebaseConfig'
 
 export const useNotificacaoStore = defineStore('notifcationStore', {
@@ -76,7 +76,12 @@ export const useNotificacaoStore = defineStore('notifcationStore', {
         this.load = true
         await this.getUsuario(user)
         try {
-            const q = query(collection(db, 'notificacoes'), where('uid', '==', user));
+            const q = query(
+                collection(db, 'notificacoes'), 
+                where('uid', '==', user),
+                orderBy("date_created", "desc"),
+                limit(10)
+            )
             await onSnapshot(q, (querySnapshot) => {
                 this.notifacoes = [];
                 querySnapshot.forEach((doc) => {

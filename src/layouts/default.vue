@@ -17,31 +17,23 @@
   import HeaderONe from './Header.vue'
   import FooterONe from './Footer.vue'
 
-  import { useDbStore } from '@/store/dbStore'
-  const dbStore = useDbStore()
   import { useRegisterStore } from '@/store/useRegisterStore'
   const userStore = useRegisterStore()
-  import  { useMetaStore  } from '@/store/useMetaStore'
-  const metaStore = useMetaStore()
-
+  
   if ('navigation' in window && 'onpageshow' in window) {
-  window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-      location.reload();  // Recarrega a página ao sair do bfcache
-    }
-  });
-}
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) {
+        location.reload();  // Recarrega a página ao sair do bfcache
+      }
+    });
+  }
 
   onMounted(async()=> {
-    await userStore.loadUserData()
-    if(userStore.user){
-      await dbStore.getConteudo()
-      await dbStore.getDisciplinas()
-      metaStore.selectedUser(userStore.user?.uid)
-      // dbStore.getConcursos()
-      metaStore.getAllMetasAllUsers()
+    if(!userStore.user?.uid){
+      await userStore.loadUserData()
     }
   })
+
 </script>
 
 <style>
@@ -81,5 +73,13 @@
     .ocultar-impressao {
         display: none;
     }
-}
+  }
+  @keyframes appear {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
 </style>
