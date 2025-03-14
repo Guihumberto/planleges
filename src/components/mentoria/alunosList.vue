@@ -62,14 +62,14 @@
                 <v-icon>mdi-account-question</v-icon>
             </template>
             <template v-slot:append>
-                <div v-if="!selectUser?.itemId">
-                    <v-btn variant="text" color="primary" @click="selectedActionUser(1, item.id)">Aceitar</v-btn>
-                    <v-btn variant="text" color="error" @click="selectedActionUser(2, item.id)">Recusar</v-btn>
-                </div>
-                <div v-else>
-                    <v-btn :color="selectUser.id == 1 ? 'primary' : 'error'" @click="confirmAction()">Confirma</v-btn>
-                    <v-btn variant="text" color="grey" @click="clearSelectuser()">cancelar</v-btn>
-                </div>
+                    <div v-if="!selectUser?.itemId" class="d-flex gap-2 transition-all">
+                        <v-btn variant="text" color="primary" @click="selectedActionUser(1, item.id)">Aceitar</v-btn>
+                        <v-btn variant="text" color="error" @click="selectedActionUser(2, item.id)">Recusar</v-btn>
+                    </div>
+                    <div v-else class="d-flex gap-2 transition-all">
+                        <v-btn :color="selectUser.id == 1 ? 'primary' : 'error'" @click="confirmAction()">Confirma</v-btn>
+                        <v-btn variant="text" color="grey" @click="clearSelectuser()">cancelar</v-btn>
+                    </div>
             </template>
             {{ item.name }} 
         </v-list-item>
@@ -153,6 +153,21 @@
 .list{
     transition: all 0.5s ease-in-out;
     animation: appear 0.5s ease-in-out;
+}
+.transition-all{
+    transition: all 0.5s ease-in-out;
+    animation: slideLeft 0.5s ease-in-out;
+}
+@keyframes slideLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    
 }
 
 </style>

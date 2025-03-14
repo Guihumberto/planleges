@@ -1,7 +1,7 @@
 <template>
     <div class="wrapperHeader">
         <div class="container">
-            <h2 class="title" @click="$router.push('/home')">EL - Estudo da Lei</h2>
+            <h2 class="title">EL - Estudo da Lei</h2>
             <div class="d-flex align-center">
                 <div class="links" v-if="!!useStore.user">
                      <!-- <router-link to="/config" class="link">Criar</router-link> -->
@@ -11,7 +11,7 @@
                 </div>
                 <div>
                     <v-btn class="logout" v-if="!!useStore.user" @click="logout" flat variant="text" title="sair" icon="mdi-logout"></v-btn>
-                    <router-link class="link" v-else to="/login"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
+                    <router-link class="link" v-else to="/"> <v-icon size="15" class="mr-1">mdi-login</v-icon>Login</router-link>
                 </div>
                 <v-btn class="btn-menu" v-if="!!useStore.user" variant="text" @click="side_bar = !side_bar" :icon="side_bar ? 'mdi-close' : 'mdi-menu'"></v-btn>
             </div>
@@ -61,6 +61,9 @@
 </script>
 
 <style lang="scss" scoped>
+.container{
+    margin: 0 .7rem;
+}
 .wrapperHeader{
     position: fixed;
     display: flex;
@@ -77,7 +80,7 @@
     display: flex;
     justify-content: space-between;
     background-color: var(--second-color);
-    margin: 0.5rem 0.1rem ,5rem;
+    margin: .5rem .1rem;
     padding: 0.3rem 1rem;
     border-radius: 6px;
     align-items: center;
@@ -118,6 +121,10 @@
 }
 
 @media (max-width: 800px) {
+    .container{
+        border-radius: 0;
+        margin: .5rem 0;
+    }
     .btn-menu{
         display: block;
     }

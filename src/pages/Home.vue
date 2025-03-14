@@ -5,7 +5,7 @@
             <listMetasUser />
             <!-- <homePlan /> -->
             <!-- <ListCardsRev  /> -->
-            <!-- <TypeUser v-if="!userStore.readUserDados?.type && !userStore.readAllLoad" /> -->
+            <TypeUser v-if="!userStore.readUserDados?.type && !userStore.readAllLoad" />
         </div>
     </div>
 </template>

@@ -17,9 +17,6 @@
         if(userStore.user) router.push('/home')
     })
 
-   
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -28,5 +25,12 @@
         margin: 0.5rem;
         margin-inline: auto;
         margin-top: 4rem;
+    }
+    @media (max-width: 768px) {
+        .container{
+            height: calc(100vh - 56px);
+            display: flex;
+            align-items: center;
+        }
     }
 </style>

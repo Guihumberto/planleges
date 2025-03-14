@@ -1,7 +1,7 @@
 <template>
     <v-card class="cardLogin" variant="flat" max-width="400px">
         <v-card-text v-if="!userStore.readUser?.uid">
-            <h1 class="text-h5">{{ isLogin.title }}</h1>
+            <h1 class="text-h5 font-weight-bold">{{ isLogin.title }}</h1>
             <v-form @submit.prevent="createUser" class="mt-5" ref="form">
                 <v-expand-transition>
                     <v-text-field
@@ -46,7 +46,7 @@
                 </v-text-field>
                 <div class="text-center">
                     <v-btn :disabled="userStore.load" :loading="userStore.load" flat :color="isLogin.color" type="submit" block>{{ isLogin.title }}</v-btn>
-                    <v-btn class="mt-5" variant="flat" color="var(--main-color)" @click="login = !login">{{ login ? 'Criar Conta' : 'Login' }}</v-btn>
+                    <v-btn class="mt-5 text-white" variant="flat" color="var(--second-color)" @click="login = !login">{{ login ? 'Criar Conta' : 'Login' }}</v-btn>
                 </div>
             </v-form>
             <v-alert variant="text" type="error" class="mt-5" v-if="userStore.readMsgError">

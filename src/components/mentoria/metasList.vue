@@ -2,21 +2,23 @@
      <div v-if="selected">
         <h1 class="text-h5"> <v-icon size="1.7rem" class="mr-2">mdi-finance</v-icon>Lista de Metas</h1>
         <div class="ml-9">Mentorado: {{ $route.query?.name }}</div>
-        <v-list v-if="metaStore.readMetas.length">
-            <v-list-item 
-                v-for="item, i in metaStore.readMetas.sort((a, b) => b.meta.localeCompare(a.meta))" :key="i" 
-                class="mb-1 bg-indigo-lighten-4" link
-                @click="$router.push(`/metas/elaborar/${item.id}`)"
-            >
-                <template v-slot:prepend>
-                    <v-icon>mdi-format-list-bulleted</v-icon>
-                </template>
-                <template v-slot:append>
-                   <v-switch @click.stop="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>
-                   <DialogConfirm :id="item.id" :dialogText="dialogText" />
-                </template>
-                {{ item.meta }} 
-            </v-list-item>
+        <v-list v-if="metaStore.readMetas.length" class="listMetas">
+            <transition-group name="fade" tag="v-list">
+                <v-list-item 
+                    v-for="item, i in metaStore.readMetas.sort((a, b) => b.meta.localeCompare(a.meta))" :key="item.id" 
+                    class="mb-1 bg-indigo-lighten-4" link
+                    @click="$router.push(`/metas/elaborar/${item.id}`)"
+                >
+                    <template v-slot:prepend>
+                        <v-icon>mdi-format-list-bulleted</v-icon>
+                    </template>
+                    <template v-slot:append>
+                       <v-switch @click.stop="liberarMeta(item)" color="success" v-model="item.show" hide-details label="Liberar"></v-switch>
+                       <DialogConfirm :id="item.id" :dialogText="dialogText" />
+                    </template>
+                    {{ item.meta }} 
+                </v-list-item>
+            </transition-group>
         </v-list>
         <v-alert class="mt-5" type="info" variant="outlined"v-else>
             <p v-if="metaStore.readLoadMetas">Carregando...</p>
@@ -26,7 +28,7 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue'
+    import { ref, watch } from 'vue'
 
     import  { useMetaStore  } from '@/store/useMetaStore'
     const metaStore = useMetaStore()
@@ -36,6 +38,10 @@
             type: String,
             default: false
         }
+    })
+
+    watch(() => props.selected, () => {
+           console.log('teste');
     })
 
     const liberarMeta = (item) => {
@@ -54,5 +60,25 @@
 </script>
 
 <style scoped>
-
+.listMetas{
+    transition: all 0.3s ease-in-out;
+    animation: slideLeft 0.5s ease-in-out;
+}
+@keyframes slideLeft {
+    0% {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  animation: slideLeft 0.5s ease-in-out;
+}
 </style>

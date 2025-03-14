@@ -1,6 +1,6 @@
 <template>
     <div class="text-center">
-      <v-btn @click="dialog = true" color="success" icon="mdi-plus" v-if="!hiddenBtn">
+      <v-btn @click="dialog = true" color="success" density="com" icon="mdi-plus" v-if="!hiddenBtn">
       </v-btn>
       <v-dialog
         v-model="dialog"

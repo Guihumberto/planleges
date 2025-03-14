@@ -9,13 +9,13 @@
 <style lang="scss" scoped>
     .box-wrapper{      
         width: 100%;
-        height: calc(100vh - 210px);;
+        min-height: calc(100vh - 210px);;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1rem;
         padding: 1rem;
-        background-color: #01003f;
+        background-color: var(--second-color);
         border-radius: 10px;
     }
 
@@ -36,6 +36,9 @@
     }
 
     @media (max-width: 768px) {
+        .box-wrapper{
+            border-radius: 0;
+        }
         .apresentation{
             display: none;
         }

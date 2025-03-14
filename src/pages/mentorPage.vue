@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <div class="d-flex justify-space-between align-center px-2">
-            <h1 class="text-h5 d-flex align-center">
-                <v-icon size="small" class="mr-2">mdi-account-tie</v-icon>
-                Área do Mentor
-            </h1>
+        <div class="d-flex justify-space-between align-center px-2 py-3">
+            <div class="d-flex align-center">
+                <v-icon class="mr-2">mdi-account-tie</v-icon>
+                <h3 class="text-h6">Área do Mentor</h3>
+            </div>
              <addStudent :hiddenBtn="false" />
         </div>
         <div class="px-2">
