@@ -105,6 +105,17 @@ const routes = [
       }
     ],
   },
+  {
+    path: '/cards',
+    component: () => import('@/layouts/cards.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Cards',
+        component: () => import('@/pages/cards.vue'),
+      }
+    ],
+  },
 ]
 
 const router = createRouter({

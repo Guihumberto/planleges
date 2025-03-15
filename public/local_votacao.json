@@ -1,1214 +1,1262 @@
 [
   {
-    "id": 1,
-    "secao": 302,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": "011",
+    "aula": "aula 01",
+    "text": "**As vidrarias de laboratório são frequentemente confeccionadas em vidro ou cristal temperado devido à sua transparência, resistência ao calor e inertividade química** [1].",
+    "resposta": "certo"
   },
   {
-    "id": 2,
-    "secao": 334,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": "012",
+    "aula": "aula 01",
+    "text": "**Alguns instrumentos de laboratório podem ser feitos de materiais como plástico, porcelana, borracha, metais e madeira** [1].",
+    "resposta": "certo"
   },
   {
-    "id": 3,
-    "secao": 38,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "013",
+    "aula": "aula 01",
+    "text": "**Para fins didáticos nesta aula, instrumentos de vidro são referidos como vidrarias, enquanto os compostos por outros materiais são chamados de instrumentos** [2].",
+    "resposta": "certo"
   },
   {
-    "id": 4,
-    "secao": 39,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "014",
+    "aula": "aula 01",
+    "text": "**Vidrarias volumétricas possuem apenas uma marcação de volume e são usadas para medir volumes fixos** [2].",
+    "resposta": "certo"
   },
   {
-    "id": 5,
-    "secao": 40,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "015",
+    "aula": "aula 01",
+    "text": "**Vidrarias graduadas apresentam várias marcações, permitindo a medição de diferentes volumes** [2].",
+    "resposta": "certo"
   },
   {
-    "id": 6,
-    "secao": 41,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "016",
+    "aula": "aula 01",
+    "text": "**Vidrarias sem marcação são utilizadas para conter, misturar ou transferir substâncias, mas não para medir volumes** [2].",
+    "resposta": "certo"
   },
   {
-    "id": 7,
-    "secao": 42,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "017",
+    "aula": "aula 01",
+    "text": "**A precisão na medição de uma vidraria está relacionada à reprodutibilidade da medida nas mesmas condições** [3].",
+    "resposta": "certo"
   },
   {
-    "id": 8,
-    "secao": 43,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "018",
+    "aula": "aula 01",
+    "text": "**A exatidão de uma vidraria indica o quão próxima a medição está do valor verdadeiro** [4].",
+    "resposta": "certo"
   },
   {
-    "id": 9,
-    "secao": 44,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "019",
+    "aula": "aula 01",
+    "text": "**É possível que uma vidraria seja precisa, indicando sempre o mesmo volume, mas não necessariamente exata, se estiver descalibrada** [4].",
+    "resposta": "certo"
   },
   {
-    "id": 10,
-    "secao": 45,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "0110",
+    "aula": "aula 01",
+    "text": "**O menisco é a curvatura que um líquido forma na parte superior quando colocado em uma vidraria** [5].",
+    "resposta": "certo"
   },
   {
-    "id": 11,
-    "secao": 301,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "0111",
+    "aula": "aula 01",
+    "text": "**Para uma leitura correta do volume, o observador deve se abaixar até a altura do menisco, alinhando os olhos com a marcação** [5].",
+    "resposta": "certo"
   },
   {
-    "id": 12,
-    "secao": 337,
-    "local": "UNID.ESC.AGOST. RAMALHO MARQUES",
-    "zona": 37
+    "id": "0112",
+    "aula": "aula 01",
+    "text": "**O erro de paralaxe ocorre quando o olho do observador e o menisco não estão em uma linha perpendicular, resultando em uma leitura incorreta do volume** [6, 7].",
+    "resposta": "certo"
   },
   {
-    "id": 13,
-    "secao": 376,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "id": "0113",
+    "aula": "aula 01",
+    "text": "**Em soluções incolores, a leitura do volume deve ser feita ajustando a parte inferior do menisco à marcação da vidraria** [7].",
+    "resposta": "certo"
   },
   {
-    "id": 14,
-    "secao": 377,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "id": "0114",
+    "aula": "aula 01",
+    "text": "**Ao medir o volume de soluções coloridas, a parte superior do menisco deve ser alinhada com a marca de calibração** [7, 8].",
+    "resposta": "certo"
   },
   {
-    "id": 15,
-    "secao": 378,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "id": "0115",
+    "aula": "aula 01",
+    "text": "**O béquer ou becker é utilizado para dissolver substâncias sólidas, realizar reações químicas, aquecer líquidos e efetuar reações de precipitação** [9].",
+    "resposta": "certo"
   },
   {
-    "id": 16,
-    "secao": 379,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "id": "0116",
+    "aula": "aula 01",
+    "text": "**O erlenmeyer pode ser usado para as mesmas funções do béquer, e seu formato afunilado minimiza o risco de perda de material durante a agitação, sendo útil em titulações** [9].",
+    "resposta": "certo"
   },
   {
-    "id": 17,
-    "secao": "380/",
-    "local": "IEP-INST.EDUC.DE PINHEIRO (CAIC)",
-    "zona": 37
+    "id": "0117",
+    "aula": "aula 01",
+    "text": "**O balão de fundo chato é empregado para conter líquidos e em reações com desprendimento de gases** [10].",
+    "resposta": "certo"
   },
   {
-    "id": 18,
-    "secao": 381,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "id": "0118",
+    "aula": "aula 01",
+    "text": "**O balão volumétrico é uma vidraria de precisão (possui marcação em um volume definido) utilizada para medir líquidos e preparar soluções com volumes exatos** [11].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0119",
+    "aula": "aula 01",
+    "text": "**A proveta é uma vidraria utilizada para medir e transferir volumes variáveis de líquidos, com precisão a partir de 25 ml até 1000 ml** [12].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0120",
+    "aula": "aula 01",
+    "text": "**A pipeta é utilizada para medição e transferência de volumes precisos de líquidos, existindo as volumétricas (para medir um volume específico) e as graduadas (para medir volumes variados dentro de um intervalo)** [13].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0121",
+    "aula": "aula 01",
+    "text": "**A pipeta volumétrica oferece maior precisão na medição de um volume específico em comparação com a pipeta graduada** [14].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0122",
+    "aula": "aula 01",
+    "text": "**A bureta é uma vidraria calibrada para transferir volumes de líquidos com precisão, sendo essencial em análises volumétricas como titulações** [15].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0123",
+    "aula": "aula 01",
+    "text": "**O kitassato é utilizado em conjunto com o funil de Buchner para realizar filtrações a vácuo** [16, 17].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0124",
+    "aula": "aula 01",
+    "text": "**O funil de separação é empregado para separar misturas heterogêneas de líquidos não miscíveis através da decantação** [18].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0125",
+    "aula": "aula 01",
+    "text": "**O condensador é utilizado em processos de destilação para condensar vapores de líquidos aquecidos** [19].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0126",
+    "aula": "aula 01",
+    "text": "**O almofariz e o pistilo, geralmente feitos de porcelana, são utilizados para triturar e pulverizar sólidos em pequena escala** [20-22].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0127",
+    "aula": "aula 01",
+    "text": "**O cadinho, frequentemente de porcelana, é usado em processos de calcinação (aquecimento a seco a temperaturas muito altas) e suporta temperaturas acima de 500°C** [21, 23-25].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0128",
+    "aula": "aula 01",
+    "text": "**O dessecador é um recipiente fechado utilizado para armazenar substâncias em ambiente com baixa umidade, promovendo resfriamento e secagem** [26, 27].",
+    "resposta": "certo"
+  },
+  {
+    "id": "0129",
+    "aula": "aula 01",
+    "text": "**Vidrarias de precisão, como balões volumétricos e pipetas volumétricas, não devem ser submetidas a altas temperaturas, pois com a expansão do vidro elas podem perder a sua calibração [3]. Logo, essas vidrarias nunca devem ser esterilizadas em autoclaves e estufas [3, 28-31]**.",
+    "resposta": "certo"
+  },
+  {
+    "id": "0130",
+    "aula": "aula 01",
+    "text": "**Para aumentar a precisão ao pipetar pequenos volumes, o uso de micropipetadores é recomendado** [32-34].",
+    "resposta": "certo"
   },
   {
     "id": 19,
-    "secao": 382,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O Novo Código de Ética do Profissional Biomédico foi regulamentado pela Resolução CFBM nº 330, de 5 de novembro de 2020** [1].",
+    "resposta": "certo"
   },
   {
     "id": 20,
-    "secao": 383,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "A Resolução CFBM nº 330/2020 **substituiu a Resolução CFBM nº 198 de 21.02.2011**, que regulamentava o código de ética do biomédico até novembro de 2020 [1].",
+    "resposta": "certo"
   },
   {
     "id": 21,
-    "secao": "384/433",
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Para o exercício da Biomedicina, é obrigatória a inscrição no Conselho Regional** [2].",
+    "resposta": "certo"
   },
   {
     "id": 22,
-    "secao": 385,
-    "local": "IEP-INST.EDUC.DE PINHEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É dever do profissional biomédico comunicar ao Conselho Regional de Biomedicina, com discrição, fundamento e provas, de fatos que caracterizem possível infração** do Código de Ética [2].",
+    "resposta": "certo"
   },
   {
     "id": 23,
-    "secao": 400,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**A fiscalização do cumprimento das normas estabelecidas no Código de Ética é atribuição das Comissões de Ética, dos Conselhos Federal e Regionais de Biomedicina** [3].",
+    "resposta": "certo"
   },
   {
     "id": 24,
-    "secao": 401,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O biomédico é profissional da saúde e obrigatoriamente tem que contribuir para a salvaguarda da saúde pública em geral** [3].",
+    "resposta": "certo"
   },
   {
     "id": 25,
-    "secao": 402,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**A Biomedicina é uma profissão a serviço da saúde humana, animal e da coletividade e deve ser exercida sem discriminação de qualquer natureza** [4].",
+    "resposta": "certo"
   },
   {
     "id": 26,
-    "secao": 403,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O Código de Ética do Profissional Biomédico regula os direitos e deveres do profissional com inscrição no Conselho Regional de Biomedicina** [5, 6].",
+    "resposta": "certo"
   },
   {
     "id": 27,
-    "secao": 404,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O profissional biomédico inscrito no Conselho Regional de Biomedicina responde pelos atos que praticar ou pelos que autorizar no exercício da profissão** [5].",
+    "resposta": "certo"
   },
   {
     "id": 28,
-    "secao": 405,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Obriga-se o biomédico a zelar pela existência, fins e prestígio dos Conselhos de Biomedicina** [6].",
+    "resposta": "certo"
   },
   {
     "id": 29,
-    "secao": 406,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É dever do biomédico respeitar as leis e normas estabelecidas para o exercício da profissão** [7].",
+    "resposta": "certo"
   },
   {
     "id": 30,
-    "secao": 435,
-    "local": "UNID.ESC.PRESIDENTE MÉDICI",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Guardar sigilo profissional é um dever do biomédico** [7].",
+    "resposta": "certo"
   },
   {
     "id": 31,
-    "secao": 212,
-    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O biomédico deve exercer a profissão com zelo e probidade, observando as prescrições legais** [7].",
+    "resposta": "certo"
   },
   {
     "id": 32,
-    "secao": 269,
-    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Zelar pela própria reputação, mesmo fora do exercício profissional, é uma obrigação do biomédico** [7].",
+    "resposta": "certo"
   },
   {
     "id": 33,
-    "secao": 292,
-    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O biomédico deve observar os ditames da ciência e da técnica, bem como as boas práticas no exercício da profissão** [8].",
+    "resposta": "certo"
   },
   {
     "id": 34,
-    "secao": 311,
-    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É dever do biomédico respeitar a atividade de seus colegas e outros profissionais** [8].",
+    "resposta": "certo"
   },
   {
     "id": 35,
-    "secao": 323,
-    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**No exercício de sua atividade, o biomédico também deverá empregar todo o seu zelo e diligência na execução de seus misteres** [9].",
+    "resposta": "certo"
   },
   {
     "id": 36,
-    "secao": 439,
-    "local": "ESC.MUN.JOSÉ ERIVAN CORDEIRO",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O biomédico não deve divulgar resultados ou métodos de pesquisas que não estejam, científica e tecnicamente, comprovados** [9, 10].",
+    "resposta": "certo"
   },
   {
     "id": 37,
-    "secao": 386,
-    "local": "ESC.DILÚ FREITAS- Bubalina",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É um dever do biomédico defender a profissão e prestigiar suas entidades** [9].",
+    "resposta": "certo"
   },
   {
     "id": 38,
-    "secao": 387,
-    "local": "ESC.DILÚ FREITAS- Bubalina",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O biomédico deve agir com dignidade e retidão para com seus colegas, contribuindo para a harmonia da profissão** [11].",
+    "resposta": "certo"
   },
   {
     "id": 39,
-    "secao": 388,
-    "local": "ESC.DILÚ FREITAS-Bubalina",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Zelar sempre pela dignidade da vida é um dever do biomédico** [12].",
+    "resposta": "certo"
   },
   {
     "id": 40,
-    "secao": 432,
-    "local": "ESC.DILÚ FREITAS- Bubalina",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É um direito do Biomédico exercer com liberdade e dignidade a Biomedicina em todo o território nacional sem ser discriminado** [13].",
+    "resposta": "certo"
   },
   {
     "id": 41,
-    "secao": 1,
-    "local": "CÂMARA MUNICIPAL",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**O biomédico tem o direito de indicar falhas nos regulamentos e normas das instituições em que trabalhe, quando as julgar prejudiciais à coletividade** [13, 14].",
+    "resposta": "certo"
   },
   {
     "id": 42,
-    "secao": "91/134",
-    "local": "CÂMARA MUNICIPAL",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Recusar-se a exercer sua profissão em instituição pública onde as condições de trabalho sejam indignas é um direito do biomédico** [15, 16].",
+    "resposta": "certo"
   },
   {
     "id": 43,
-    "secao": "003/12",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É direito do biomédico resguardar o sigilo profissional** [17].",
+    "resposta": "certo"
   },
   {
     "id": 44,
-    "secao": "004/08",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Manter o sigilo profissional é inerente à profissão do biomédico, impondo-se o seu respeito** [18, 19].",
+    "resposta": "certo"
   },
   {
     "id": 45,
-    "secao": "11/002/09",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Na propaganda da atividade biomédica, deverão constar o nome do biomédico e seu número de inscrição no Conselho** [20].",
+    "resposta": "certo"
   },
   {
     "id": 46,
-    "secao": "13/005º/10º",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**É vedado ao biomédico usar expressões que garantam determinados resultados de um procedimento sem comprovação efetiva** [21].",
+    "resposta": "certo"
   },
   {
     "id": 47,
-    "secao": "94º",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**A publicação de imagens de usuários só é permitida com prévia e expressa autorização** [22-24].",
+    "resposta": "certo"
   },
   {
     "id": 48,
-    "secao": "278º/19º/101",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "aula": "aula 18",
+    "text": "**Nas relações com os colegas, o biomédico deve manter sempre respeito e urbanidade** [24, 25].",
+    "resposta": "certo"
   },
   {
-    "id": 49,
-    "secao": "279/277/289",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "id": 19,
+    "aula": "aula 17",
+    "text": "**A urina é composta por aproximadamente 95% de água**, além de sais inorgânicos e compostos orgânicos.",
+    "resposta": "certo"
   },
   {
-    "id": 50,
-    "secao": "281º/147º/283º",
-    "local": "COLÉGIO PINHEIRENSE",
-    "zona": 37
+    "id": 20,
+    "aula": "aula 17",
+    "text": "**A coleta da amostra de urina para exames laboratoriais deve ser realizada em recipientes limpos e secos**.",
+    "resposta": "certo"
   },
   {
-    "id": 51,
-    "secao": 20,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 21,
+    "aula": "aula 17",
+    "text": "**A primeira urina da manhã é recomendada para testes de gravidez** devido à sua maior concentração do hormônio beta hCG [1].",
+    "resposta": "certo"
   },
   {
-    "id": 52,
-    "secao": 21,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 22,
+    "aula": "aula 17",
+    "text": "**A amostra de urina de jejum, que consiste na segunda urina do dia coletada em jejum, é utilizada para monitorar a glicosúria em pacientes diabéticos** [2].",
+    "resposta": "certo"
   },
   {
-    "id": 53,
-    "secao": 26,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 23,
+    "aula": "aula 17",
+    "text": "**Para a coleta de urina de 24 horas, a primeira urina da manhã do primeiro dia é desprezada, e todas as micções subsequentes são coletadas**, incluindo a primeira urina da manhã do segundo dia [3].",
+    "resposta": "certo"
   },
   {
-    "id": 54,
-    "secao": 27,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 24,
+    "aula": "aula 17",
+    "text": "**Durante a coleta de urina de 24 horas, o(s) frasco(s) contendo a urina deve(m) ser mantido(s) em geladeira até o momento da entrega** [3].",
+    "resposta": "certo"
   },
   {
-    "id": 55,
-    "secao": 28,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 25,
+    "aula": "aula 17",
+    "text": "**A amostra de urina de jato médio com assepsia é frequentemente utilizada para a realização do exame de urina rotina (urina tipo I)** [4, 5].",
+    "resposta": "certo"
   },
   {
-    "id": 56,
-    "secao": 29,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 26,
+    "aula": "aula 17",
+    "text": "**Para a coleta da amostra de jato médio, o paciente deve desprezar o jato inicial da urina antes de coletar a amostra** [4, 6, 7].",
+    "resposta": "certo"
   },
   {
-    "id": 57,
-    "secao": 92,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 27,
+    "aula": "aula 17",
+    "text": "**A amostra de urina de jato médio deve ser entregue ao laboratório em um prazo máximo de 2 horas após a coleta** [1, 7, 8].",
+    "resposta": "certo"
   },
   {
-    "id": 58,
-    "secao": 118,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 28,
+    "aula": "aula 17",
+    "text": "**Se a coleta da amostra de urina não puder ser realizada no laboratório, o frasco deve ser identificado com o nome do paciente, data e horário da coleta** [6, 9].",
+    "resposta": "certo"
   },
   {
-    "id": 59,
-    "secao": 129,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 29,
+    "aula": "aula 17",
+    "text": "**Para pacientes do sexo masculino, recomenda-se retrair o prepúcio para expor o meato uretral durante a higiene prévia à coleta da urina de jato médio** [9].",
+    "resposta": "certo"
   },
   {
-    "id": 60,
-    "secao": 327,
-    "local": "C.E JOSÉ DE ANCHIETA",
-    "zona": 37
+    "id": 30,
+    "aula": "aula 17",
+    "text": "**Durante a coleta da amostra de urina de jato médio, deve-se evitar a coleta durante o período menstrual para prevenir a contaminação da amostra com sangue** [4].",
+    "resposta": "certo"
   },
   {
-    "id": 61,
-    "secao": 34,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 31,
+    "aula": "aula 17",
+    "text": "**A retenção da micção por pelo menos 4 horas antes da coleta da urina de jato médio pode diminuir o número de resultados falso-negativos para bacteriúria** [8, 10].",
+    "resposta": "certo"
   },
   {
-    "id": 62,
-    "secao": 35,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 32,
+    "aula": "aula 17",
+    "text": "**A coleta de amostras de urina, sempre que possível, deve ser realizada no laboratório para diminuir a probabilidade de contaminação** [11-13].",
+    "resposta": "certo"
   },
   {
-    "id": 63,
-    "secao": 36,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 33,
+    "aula": "aula 17",
+    "text": "**A amostra de urina cateterizada é obtida através da introdução de um cateter na uretra até alcançar a bexiga** [14].",
+    "resposta": "certo"
   },
   {
-    "id": 64,
-    "secao": 37,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 34,
+    "aula": "aula 17",
+    "text": "**A punção suprapúbica é um procedimento invasivo que permite obter uma amostra de urina totalmente livre de contaminação** [12, 15].",
+    "resposta": "certo"
   },
   {
-    "id": 65,
-    "secao": 95,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 35,
+    "aula": "aula 17",
+    "text": "**Para a investigação de prostatite, realiza-se a coleta de três amostras de urina, incluindo o primeiro jato, o jato médio e a urina após massagem prostática** [16].",
+    "resposta": "certo"
   },
   {
-    "id": 66,
-    "secao": 104,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 36,
+    "aula": "aula 17",
+    "text": "**Em coletas pediátricas, podem ser utilizados sacos com adesivo hipoalergênico próprios para este fim** [17-19].",
+    "resposta": "certo"
   },
   {
-    "id": 67,
-    "secao": 216,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 37,
+    "aula": "aula 17",
+    "text": "**Caso a análise da urina não possa ser realizada em até 2 horas após a coleta, a amostra deve ser refrigerada entre 2°C e 8°C** [5, 20].",
+    "resposta": "certo"
   },
   {
-    "id": 68,
-    "secao": 222,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 38,
+    "aula": "aula 17",
+    "text": "**A refrigeração da urina pode causar a precipitação de fosfatos, carbonatos e uratos amorfos, tornando a amostra turva** [20, 21].",
+    "resposta": "certo"
   },
   {
-    "id": 69,
-    "secao": 324,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 39,
+    "aula": "aula 17",
+    "text": "**Antes de realizar a análise de uma amostra de urina refrigerada, é recomendado que ela retorne à temperatura ambiente** [20, 21].",
+    "resposta": "certo"
   },
   {
-    "id": 70,
-    "secao": 335,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 40,
+    "aula": "aula 17",
+    "text": "**O exame de urina rotina, também conhecido como urina tipo I ou EAS, é o exame mais comumente realizado em amostras de urina** [5].",
+    "resposta": "certo"
   },
   {
-    "id": 71,
-    "secao": 434,
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 41,
+    "aula": "aula 17",
+    "text": "**A amostra ideal para o exame de urina rotina é a urina de jato médio colhida pela manhã após assepsia** [4, 5, 22].",
+    "resposta": "certo"
   },
   {
-    "id": 72,
-    "secao": "446º",
-    "local": "C.E DOM UNGARELLI",
-    "zona": 37
+    "id": 42,
+    "aula": "aula 17",
+    "text": "**A análise química da urina é frequentemente realizada com tiras reagentes que contêm almofadas impregnadas com substâncias químicas** [23, 24].",
+    "resposta": "certo"
   },
   {
-    "id": 73,
-    "secao": 46,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 43,
+    "aula": "aula 17",
+    "text": "**É importante homogeneizar a amostra de urina antes da imersão da tira reagente para a análise química** [23, 25].",
+    "resposta": "certo"
   },
   {
-    "id": 74,
-    "secao": 47,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 44,
+    "aula": "aula 17",
+    "text": "**A leitura dos resultados da análise química com tiras reagentes é feita comparando as cores das almofadas com uma escala de cores fornecida pelo fabricante** [25, 26].",
+    "resposta": "certo"
   },
   {
-    "id": 75,
-    "secao": 48,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 45,
+    "aula": "aula 17",
+    "text": "**A proteinúria clínica é geralmente definida como a excreção de proteína na urina em uma concentração ≥ 30 mg/dL ou 300 mg/L** [27].",
+    "resposta": "certo"
   },
   {
-    "id": 76,
-    "secao": 49,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 46,
+    "aula": "aula 17",
+    "text": "**A proteinúria de Bence Jones está associada a casos de mieloma múltiplo** [28, 29].",
+    "resposta": "certo"
   },
   {
-    "id": 77,
-    "secao": 50,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 47,
+    "aula": "aula 17",
+    "text": "**A presença de glicose na urina (glucosúria) pode ocorrer quando a glicemia ultrapassa o limiar renal de reabsorção da glicose** [30].",
+    "resposta": "certo"
   },
   {
-    "id": 78,
-    "secao": 51,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 48,
+    "aula": "aula 17",
+    "text": "**A detecção de glicose na urina por tiras reagentes é baseada na reação enzimática da glicose oxidase**.",
+    "resposta": "certo"
   },
   {
-    "id": 79,
-    "secao": 52,
-    "local": "ESC.MUN.PEDRO LOBATO",
-    "zona": 37
+    "id": 17,
+    "aula": "aula 16",
+    "text": "A micologia compreende o estudo dos fungos, especialmente aqueles que podem causar doenças em seres humanos [1].",
+    "resposta": "certo"
   },
   {
-    "id": 80,
-    "secao": 444,
-    "local": "ESC.DILÚ FREITAS- Bubalina",
-    "zona": 37
+    "id": 18,
+    "aula": "aula 16",
+    "text": "Os fungos de relevância médica podem apresentar-se sob as formas morfológicas de leveduras (unicelulares) e bolores ou fungos filamentosos (multicelulares) [1].",
+    "resposta": "certo"
   },
   {
-    "id": 81,
-    "secao": "447º",
-    "local": "ESC.DILÚ FREITAS- Bubalina",
-    "zona": 37
+    "id": 19,
+    "aula": "aula 16",
+    "text": "Fungos dimórficos são capazes de existir tanto na forma de leveduras quanto de bolores, dependendo de fatores como temperatura, condições nutricionais e teor de CO2 [2].",
+    "resposta": "certo"
   },
   {
-    "id": 82,
-    "secao": 234,
-    "local": "ESC.MUN. ALNIR LIMA SOARES- Vila Filuca",
-    "zona": 37
+    "id": 20,
+    "aula": "aula 16",
+    "text": "Micoses são enfermidades desencadeadas por fungos, podendo ser classificadas em superficiais, cutâneas, subcutâneas, profundas (sistêmicas) e oportunistas [2].",
+    "resposta": "certo"
   },
   {
-    "id": 83,
-    "secao": 286,
-    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
-    "zona": 37
+    "id": 21,
+    "aula": "aula 16",
+    "text": "As dermatofitoses (tineas) são infecções fúngicas restritas às camadas superficiais queratinizadas da pele, pelos e unhas, sendo causadas por fungos dos gêneros Microsporum, Trichophyton e Epidermophyton [3].",
+    "resposta": "certo"
   },
   {
-    "id": 84,
-    "secao": 326,
-    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
-    "zona": 37
+    "id": 22,
+    "aula": "aula 16",
+    "text": "A esporotricose é uma micose subcutânea resultante da contaminação de uma ferida na pele pelo fungo Sporothrix schenckii [4].",
+    "resposta": "certo"
   },
   {
-    "id": 85,
-    "secao": 443,
-    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
-    "zona": 37
+    "id": 23,
+    "aula": "aula 16",
+    "text": "A paracoccidioidomicose, também conhecida como blastomicose sul-americana (termo em desuso), é uma doença granulomatosa crônica causada por fungos do complexo Paracoccidioides [5, 6].",
+    "resposta": "certo"
   },
   {
-    "id": 86,
-    "secao": 450,
-    "local": "ESC.MUN. ALNIR LIMA SOARES - Vila Filuca",
-    "zona": 37
+    "id": 24,
+    "aula": "aula 16",
+    "text": "A histoplasmose é uma doença causada pelo fungo Histoplasma capsulatum, cuja infecção ocorre pela inalação de esporos presentes em solos contaminados por fezes de morcegos e galinhas [7, 8].",
+    "resposta": "certo"
   },
   {
-    "id": 87,
-    "secao": 197,
-    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
-    "zona": 37
+    "id": 25,
+    "aula": "aula 16",
+    "text": "Espécies do gênero Candida integram a microbiota normal de diversas partes do corpo humano, mas podem causar candidíase em indivíduos imunossuprimidos [9].",
+    "resposta": "certo"
   },
   {
-    "id": 88,
-    "secao": 265,
-    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
-    "zona": 37
+    "id": 26,
+    "aula": "aula 16",
+    "text": "A criptococose é adquirida pela inalação de fungos capsulados Cryptococcus neoformans encontrados em solo contaminado, podendo afetar primariamente os pulmões e, em seguida, o sistema nervoso central [10].",
+    "resposta": "certo"
   },
   {
-    "id": 89,
-    "secao": 297,
-    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
-    "zona": 37
+    "id": 27,
+    "aula": "aula 16",
+    "text": "A aspergilose é causada pela inalação de esporos do fungo Aspergillus fumigatus, sendo mais grave em pacientes imunocomprometidos [11].",
+    "resposta": "certo"
   },
   {
-    "id": 90,
-    "secao": 333,
-    "local": "ESC.MUN.JOSÉ DE ARIMÁTEIA NUNES",
-    "zona": 37
+    "id": 28,
+    "aula": "aula 16",
+    "text": "Fungos da classe dos Zigomicetos, como os gêneros Mucor e Rhizopus, raramente causam problemas em indivíduos imunocompetentes, mas podem levar a infecções graves em imunocomprometidos [12].",
+    "resposta": "certo"
   },
   {
-    "id": 91,
-    "secao": 215,
-    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
-    "zona": 37
+    "id": 29,
+    "aula": "aula 16",
+    "text": "A investigação laboratorial de micoses geralmente envolve o exame microscópico da amostra e a cultura microbiológica [13].",
+    "resposta": "certo"
   },
   {
-    "id": 92,
-    "secao": 223,
-    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
-    "zona": 37
+    "id": 30,
+    "aula": "aula 16",
+    "text": "O exame microscópico direto com hidróxido de potássio (KOH) a 20% é útil para analisar amostras como pele, pelos e unhas na busca por elementos fúngicos [14].",
+    "resposta": "certo"
   },
   {
-    "id": 93,
-    "secao": 287,
-    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
-    "zona": 37
+    "id": 31,
+    "aula": "aula 16",
+    "text": "A tinta nanquim é empregada no exame microscópico direto para evidenciar a cápsula de leveduras do gênero Cryptococcus em amostras como o líquor [14].",
+    "resposta": "certo"
   },
   {
-    "id": 94,
-    "secao": 440,
-    "local": "ESC.MUN.FILADELFO MENDES - Bairro do Sete",
-    "zona": 37
+    "id": 32,
+    "aula": "aula 16",
+    "text": "O meio de cultura ágar Sabouraud dextrose (ASD) é amplamente utilizado na investigação micológica por permitir o crescimento da maioria dos fungos [15].",
+    "resposta": "certo"
   },
   {
-    "id": 95,
-    "secao": "348/349",
-    "local": "UNID.ESC.ODORICO MENDES",
-    "zona": 37
+    "id": 33,
+    "aula": "aula 16",
+    "text": "Em geral, para o cultivo de fungos, as amostras são semeadas em dois tubos, sendo um incubado a 30°C e outro, no caso de suspeita de fungo dimórfico, a 35°C [16].",
+    "resposta": "certo"
   },
   {
-    "id": 96,
-    "secao": "350/351",
-    "local": "UNID.ESC.ODORICO MENDES",
-    "zona": 37
+    "id": 34,
+    "aula": "aula 16",
+    "text": "O teste de sensibilidade a drogas antifúngicas tem como objetivo determinar a concentração inibitória mínima (CIM) para orientar a terapia e monitorar a resistência [17].",
+    "resposta": "certo"
   },
   {
-    "id": 97,
-    "secao": "352/353",
-    "local": "UNID.ESC.ODORICO MENDES",
-    "zona": 37
+    "id": 35,
+    "aula": "aula 16",
+    "text": "Vírus são agentes infecciosos que necessitam do interior de células hospedeiras para realizar sua replicação [11].",
+    "resposta": "certo"
   },
   {
-    "id": 98,
-    "secao": "354/355",
-    "local": "UNID.ESC.ODORICO MENDES",
-    "zona": 37
+    "id": 36,
+    "aula": "aula 16",
+    "text": "A partícula viral completa, denominada vírion, é composta por ácido nucleico (DNA ou RNA) envolto por uma camada proteica chamada capsídeo [18].",
+    "resposta": "certo"
   },
   {
-    "id": 99,
-    "secao": "356/357",
-    "local": "UNID.ESC.ODORICO MENDES",
-    "zona": 37
+    "id": 37,
+    "aula": "aula 16",
+    "text": "O adenovírus respiratório humano é um vírus de DNA não envelopado que pode causar doenças do sistema respiratório [19].",
+    "resposta": "certo"
   },
   {
-    "id": 100,
-    "secao": 22,
-    "local": "UNID.ESC.MARIA PAIVA ABREU-Campinho",
-    "zona": 37
+    "id": 38,
+    "aula": "aula 16",
+    "text": "O vírus Epstein-Barr (EBV) é o agente etiológico da mononucleose infecciosa e pertence à família Herpesviridae [20].",
+    "resposta": "certo"
   },
   {
-    "id": 101,
-    "secao": 23,
-    "local": "UNID.ESC.MARIA PAIVA ABREU-Campinho",
-    "zona": 37
+    "id": 39,
+    "aula": "aula 16",
+    "text": "O vírus da hepatite A (VHA) é transmitido pela via fecal-oral e pertence à família Picornaviridae [21].",
+    "resposta": "certo"
   },
   {
-    "id": 102,
-    "secao": 328,
-    "local": "UNID.ESC.MARIA PAIVA ABREU-Campinho",
-    "zona": 37
+    "id": 40,
+    "aula": "aula 16",
+    "text": "O vírus da hepatite B (VHB) é um vírus de DNA de fita dupla cuja transmissão ocorre pelo contato com fluidos corporais, existindo vacina para sua prevenção [22].",
+    "resposta": "certo"
   },
   {
-    "id": 103,
-    "secao": "423/424/425",
-    "local": "ESC.MUN. INAH RÊGO",
-    "zona": 37
+    "id": 41,
+    "aula": "aula 16",
+    "text": "O vírus da hepatite C (VHC) é um vírus de RNA envelopado cuja transmissão pode ocorrer pelo contato com sangue contaminado [23].",
+    "resposta": "certo"
   },
   {
-    "id": 104,
-    "secao": "426/427º/428",
-    "local": "ESC.MUN. INAH RÊGO",
-    "zona": 37
+    "id": 42,
+    "aula": "aula 16",
+    "text": "Os vírus herpes simples tipos 1 e 2 (HSV-1 e HSV-2) pertencem à família Herpesviridae e possuem genoma de DNA de fita dupla [24].",
+    "resposta": "certo"
   },
   {
-    "id": 105,
-    "secao": "429/430/431º",
-    "local": "ESC.MUN. INAH RÊGO",
-    "zona": 37
+    "id": 43,
+    "aula": "aula 16",
+    "text": "Os vírus da imunodeficiência humana (HIV) são retrovírus que infectam seres humanos, causando a AIDS ao longo do tempo [25].",
+    "resposta": "certo"
   },
   {
-    "id": 106,
-    "secao": 407,
-    "local": "JARDIM DE INFÂCIA PEQ.PRÍNCIPE- Matriz",
-    "zona": 37
+    "id": 44,
+    "aula": "aula 16",
+    "text": "O vírus influenza é um vírus de RNA envelopado pertencente à família Orthomyxoviridae, sendo responsável por infecções respiratórias [26].",
+    "resposta": "certo"
   },
   {
-    "id": 107,
-    "secao": 408,
-    "local": "JARDIM DE INFÂCIA PEQ.PRÍNCIPE - Matriz",
-    "zona": 37
+    "id": 45,
+    "aula": "aula 16",
+    "text": "O vírus do sarampo é um vírus de RNA envelopado da família Paramyxoviridae, sendo a transmissão aérea a principal via de disseminação [27].",
+    "resposta": "certo"
   },
   {
-    "id": 108,
-    "secao": 409,
-    "local": "JARDIM DE INFÂCIA PEQ.PRÍNCIPE- Matriz",
-    "zona": 37
+    "id": 46,
+    "aula": "aula 16",
+    "text": "O papilomavírus humano (HPV) é um vírus de DNA que pode causar verrugas, lesões pré-cancerosas e aumentar o risco de certos tipos de câncer [28].",
+    "resposta": "certo"
   },
   {
-    "id": 109,
-    "secao": "125/114",
-    "local": "ESC.MUN.DOM RICARDO -  Associação Comercial",
-    "zona": 37
+    "id": 16,
+    "aula": "aula 15",
+    "text": "**Bactérias são microrganismos unicelulares procarióticos** que podem variar em tamanho, forma (cocos, bacilos, vibriões e espiraladas) e arranjo (estafilococos, estreptococos, diplococos) [1].",
+    "resposta": "certo"
   },
   {
-    "id": 110,
-    "secao": "139/148",
-    "local": "ESC.MUN.DOM RICARDO  - Associação Comercial",
-    "zona": 37
+    "id": 17,
+    "aula": "aula 15",
+    "text": "Os **cocos** são bactérias de formato esférico, enquanto os **bacilos** possuem forma cilíndrica [1].",
+    "resposta": "certo"
   },
   {
-    "id": 111,
-    "secao": 319,
-    "local": "ESC.MUN.DOM RICARDO -  Associação Comercial",
-    "zona": 37
+    "id": 18,
+    "aula": "aula 15",
+    "text": "Os **estafilococos** se caracterizam por um arranjo celular que lembra cachos de uva, e os **estreptococos** formam cadeias [1].",
+    "resposta": "certo"
   },
   {
-    "id": 112,
-    "secao": 288,
-    "local": "ESC.MUN.AURELINA CATARINA AMORIM- Ilha de Leonor",
-    "zona": 37
+    "id": 19,
+    "aula": "aula 15",
+    "text": "A **parede celular bacteriana** é composta por peptideoglicano e tem como função proteger contra a lise osmótica e conferir rigidez à célula [2].",
+    "resposta": "certo"
   },
   {
-    "id": 113,
-    "secao": 315,
-    "local": "ESC.MUN.AURELINA CATARINA AMORIM- Ilha de Leonor",
-    "zona": 37
+    "id": 20,
+    "aula": "aula 15",
+    "text": "A **cápsula bacteriana**, localizada externamente à parede celular, auxilia na aderência a superfícies e oferece proteção contra a fagocitose, sendo considerada um fator de virulência [2].",
+    "resposta": "certo"
   },
   {
-    "id": 114,
-    "secao": 389,
-    "local": "ESC. MUN.CONCITA VIEGAS",
-    "zona": 37
+    "id": 21,
+    "aula": "aula 15",
+    "text": "Os **cocos Gram-positivos** de maior relevância clínica incluem os gêneros *Staphylococcus* e *Streptococcus* [3].",
+    "resposta": "certo"
   },
   {
-    "id": 115,
-    "secao": 441,
-    "local": "ESC. MUN.CONCITA VIEGAS",
-    "zona": 37
+    "id": 22,
+    "aula": "aula 15",
+    "text": "As espécies do gênero *Staphylococcus* são **imóveis, não formadoras de esporos e catalase positivas** [4].",
+    "resposta": "certo"
   },
   {
-    "id": 116,
-    "secao": "420/419",
-    "local": "SIND.DOS TRAB.RURAIS DE PINHEIRO/ shopping do\npovo",
-    "zona": 37
+    "id": 23,
+    "aula": "aula 15",
+    "text": "A **prova da catalase** é utilizada para diferenciar *Staphylococcus* (catalase positivo) de *Streptococcus* (catalase negativo) [4].",
+    "resposta": "certo"
   },
   {
-    "id": 117,
-    "secao": "421/422",
-    "local": "SIND.DOS TRAB.RURAIS DE PINHEIRO",
-    "zona": 37
+    "id": 24,
+    "aula": "aula 15",
+    "text": "*Staphylococcus aureus* é considerado o **patógeno humano mais importante** entre os estafilococos [5].",
+    "resposta": "certo"
   },
   {
-    "id": 118,
-    "secao": 395,
-    "local": "ESC.MUN.WALTER ABREU- Enseada",
-    "zona": 37
+    "id": 25,
+    "aula": "aula 15",
+    "text": "*Staphylococcus saprophyticus* é uma causa comum de **infecções urinárias agudas**, especialmente em mulheres jovens e sexualmente ativas [6].",
+    "resposta": "certo"
   },
   {
-    "id": 119,
-    "secao": 396,
-    "local": "ESC.MUN.WALTER ABREU- Enseada",
-    "zona": 37
+    "id": 26,
+    "aula": "aula 15",
+    "text": "No ágar sangue, colônias de *Staphylococcus aureus* podem apresentar-se **amareladas e causar hemólise** [7].",
+    "resposta": "certo"
   },
   {
-    "id": 120,
-    "secao": 448,
-    "local": "ESC.MUN.WALTER ABREU- Enseada",
-    "zona": 37
+    "id": 27,
+    "aula": "aula 15",
+    "text": "A **prova da coagulase** é fundamental para distinguir *Staphylococcus aureus* (coagulase positivo) de outras espécies de *Staphylococcus* coagulase negativas [8].",
+    "resposta": "certo"
   },
   {
-    "id": 121,
-    "secao": 57,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA -Pacas",
-    "zona": 37
+    "id": 28,
+    "aula": "aula 15",
+    "text": "As espécies de *Streptococcus* são classificadas com base em suas **propriedades hemolíticas** em alfa (α), beta (ß) e gama (γ) [9].",
+    "resposta": "certo"
   },
   {
-    "id": 122,
-    "secao": 58,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA -Pacas",
-    "zona": 37
+    "id": 29,
+    "aula": "aula 15",
+    "text": "*Streptococcus pneumoniae* (pneumococo) é um **estreptococo alfa-hemolítico** de grande importância clínica [10].",
+    "resposta": "certo"
   },
   {
-    "id": 123,
-    "secao": 59,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
-    "zona": 37
+    "id": 30,
+    "aula": "aula 15",
+    "text": "*Streptococcus pyogenes*, pertencente ao grupo A de Lancefield, é **beta-hemolítico** e pode causar faringites e outras infecções [11].",
+    "resposta": "certo"
   },
   {
-    "id": 124,
-    "secao": 60,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
-    "zona": 37
+    "id": 31,
+    "aula": "aula 15",
+    "text": "A **proteína M** é um fator de virulência produzido por *Streptococcus pyogenes* que pode inibir a fagocitose [12].",
+    "resposta": "certo"
   },
   {
-    "id": 125,
-    "secao": "61/452",
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas/Boa vista",
-    "zona": 37
+    "id": 32,
+    "aula": "aula 15",
+    "text": "*Streptococcus pneumoniae* apresenta **positividade para o teste da bile solubilidade e sensibilidade à optoquina** [13].",
+    "resposta": "certo"
   },
   {
-    "id": 126,
-    "secao": 62,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
-    "zona": 37
+    "id": 33,
+    "aula": "aula 15",
+    "text": "Os enterococos são cocos Gram-positivos que podem ocorrer em **pares (diplococos) ou cadeias curtas** [14].",
+    "resposta": "certo"
   },
   {
-    "id": 127,
-    "secao": 63,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
-    "zona": 37
+    "id": 34,
+    "aula": "aula 15",
+    "text": "*Enterococcus faecalis* e *Enterococcus faecium* são **organismos comensais comuns no intestino humano** [14].",
+    "resposta": "certo"
   },
   {
-    "id": 128,
-    "secao": 64,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
-    "zona": 37
+    "id": 35,
+    "aula": "aula 15",
+    "text": "Infecções do trato urinário são uma das principais ocorrências clínicas importantes causadas por *Enterococcus faecalis* [15].",
+    "resposta": "certo"
   },
   {
-    "id": 129,
-    "secao": 308,
-    "local": "CENTRO DE ENS.LUCÍLIA MOREIRA-Pacas",
-    "zona": 37
+    "id": 36,
+    "aula": "aula 15",
+    "text": "As bactérias do gênero *Neisseria* são **Gram-negativas, aeróbias, imóveis e não esporuladas**, apresentando-se como diplococos [16].",
+    "resposta": "certo"
   },
   {
-    "id": 130,
-    "secao": 108,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 37,
+    "aula": "aula 15",
+    "text": "*Neisseria gonorrhoeae* (gonococo) é o agente etiológico da **gonorreia**, e *Neisseria meningitidis* (meningococo) é uma causa comum de meningite bacteriana [17].",
+    "resposta": "certo"
   },
   {
-    "id": 131,
-    "secao": 126,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 38,
+    "aula": "aula 15",
+    "text": "Todas as espécies de *Neisseria* de relevância clínica são **positivas para a catalase e oxidase**, com algumas exceções [17].",
+    "resposta": "certo"
   },
   {
-    "id": 132,
-    "secao": 137,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 39,
+    "aula": "aula 15",
+    "text": "*Neisseria gonorrhoeae* é sensível a variações de temperatura e atmosfera de CO2, sendo recomendado o cultivo em **ágar chocolate enriquecido** [18, 19].",
+    "resposta": "certo"
   },
   {
-    "id": 133,
-    "secao": 151,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 40,
+    "aula": "aula 15",
+    "text": "Enterobacteriaceae é uma grande família de **bactérias Gram-negativas** que inclui tanto simbiontes inofensivos quanto patógenos como *Salmonella* e *Escherichia coli* [20].",
+    "resposta": "certo"
   },
   {
-    "id": 134,
-    "secao": 224,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 41,
+    "aula": "aula 15",
+    "text": "As enterobactérias são **bacilos não formadores de esporos** que geralmente fermentam açúcares para produzir ácido lático [20, 21].",
+    "resposta": "certo"
   },
   {
-    "id": 135,
-    "secao": 310,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 42,
+    "aula": "aula 15",
+    "text": "A maioria das enterobactérias **reduz o nitrato em nitrito** e não possui citocromo c oxidase [21].",
+    "resposta": "certo"
   },
   {
-    "id": 136,
-    "secao": 331,
-    "local": "ESC.MUN.DOMINGOS PERDIGÃO -Pacas",
-    "zona": 37
+    "id": 43,
+    "aula": "aula 15",
+    "text": "*Salmonella* é **lactose negativa** e pode produzir colônias com centro negro em ágar Salmonella-Shigella devido à produção de H2S [22].",
+    "resposta": "certo"
   },
   {
-    "id": 137,
-    "secao": "340/",
-    "local": "JARDIM DE INFÂNCIA MIRTES PAIVA -Pacas",
-    "zona": 37
+    "id": 44,
+    "aula": "aula 15",
+    "text": "Todas as enterobactérias fermentam a glicose através da via **Embden-Meyerhof (EMP)** [23].",
+    "resposta": "certo"
   },
   {
-    "id": 138,
-    "secao": 341,
-    "local": "JARDIM DE INFÂNCIA MIRTES PAIVA -Pacas",
-    "zona": 37
+    "id": 45,
+    "aula": "aula 15",
+    "text": "O gênero *Mycobacterium* inclui patógenos como *Mycobacterium tuberculosis*, causador da **tuberculose**, e *Mycobacterium leprae*, causador da **hanseníase** [24].",
+    "resposta": "certo"
   },
   {
-    "id": 139,
-    "secao": 342,
-    "local": "JARDIM DE INFÂNCIA MIRTES PAIVA -Pacas",
-    "zona": 37
+    "id": 19,
+    "aula": "aula 14",
+    "text": "Meios de cultura são utilizados em laboratórios de microbiologia para fornecer os nutrientes necessários para o crescimento de microrganismos.",
+    "resposta": "certo"
   },
   {
-    "id": 140,
-    "secao": 237,
-    "local": "ESC.MUN.M QUITÉRIA CERVEIRA- M.Novo",
-    "zona": 37
+    "id": 20,
+    "aula": "aula 14",
+    "text": "O ágar é um componente comum em meios de cultura sólidos, conferindo-lhes consistência semelhante a uma gelatina.",
+    "resposta": "certo"
   },
   {
-    "id": 141,
-    "secao": 303,
-    "local": "ESC.MUN.M QUITÉRIA CERVEIRA- M.Novo",
-    "zona": 37
+    "id": 21,
+    "aula": "aula 14",
+    "text": "Meios de cultura líquidos não contêm ágar e são conhecidos como caldos.",
+    "resposta": "certo"
   },
   {
-    "id": 142,
-    "secao": "336/455",
-    "local": "ESC.MUN.M QUITÉRIA CERVEIRA-\nM.Novo/Pampilhosa",
-    "zona": 37
+    "id": 22,
+    "aula": "aula 14",
+    "text": "Meios semissólidos contêm uma baixa concentração de ágar (0,5 a 1,0%) e são utilizados para testes de motilidade bacteriana.",
+    "resposta": "certo"
   },
   {
-    "id": 143,
-    "secao": 343,
-    "local": "ESC.MUN.ALBINO PAIVA –  Pov.São Caetano",
-    "zona": 37
+    "id": 23,
+    "aula": "aula 14",
+    "text": "Meios seletivos inibem o crescimento de certos microrganismos, permitindo o crescimento de outros.",
+    "resposta": "certo"
   },
   {
-    "id": 144,
-    "secao": "344º",
-    "local": "ESC.MUN.ALBINO PAIVA –  Pov.São Caetano",
-    "zona": 37
+    "id": 24,
+    "aula": "aula 14",
+    "text": "O Ágar SS (Salmonella-Shigella) é um exemplo de meio de cultura seletivo.",
+    "resposta": "certo"
   },
   {
-    "id": 145,
-    "secao": "345º/453",
-    "local": "ESC.MUN.ALBINO PAIVA –  Pov.São Caetano/Tingidor",
-    "zona": 37
+    "id": 25,
+    "aula": "aula 14",
+    "text": "Meios diferenciais permitem distinguir diferentes tipos de microrganismos com base em suas características bioquímicas.",
+    "resposta": "certo"
   },
   {
-    "id": 146,
-    "secao": "390/391",
-    "local": "ESC.MUN. DR.ANTENOR ABREU – Bandeira Branca",
-    "zona": 37
+    "id": 26,
+    "aula": "aula 14",
+    "text": "O Ágar CLED é utilizado no isolamento e quantificação de microrganismos em amostras de urina.",
+    "resposta": "certo"
   },
   {
-    "id": 147,
-    "secao": "375373/374\n438",
-    "local": "ESC.MUN.ROBSON DAS F.OLIVEIRA- Tiquireiro",
-    "zona": 37
+    "id": 27,
+    "aula": "aula 14",
+    "text": "Em Ágar CLED, colônias lactose positivas apresentam coloração amarela.",
+    "resposta": "certo"
   },
   {
-    "id": 148,
-    "secao": "370/371/372\n/437",
-    "local": "ESC.MUN.JOSÉ PAULO ALVIM- Pedrinhas dos Araújos",
-    "zona": 37
+    "id": 28,
+    "aula": "aula 14",
+    "text": "Meios enriquecidos contêm nutrientes extras para o crescimento de microrganismos exigentes, como o Ágar chocolate.",
+    "resposta": "certo"
   },
   {
-    "id": 149,
-    "secao": "309/317",
-    "local": "ESC.MUN.RAIMUNDO CELINO ARAUJO-Pov.P.dos\nAraújos",
-    "zona": 37
+    "id": 29,
+    "aula": "aula 14",
+    "text": "O Ágar sangue é utilizado para verificar a formação de hemólise por *Staphylococcus spp.*.",
+    "resposta": "certo"
   },
   {
-    "id": 150,
-    "secao": "072/226",
-    "local": "ESC.MUN.LUÍS CARLOS LEITE- Pov. Juçaral",
-    "zona": 37
+    "id": 30,
+    "aula": "aula 14",
+    "text": "O Ágar MacConkey inibe o crescimento de microrganismos Gram positivos devido à presença de cristal violeta.",
+    "resposta": "certo"
   },
   {
-    "id": 151,
-    "secao": "073/152",
-    "local": "ESC.MUN.LUÍS CARLOS LEITE- Pov. Juçaral",
-    "zona": 37
+    "id": 31,
+    "aula": "aula 14",
+    "text": "O Ágar Citrato Simmons verifica a capacidade da bactéria de utilizar o citrato de sódio como única fonte de carbono.",
+    "resposta": "certo"
   },
   {
-    "id": 152,
-    "secao": 74,
-    "local": "ESC.MUN.LUÍS CARLOS LEITE- Pov. Juçaral",
-    "zona": 37
+    "id": 32,
+    "aula": "aula 14",
+    "text": "O Ágar Bile-Esculina auxilia na separação de *Streptococcus* e identificação de *Enterococcus*.",
+    "resposta": "certo"
   },
   {
-    "id": 153,
-    "secao": 235,
-    "local": "ESC.MUN.RAIMUNDO CARVALHO - Pov. Sto.Antônio",
-    "zona": 37
+    "id": 33,
+    "aula": "aula 14",
+    "text": "O Caldo Triptona e SIM são utilizados para determinar a produção de indol, motilidade e produção de H2S.",
+    "resposta": "certo"
   },
   {
-    "id": 154,
-    "secao": 264,
-    "local": "ESC.MUN.RAIMUNDO CARVALHO - Pov.Sto.Antônio",
-    "zona": 37
+    "id": 34,
+    "aula": "aula 14",
+    "text": "O Ágar TSI (Triplo Açúcar Ferro) permite a detecção da fermentação de glicose, lactose e sacarose.",
+    "resposta": "certo"
   },
   {
-    "id": 155,
-    "secao": 305,
-    "local": "ESC.MUN.RAIMUNDO CARVALHO - Pov. Sto.Antônio",
-    "zona": 37
+    "id": 35,
+    "aula": "aula 14",
+    "text": "A prova de tolerância ao NaCl 6,5% auxilia na separação de *Enterococcus spp.* dos demais *Streptococcus spp.*.",
+    "resposta": "certo"
   },
   {
-    "id": 156,
-    "secao": 338,
-    "local": "ESC.MUN.RAIMUNDO CARVALHO-  Pov. Sto.Antônio",
-    "zona": 37
+    "id": 36,
+    "aula": "aula 14",
+    "text": "O teste da catalase diferencia *Staphylococcus* (positivo) de *Streptococcus* (negativo).",
+    "resposta": "certo"
   },
   {
-    "id": 157,
-    "secao": "284/295",
-    "local": "ESC.MUN.AFONSO PAIVA- Pov.Fortaleza",
-    "zona": 37
+    "id": 37,
+    "aula": "aula 14",
+    "text": "*Pseudomonas aeruginosa* pode apresentar um cheiro característico ordinário.",
+    "resposta": "certo"
   },
   {
-    "id": 158,
-    "secao": "312/322",
-    "local": "ESC.MUN.AFONSO PAIVA-Pov. Fortaleza",
-    "zona": 37
+    "id": 38,
+    "aula": "aula 14",
+    "text": "Amostras de fezes podem ser semeadas em caldos de enriquecimento como Selenito e Tetrationato [1].",
+    "resposta": "certo"
   },
   {
-    "id": 159,
-    "secao": 454,
-    "local": "ESC.MUN.RAIMUNDO ARAÚJO-  Pov.Purãozinho",
-    "zona": 37
+    "id": 39,
+    "aula": "aula 14",
+    "text": "Para o cultivo de *Neisseria gonorrhoeae*, pode-se usar Ágar-Chocolate ou meios seletivos como Thayer Martin [1, 2].",
+    "resposta": "certo"
   },
   {
-    "id": 160,
-    "secao": 298,
-    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov.Côco",
-    "zona": 37
+    "id": 40,
+    "aula": "aula 14",
+    "text": "Amostras escassas podem ser colhidas com *swab* em meio de transporte [1, 3].",
+    "resposta": "certo"
   },
   {
-    "id": 161,
-    "secao": 321,
-    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov. Côco",
-    "zona": 37
+    "id": 41,
+    "aula": "aula 14",
+    "text": "**Dentro da Microbiologia, a identificação bacteriana é um tema frequentemente cobrado em questões** [4].",
+    "resposta": "certo"
   },
   {
-    "id": 162,
-    "secao": 304,
-    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov. Côco",
-    "zona": 37
+    "id": 42,
+    "aula": "aula 14",
+    "text": "**Coloração de Gram e meios de cultura são assuntos recorrentes em provas de Microbiologia** [4].",
+    "resposta": "certo"
   },
   {
-    "id": 163,
-    "secao": 442,
-    "local": "ESC.MUN.THEOTÔNIO COSTA- Pov. Côco",
-    "zona": 37
+    "id": 43,
+    "aula": "aula 14",
+    "text": "**Todas as etapas laboratoriais em microbiologia devem ser rigidamente controladas** [5].",
+    "resposta": "certo"
   },
   {
-    "id": 164,
-    "secao": 392,
-    "local": "ESC.MUN.E.COSTA RODRIGUES- Pov.Porão dos Pirrós",
-    "zona": 37
+    "id": 44,
+    "aula": "aula 14",
+    "text": "**A coleta inadequada da amostra é um erro comum em laboratórios de microbiologia** [5].",
+    "resposta": "certo"
   },
   {
-    "id": 165,
-    "secao": "394/393",
-    "local": "ESC.MUN.E.COSTA RODRIGUES- Pov.Porão dos Pirrós",
-    "zona": 37
+    "id": 45,
+    "aula": "aula 14",
+    "text": "**O uso de meios de transporte inadequados pode comprometer a viabilidade do microrganismo de interesse** [5, 6].",
+    "resposta": "certo"
   },
   {
-    "id": 166,
-    "secao": "306/332",
-    "local": "ESC.MUN.AMÉLIA CAMPOS- Pov.Santana dos pretos",
-    "zona": 37
+    "id": 46,
+    "aula": "aula 14",
+    "text": "Para amostras colhidas com *swab*, o meio de transporte Stuart ou Amies é frequentemente utilizado [7].",
+    "resposta": "certo"
   },
   {
-    "id": 167,
-    "secao": 272,
-    "local": "ESC.MUN.AMÉLIA CAMPOS- Pov.Santana dos pretos",
-    "zona": 37
+    "id": 47,
+    "aula": "aula 14",
+    "text": "**A análise microscópica pode ser realizada com ou sem coloração** [7, 8].",
+    "resposta": "certo"
   },
   {
-    "id": 168,
-    "secao": 75,
-    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
-    "zona": 37
+    "id": 48,
+    "aula": "aula 14",
+    "text": "**A coloração de Gram diferencia bactérias com base na composição química da parede celular** [8, 9].",
+    "resposta": "certo"
   },
   {
-    "id": 169,
-    "secao": 76,
-    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
-    "zona": 37
+    "id": 14,
+    "aula": "aula 13",
+    "text": "As reações de hipersensibilidade são divididas em quatro classes (Tipo I, II, III e IV) com base nos mecanismos envolvidos [1].",
+    "resposta": "certo"
   },
   {
-    "id": 170,
-    "secao": 77,
-    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
-    "zona": 37
+    "id": 15,
+    "aula": "aula 13",
+    "text": "O teste cutâneo de puntura (prick test) é um dos testes mais utilizados para diagnosticar alergias e envolve a aplicação de alérgeno suspeito na pele [2].",
+    "resposta": "certo"
   },
   {
-    "id": 171,
-    "secao": 78,
-    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
-    "zona": 37
+    "id": 16,
+    "aula": "aula 13",
+    "text": "Em testes de provocação em mucosas, o alérgeno suspeito é colocado diretamente em contato com as mucosas nasal, oftálmica ou brônquica, sendo realizado por médicos em ambiente hospitalar [3].",
+    "resposta": "certo"
   },
   {
-    "id": 172,
-    "secao": 127,
-    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
-    "zona": 37
+    "id": 17,
+    "aula": "aula 13",
+    "text": "A dosagem de IgE específica para um determinado alérgeno pode ser realizada em amostra de sangue, sendo o ELISA o método laboratorial mais utilizado [4].",
+    "resposta": "certo"
   },
   {
-    "id": 173,
-    "secao": "266/457",
-    "local": "ESC.MUN.CATARINA VELOSO- Pov.Paraiso",
-    "zona": 37
+    "id": 18,
+    "aula": "aula 13",
+    "text": "Nas doenças autoimunes, o sistema imunológico ataca estruturas pertencentes ao próprio corpo por não distinguir adequadamente entre o 'próprio' e o 'não-próprio' [5].",
+    "resposta": "certo"
   },
   {
-    "id": 174,
-    "secao": 367,
-    "local": "ESC. MUN.ABRAÃO CARDOSO- Pov.Ponta de Santana",
-    "zona": 37
+    "id": 19,
+    "aula": "aula 13",
+    "text": "O fator reumatoide (FR) é um anticorpo inespecífico que pode ser observado em pessoas saudáveis e em outras infecções crônicas e doenças autoimunes [6].",
+    "resposta": "certo"
   },
   {
-    "id": 175,
-    "secao": 368,
-    "local": "ESC. MUN.ABRAÃO CARDOSO- Pov.Ponta de Santana",
-    "zona": 37
+    "id": 20,
+    "aula": "aula 13",
+    "text": "Os anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) apresentam alta especificidade para artrite reumatoide, especialmente na fase inicial da doença e em pacientes FR negativos [7, 8].",
+    "resposta": "certo"
   },
   {
-    "id": 176,
-    "secao": 369,
-    "local": "ESC. MUN.ABRAÃO CARDOSO- Pov.Ponta de Santana",
-    "zona": 37
+    "id": 21,
+    "aula": "aula 13",
+    "text": "O lúpus eritematoso sistêmico (LES) é uma doença autoimune que pode afetar diversas partes do corpo [9, 10].",
+    "resposta": "certo"
   },
   {
-    "id": 177,
-    "secao": 415,
-    "local": "ESC.JOÃO RAIMUNDO NUNES- Pov.Nova P. Branca",
-    "zona": 37
+    "id": 22,
+    "aula": "aula 13",
+    "text": "Anticorpos anti-dsDNA são mais específicos para o LES e podem ser preditivos de complicações renais [10].",
+    "resposta": "certo"
   },
   {
-    "id": 178,
-    "secao": 436,
-    "local": "ESC.JOÃO RAIMUNDO NUNES- Pov.Nova P. Branca",
-    "zona": 37
+    "id": 23,
+    "aula": "aula 13",
+    "text": "Na Doença de Graves, os autoanticorpos têm como antígeno-alvo os receptores do Hormônio Estimulador da Tireoide (TSH), causando hipertireoidismo [11, 12].",
+    "resposta": "certo"
   },
   {
-    "id": 179,
-    "secao": 346,
-    "local": "ESC.MUN.NENROD SILVA- Pov. Ponta Branca",
-    "zona": 37
+    "id": 24,
+    "aula": "aula 13",
+    "text": "O diabetes mellitus tipo 1 é uma doença autoimune decorrente da destruição das células beta-pancreáticas, levando à deficiência na produção de insulina [12].",
+    "resposta": "certo"
   },
   {
-    "id": 180,
-    "secao": 347,
-    "local": "ESC.MUN.NENROD SILVA- Pov. Ponta Branca",
-    "zona": 37
+    "id": 25,
+    "aula": "aula 13",
+    "text": "A esclerose múltipla (EM) é uma doença desmielinizante que afeta o sistema nervoso central, interrompendo a comunicação entre as partes do corpo [13].",
+    "resposta": "certo"
   },
   {
-    "id": 181,
-    "secao": 339,
-    "local": "UNIDADE DE SAUDE DA AVE MARIA- Pov. Gama",
-    "zona": 37
+    "id": 26,
+    "aula": "aula 13",
+    "text": "O teste do nitro azul tetrazólio (NBT) é utilizado no diagnóstico da doença granulomatosa crônica [14].",
+    "resposta": "certo"
   },
   {
-    "id": 182,
-    "secao": 366,
-    "local": "ESC.MUN.JOSÉ GABRIEL FERREIRA- Pov. Boa União",
-    "zona": 37
+    "id": 27,
+    "aula": "aula 13",
+    "text": "O diagnóstico inicial da infecção por HIV-1 é feito utilizando o ensaio imunossorvente ligado à enzima (ELISA) para detectar anticorpos contra o HIV-1 [15].",
+    "resposta": "certo"
   },
   {
-    "id": 183,
-    "secao": 416,
-    "local": "ESC.MUN.CONC.DE M VIEGAS MENDES- Pov.Urucuzal",
-    "zona": 37
+    "id": 28,
+    "aula": "aula 13",
+    "text": "O teste confirmatório para resultados reativos no ELISA para HIV geralmente é o Western Blot [15, 16].",
+    "resposta": "certo"
   },
   {
-    "id": 184,
-    "secao": "411/410",
-    "local": "ESC.MUN.GETÚLIO VARGAS-  Pov. Gama",
-    "zona": 37
+    "id": 29,
+    "aula": "aula 13",
+    "text": "Resultados falso-negativos para HIV podem ocorrer durante a janela imunológica, período entre a infecção e a produção de anticorpos detectáveis [17, 18].",
+    "resposta": "certo"
   },
   {
-    "id": 185,
-    "secao": "414/413",
-    "local": "ESC.MUN.GETÚLIO VARGAS - Pov. Gama",
-    "zona": 37
+    "id": 30,
+    "aula": "aula 13",
+    "text": "Os testes rápidos para HIV, como as fitas de imunocromatografia, são utilizados em situações de emergência e não para o diagnóstico de rotina [18].",
+    "resposta": "certo"
   },
   {
-    "id": 186,
-    "secao": 412,
-    "local": "ESC.MUN.GETÚLIO VARGAS-  Pov. Gama",
-    "zona": 37
+    "id": 31,
+    "aula": "aula 13",
+    "text": "A sífilis é causada pela bactéria Treponema pallidum e é geralmente disseminada através do contato sexual [19, 20].",
+    "resposta": "certo"
   },
   {
-    "id": 187,
-    "secao": 417,
-    "local": "ESC.MUN.ALEXANDRE GOMES- Pov. Sta. Sofia",
-    "zona": 37
+    "id": 32,
+    "aula": "aula 13",
+    "text": "Os testes sorológicos para sífilis são divididos em testes não treponêmicos e treponêmicos [20].",
+    "resposta": "certo"
   },
   {
-    "id": 188,
-    "secao": 418,
-    "local": "ESC.MUN.ALEXANDRE GOMES- Pov. Sta. Sofia",
-    "zona": 37
+    "id": 33,
+    "aula": "aula 13",
+    "text": "O VDRL é um exemplo de teste não treponêmico para sífilis que detecta anticorpos inespecíficos que reagem à cardiolipina [21, 22].",
+    "resposta": "certo"
   },
   {
-    "id": 189,
-    "secao": 363,
-    "local": "ESC.MUN.TEREZINHA LEITE- Pov. Pirinã",
-    "zona": 37
+    "id": 34,
+    "aula": "aula 13",
+    "text": "O FTA-Abs é um exemplo de teste treponêmico para sífilis [23, 24].",
+    "resposta": "certo"
   },
   {
-    "id": 190,
-    "secao": 364,
-    "local": "ESC.MUN.TEREZINHA LEITE- Pov. Pirinã",
-    "zona": 37
+    "id": 35,
+    "aula": "aula 13",
+    "text": "O fenômeno de prozona em testes não treponêmicos para sífilis pode gerar resultados falso-negativos devido ao excesso de anticorpos [25-27].",
+    "resposta": "certo"
   },
   {
-    "id": 191,
-    "secao": 365,
-    "local": "ESC.MUN.TEREZINHA LEITE- Pov. Pirinã",
-    "zona": 37
+    "id": 36,
+    "aula": "aula 13",
+    "text": "Para identificar o fenômeno de prozona, a amostra deve ser testada pura e em diluições, como 1:8 [26, 28].",
+    "resposta": "certo"
   },
   {
-    "id": 192,
-    "secao": 399,
-    "local": "ESC.MUN.SINHAZINHA FERREIRA- Pov. Madeira",
-    "zona": 37
+    "id": 37,
+    "aula": "aula 13",
+    "text": "O diagnóstico da dengue é predominantemente clínico, baseado nos sintomas e exame físico [29].",
+    "resposta": "certo"
   },
   {
-    "id": 193,
-    "secao": 449,
-    "local": "ESC.MUN.SINHAZINHA FERREIRA- Pov. Madeira",
-    "zona": 37
+    "id": 38,
+    "aula": "aula 13",
+    "text": "A detecção do antígeno NS1 do vírus da dengue é mais sensível durante a fase febril da infecção primária [30-32].",
+    "resposta": "certo"
   },
   {
-    "id": 194,
-    "secao": 358,
-    "local": "ESC.MUN.ROMUALDO FERREIRA - Pov. Bom Viver",
-    "zona": 37
+    "id": 39,
+    "aula": "aula 13",
+    "text": "A prova do laço é um teste útil para triagem de pacientes com suspeita de dengue, indicando fragilidade capilar [33, 34].",
+    "resposta": "certo"
   },
   {
-    "id": 195,
-    "secao": 359,
-    "local": "ESC.MUN.ROMUALDO FERREIRA - Pov. Bom Viver",
-    "zona": 37
+    "id": 40,
+    "aula": "aula 13",
+    "text": "O diagnóstico da febre amarela em casos fatais pode ser confirmado pelo estudo histopatológico com imunohistoquímica em cortes de fígado [35, 36].",
+    "resposta": "certo"
   },
   {
-    "id": 196,
-    "secao": 360,
-    "local": "ESC.MUN.ROMUALDO FERREIRA - Pov. Bom Viver",
-    "zona": 37
+    "id": 41,
+    "aula": "aula 13",
+    "text": "O teste de aglutinação microscópica (MAT) é o teste de referência para o diagnóstico de leptospirose [37, 38].",
+    "resposta": "certo"
   },
   {
-    "id": 197,
-    "secao": 361,
-    "local": "ESC.MUN.ROMUALDO FERREIRA-  Pov. Bom Viver",
-    "zona": 37
+    "id": 42,
+    "aula": "aula 13",
+    "text": "Na triagem para hepatite B, o antígeno de superfície da hepatite B (HBsAg) é o marcador mais frequentemente utilizado [39].",
+    "resposta": "certo"
   },
   {
-    "id": 198,
-    "secao": 362,
-    "local": "ESC.MUN.ROMUALDO FERREIRA- Pov. Bom Viver",
-    "zona": 37
-  },
-  {
-    "id": 199,
-    "secao": 451,
-    "local": "ESC.MUN.ROMUALDO FERREIRA- Pov. Bom Viver",
-    "zona": 37
-  },
-  {
-    "id": 200,
-    "secao": 397,
-    "local": "ESC.MUN.JOSÉ GOMES JUNIOR- Pov, Campo Novo",
-    "zona": 37
-  },
-  {
-    "id": 201,
-    "secao": "398/456",
-    "local": "ESC.MUN.JOSÉ GOMES JUNIOR- Pov.Campo Novo",
-    "zona": 37
-  },
-  {
-    "id": 202,
-    "secao": 445,
-    "local": "UPR DE PINHEIRO",
-    "zona": 37
+    "id": 43,
+    "aula": "aula 13",
+    "text": "Indivíduos vacinados contra a hepatite B apresentam o anticorpo anti-HBs como único marcador positivo [40-42].",
+    "resposta": "certo"
   }
 ]
