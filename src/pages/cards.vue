@@ -7,9 +7,10 @@
         <v-carousel
             :continuous="false"
             :show-arrows="false"
-            height="400"
+            height="100vh"
             hide-delimiters
             hide-delimiter-background
+            v-if="lista_locais.length"
         >
             <v-carousel-item
                 v-for="(slide, i) in lista_locais"
