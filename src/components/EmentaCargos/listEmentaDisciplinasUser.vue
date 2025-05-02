@@ -26,12 +26,14 @@
                             </p>
                             <ul class="ml-10 mb-5" v-if="item.items">
                                 <li v-for="list, l in item.items" class="font-weight-thin d-flex align-center">
-                                    <v-checkbox
-                                        hide-details
-                                        v-model="list.complete"
-                                         @click="updateComplete()"
-                                     ></v-checkbox>
-                                     <span :class="list.complete ? 'text-decoration-line-through' : ''">{{ list.text }}</span>    
+                                    <div class="d-flex ga-10">
+                                        <v-checkbox
+                                            hide-details
+                                            v-model="list.complete"
+                                             @click="updateComplete()"
+                                         ></v-checkbox>
+                                         <div :class="list.complete ? 'text-decoration-line-through' : ''">{{ list.text }}</div>    
+                                    </div>
                                 </li>
                             </ul>
                             <div v-if="item.subtopicos.length">

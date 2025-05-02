@@ -6,7 +6,6 @@
             {{ conteudoStore.readCargos.find(x => x.id == conteudoStore.readPlanMain?.id_cargo)?.name  }}<br><br>
           
             <v-divider class="mt-5"></v-divider>
-
             <ListEmentaDisciplinasUser v-if="conteudoStore.readPlanMain.disciplinas.length" :disciplinas="conteudoStore.readPlanMain.disciplinas" />
            
         </div>
@@ -59,6 +58,7 @@
                 {{ conteudoStore.readListEdital.find(x => x.idU == concurso).concurso }}<br>
                 {{ conteudoStore.readCargos.find(x => x.id == cargoSelect).name  }}<br><br>
                 <h4 class="mb-5">Disciplinas</h4>
+                
                 <ListEmentaDisciplinas :modo="true" v-if="disciplinasSelect.length" :disciplinas="disciplinasSelect" />
                 <div class="text-right pa-2">
                     <v-btn variant="text" prepend-icon="mdi-list-box" color="grey" @click="confirm = false">Cancelar</v-btn>
