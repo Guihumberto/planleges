@@ -108,7 +108,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref, provide } from 'vue'
+import { computed, onMounted, ref, provide, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router';
 
 import { useOrderName } from '@/composables/useOrderName';
@@ -242,6 +242,10 @@ const moverTasks = async () => {
     move.value = false
     selected.value = []
 }
+
+onUnmounted(() => {
+    metaStore.tarefas = []
+})
 
 </script>
 

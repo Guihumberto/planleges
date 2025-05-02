@@ -314,6 +314,9 @@ export const useRevStore = defineStore('revStore', {
         console.log('error')
       }
     },
+    clearRevs(){
+      this.listAllRevs = []
+    },
     async editNewRev(item){
       try {
         const docRef = doc(db, 'listRev', item.idU)

@@ -51,7 +51,7 @@
     import { useOrderDateCreated } from '@/composables/useOrderDateCreated';
     import { useDateNow } from '@/composables/useDateNow'; 
     
-    import { computed, ref } from 'vue';
+    import { computed, onUnmounted, ref } from 'vue';
 
     const limit = ref(5)
     const show_revisados = ref(false)
@@ -90,6 +90,10 @@
             await revStore.editNewRev(item)
         }
     }
+
+    onUnmounted(() => {
+        revStore.clearRevs()
+    })
 
 
 </script>

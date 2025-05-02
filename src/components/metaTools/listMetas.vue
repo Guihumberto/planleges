@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-    import { computed, ref } from 'vue'
+    import { computed, onUnmounted, ref } from 'vue'
 
     import  { useMetaStore  } from '@/store/useMetaStore'
     const metaStore = useMetaStore()
@@ -53,6 +53,10 @@
         color: 'red',
         icon: 'mdi-delete',
         type: 1
+    })
+
+    onUnmounted(()=> {
+        metaStore.metas = []
     })
 
 </script>

@@ -149,6 +149,7 @@ export const useConteudoStore = defineStore('conteudoStore', {
             this.cargos = [];
         },
         async getDisciplinasEmenta(item){
+            console.log('item', item);
             this.load = true
             try {
                 const q = query(collection(db, 'disciplinasEmenta'), where('id_cargo', '==', item));
