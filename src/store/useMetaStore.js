@@ -75,7 +75,11 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 44, name: 'Direito do Trabalho'},
         {id: 45, name: 'Direito Processual do Trabalho'},
         {id: 46, name: 'Direito Empresarial'},
-        {id: 46, name: 'Legislação Sobre Educação e Ciência, Tecnologia e Inovação'},
+        {id: 47, name: 'Legislação Sobre Educação e Ciência, Tecnologia e Inovação'},
+        {id: 48, name: 'Direito Agrário'},
+        {id: 49, name: 'Direito Financeiro'},
+        {id: 50, name: 'Direito Econômico'},
+        {id: 51, name: 'Legislação Estadual PGE PI'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [

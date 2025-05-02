@@ -1,6 +1,6 @@
 <template>
     <div class="mb-15 pa-2 border bg-blue-grey-lighten-5">
-        <div v-if="false">
+        <div v-if="userStore.readUserDados.planmain">
             <h3>Progressão dos estudos</h3>
             {{ conteudoStore.readListEdital.find(x => x.idU == conteudoStore.readPlanMain?.id_concurso)?.concurso }}<br>
             {{ conteudoStore.readCargos.find(x => x.id == conteudoStore.readPlanMain?.id_cargo)?.name  }}<br><br>
@@ -35,13 +35,11 @@
                 <div class="flex-grow" v-if="cargoSelect">
                     <v-list class="pa-0 bg-transparent" v-model:selected="settingsSelection" select-strategy="leaf">
                         <v-list-subheader>Disciplinas</v-list-subheader>
-                 
                         <v-list-item link v-for="item, i in conteudoStore.readDisciplinas" 
-                            :key="i" :title="metaStore.readDisciplinas.find(x => x.id == item.name )?.name"
+                            :key="i" :title="metaStore.readDisciplinas.find(x => x.id == item.name ).name"
                             :subtitle="item.tipo == 2 ? 'Conhecimentos Específicos' : 'Conhecimentos Gerais'"
                             :value="item.id"
                         >
-                        {{ item.id }}
                             <template v-slot:prepend="{ isSelected }">
                                 <v-list-item-action start>
                                     <v-checkbox-btn :model-value="isSelected"
