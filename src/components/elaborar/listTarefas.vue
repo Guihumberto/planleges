@@ -243,9 +243,9 @@ const moverTasks = async () => {
     selected.value = []
 }
 
-onUnmounted(() => {
-    metaStore.tarefas = []
-})
+// onUnmounted(() => {
+//     metaStore.tarefas = []
+// })
 
 </script>
 
