@@ -80,6 +80,8 @@ export const useMetaStore = defineStore('metaStore', {
         {id: 49, name: 'Direito Financeiro'},
         {id: 50, name: 'Direito Econômico'},
         {id: 51, name: 'Legislação Estadual PGE PI'},
+        {id: 52, name: 'Criminalística'},
+        {id: 53, name: 'Genética Forense'},
         {id: 99, name: 'Várias Disciplinas'},
     ],
     type_study : [
