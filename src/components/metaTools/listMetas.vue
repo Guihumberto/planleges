@@ -55,9 +55,9 @@
         type: 1
     })
 
-    onUnmounted(()=> {
-        metaStore.metas = []
-    })
+    // onUnmounted(()=> {
+    //     metaStore.metas = []
+    // })
 
 </script>
 
